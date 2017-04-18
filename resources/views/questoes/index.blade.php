@@ -3,35 +3,126 @@
     <head>
         <meta charset="utf-8">
         <title>Laravel</title>
+                <style>
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Raleway', sans-serif;
+                font-weight: 100;
+                height: 100vh;
+                margin: 0;
+            }
+            .painel {
+                padding: 20px;
+                box-shadow: 0.5px 0.5px 10px -3.5px #000;
+                display: table;
+            }
+            .full-height {
+                height: 100vh;
+            }
+
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .top-right {
+                position: absolute;
+                right: 10px;
+                top: 18px;
+            }
+
+            .content {
+                text-align: center;
+            }
+
+            .title {
+                font-size: 84px;
+            }
+
+            .links > a {
+                color: #636b6f;
+                padding: 0 25px;
+                font-size: 12px;
+                font-weight: 600;
+                letter-spacing: .1rem;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+            .cabecalho {
+                padding: 20px;
+                box-shadow: 0.5px 0.5px 10px -3.5px #000;
+                background: #000;
+                color: #fff;
+            }
+            .m-b-md {
+                margin-bottom: 30px;
+            }
+            .meia {
+                width: 50%;
+                background: #fafafa;
+            }
+        </style>
     </head>
     <body>
-        <span>QUESTÕES</span>
-
+        <div class="cabecalho">
+            <span>QUESTÕES</span>
+        </div>
+        <div class="painel">
         @if(isset($questaoEdit))
         <form action="/questoes/save" method="post">
             <div>
-                <span>categoria_id</span>
-                <input type="text" name="categoria_id" value="{{$questaoEdit->categoria_id}}"/>
+                <div class="meia">
+                    <span>categoria_id</span>
+                </div>
+                <div class="meia">
+                    <input type="text" name="categoria_id" value="{{$questaoEdit->categoria_id}}"/>
+                </div>
             </div>
             <div>
-                <span>titulo</span>
-                <input type="text" name="titulo" value="{{$questaoEdit->titulo}}"/>
+                <div class="meia">
+                    <span>titulo</span>
+                </div>
+                <div class="meia">
+                    <input type="text" name="titulo" value="{{$questaoEdit->titulo}}"/>
+                </div>
             </div>
             <div>
-                <span>opcao_2</span>
-                <input type="text" name="opcao_2" value="{{$questaoEdit->opcao_2}}"/>
+                <div class="meia">
+                    <span>opcao_2</span>
+                </div>
+                <div class="meia">
+                    <input type="text" name="opcao_2" value="{{$questaoEdit->opcao_2}}"/>
+                </div>
             </div>
             <div>
-                <span>opcao_3</span>
-                <input type="text" name="opcao_3" value="{{$questaoEdit->opcao_3}}"/>
+                <div class="meia">
+                    <span>opcao_3</span>
+                </div>
+                <div class="meia">
+                    <input type="text" name="opcao_3" value="{{$questaoEdit->opcao_3}}"/>
+                </div>
             </div>
             <div>
-                <span>opcao_4</span>
-                <input type="text" name="opcao_4" value="{{$questaoEdit->opcao_4}}"/>
+                <div class="meia">
+                    <span>opcao_4</span>
+                </div>
+                <div class="meia">
+                    <input type="text" name="opcao_4" value="{{$questaoEdit->opcao_4}}"/>
+                </div>
             </div>
             <div>
-                <span>status</span>
-                <input type="text" name="status" value="{{$questaoEdit->status}}"/>
+                <div class="meia">
+                    <span>status</span>
+                </div>
+                <div class="meia">
+                    <input type="text" name="status" value="{{$questaoEdit->status}}"/>
+                </div>
             </div>
             <div>
                 <input type="hidden" name="id" value="{{$questaoEdit->id}}">
@@ -43,37 +134,61 @@
         @else
         <form action="/questoes/create" method="post">
             <div>
-                <span>categoria_id</span>
-                <input type="text" name="categoria_id"/>
+                <div class="meia">
+                    <span>categoria_id</span>
+                </div>
+                <div class="meia">
+                    <input type="text" name="categoria_id"/>
+                </div>
             </div>
             <div>
-                <span>titulo</span>
-                <input type="text" name="titulo"/>
+                <div class="meia">
+                    <span>titulo</span>
+                </div>
+                <div class="meia">
+                    <input type="text" name="titulo"/>
+                </div>
             </div>
             <div>
-                <span>opcao_2</span>
-                <input type="text" name="opcao_2"/>
+                <div class="meia">
+                    <span>opcao_2</span>
+                </div>
+                <div class="meia">
+                    <input type="text" name="opcao_2"/>
+                </div>
             </div>
             <div>
-                <span>opcao_3</span>
-                <input type="text" name="opcao_3"/>
+                <div class="meia">
+                    <span>opcao_3</span>
+                </div>
+                <div class="meia">
+                    <input type="text" name="opcao_3"/>
+                </div>
             </div>
             <div>
-                <span>opcao_4</span>
-                <input type="text" name="opcao_4"/>
+                <div class="meia">
+                    <span>opcao_4</span>
+                </div>
+                <div class="meia">
+                    <input type="text" name="opcao_4"/>
+                </div>
             </div>
             <div>
-                <span>status</span>
-                <input type="text" name="status"/>
+                <div class="meia">
+                    <span>status</span>
+                </div>
+                <div class="meia">
+                    <input type="text" name="status"/>
+                </div>
             </div>
             <div>
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
                 <input type="submit"/>
             </div>
-
         </form>
         @endif
-        <table>
+        </div>
+        <table class="painel">
           <tr>
             <th>categoria_id</th>
             <th>titulo</th>

@@ -13,7 +13,12 @@ class QuestoesController extends Controller
 	}
 
 	public function create(request $request){
-		Questao::create($request->all());
+		$fillable = $request->all();
+		if(!is_bool($fillable['status']))
+		{
+			$fillable['status'] = true;
+		}
+		Questao::create($fillable);
 		return redirect()->route('questoes.visualizar');
 	}
 
@@ -28,8 +33,13 @@ class QuestoesController extends Controller
 	}
 
 	public function save(request $request){
+		$fillable = $request->all();
+		if(!is_bool($fillable['status']))
+		{
+			$fillable['status'] = true;
+		}
 		$questao = Questao::find($request->all()['id']);
-		$questao->fill($request->all());
+		$questao->fill($fillable);
 		$questao->save();
 		return redirect()->route('questoes.visualizar');
 	}

@@ -16,7 +16,7 @@ class Questoes extends Migration
             $table->string('opcao_4');
             $table->boolean('status');
             $table->timestamps();
-            $table->foreign('categoria_id')->references('id')->on('categorias');
+            //$table->foreign('categoria_id')->references('id')->on('categorias');
         });
     }
     public function down()
