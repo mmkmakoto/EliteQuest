@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Laravel</title>
+        <title>Questões</title>
                 <style>
             html, body {
                 background-color: #fff;
@@ -78,10 +78,14 @@
         <form action="/questoes/save" method="post">
             <div>
                 <div class="meia">
-                    <span>categoria_id</span>
+                    <span>categoria</span>
                 </div>
                 <div class="meia">
-                    <input type="text" name="categoria_id" value="{{$questaoEdit->categoria_id}}"/>
+                    <select name="categoria_id">
+                    @foreach($categorias as $categoria)
+                        <option value="{{$categoria->id}}">{{$categoria->titulo}}</option>
+                    @endforeach
+                    </select>
                 </div>
             </div>
             <div>
@@ -94,7 +98,7 @@
             </div>
             <div>
                 <div class="meia">
-                    <span>opcao_2</span>
+                    <span>opcao 2</span>
                 </div>
                 <div class="meia">
                     <input type="text" name="opcao_2" value="{{$questaoEdit->opcao_2}}"/>
@@ -102,7 +106,7 @@
             </div>
             <div>
                 <div class="meia">
-                    <span>opcao_3</span>
+                    <span>opcao 3</span>
                 </div>
                 <div class="meia">
                     <input type="text" name="opcao_3" value="{{$questaoEdit->opcao_3}}"/>
@@ -110,7 +114,7 @@
             </div>
             <div>
                 <div class="meia">
-                    <span>opcao_4</span>
+                    <span>opcao 4</span>
                 </div>
                 <div class="meia">
                     <input type="text" name="opcao_4" value="{{$questaoEdit->opcao_4}}"/>
@@ -135,10 +139,14 @@
         <form action="/questoes/create" method="post">
             <div>
                 <div class="meia">
-                    <span>categoria_id</span>
+                    <span>categoria</span>
                 </div>
                 <div class="meia">
-                    <input type="text" name="categoria_id"/>
+                    <select name="categoria_id">
+                    @foreach($categorias as $categoria)
+                        <option value="{{$categoria->id}}">{{$categoria->titulo}}</option>
+                    @endforeach
+                    </select>
                 </div>
             </div>
             <div>
@@ -151,7 +159,7 @@
             </div>
             <div>
                 <div class="meia">
-                    <span>opcao_2</span>
+                    <span>opcao 2</span>
                 </div>
                 <div class="meia">
                     <input type="text" name="opcao_2"/>
@@ -159,7 +167,7 @@
             </div>
             <div>
                 <div class="meia">
-                    <span>opcao_3</span>
+                    <span>opcao 3</span>
                 </div>
                 <div class="meia">
                     <input type="text" name="opcao_3"/>
@@ -167,7 +175,7 @@
             </div>
             <div>
                 <div class="meia">
-                    <span>opcao_4</span>
+                    <span>opcao 4</span>
                 </div>
                 <div class="meia">
                     <input type="text" name="opcao_4"/>
@@ -190,11 +198,11 @@
         </div>
         <table class="painel">
           <tr>
-            <th>categoria_id</th>
+            <th>categoria</th>
             <th>titulo</th>
-            <th>opcao_2</th>
-            <th>opcao_3</th>
-            <th>opcao_4</th>
+            <th>opcao 2</th>
+            <th>opcao 3</th>
+            <th>opcao 4</th>
             <th>status</th>
             <th></th>
             <th></th>

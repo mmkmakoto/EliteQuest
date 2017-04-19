@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Laravel</title>
+        <title>Categorias</title>
         <style>
             html, body {
                 background-color: #fff;
