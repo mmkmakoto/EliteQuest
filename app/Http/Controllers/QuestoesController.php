@@ -5,22 +5,27 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Questao;
 use App\Models\Categoria;
+use exception;
 class QuestoesController extends Controller
 {
 	public function index()
 	{
-		$questoes = Questao::all();
+		$questoes = Questao::with('categoria')->get();
 		$categorias = Categoria::all();
 		return view('questoes.index',['questoes'=>$questoes,'categorias'=>$categorias]);
 	}
 
 	public function create(request $request){
-		$fillable = $request->all();
-		if(!is_bool($fillable['status']))
-		{
-			$fillable['status'] = true;
+		try{
+			$fillable = $request->all();
+			if(!is_bool($fillable['status']))
+			{
+				$fillable['status'] = true;
+			}
+			Questao::create($fillable);
 		}
-		Questao::create($fillable);
+		catch(exception $e)
+		{}
 		return redirect()->route('questoes.visualizar');
 	}
 
@@ -30,20 +35,24 @@ class QuestoesController extends Controller
 	}
 
 	public function edit(Questao $questao){
-		$questoes = Questao::all();
+		$questoes = Questao::with('categoria')->get();
 		$categorias = Categoria::all();
 		return view('questoes.index',['questoes'=>$questoes,'categorias'=>$categorias,'questaoEdit'=>$questao]);
 	}
 
 	public function save(request $request){
-		$fillable = $request->all();
-		if(!is_bool($fillable['status']))
-		{
-			$fillable['status'] = true;
+		try{
+			$fillable = $request->all();
+			if(!is_bool($fillable['status']))
+			{
+				$fillable['status'] = true;
+			}
+			$questao = Questao::find($request->all()['id']);
+			$questao->fill($fillable);
+			$questao->save();
 		}
-		$questao = Questao::find($request->all()['id']);
-		$questao->fill($fillable);
-		$questao->save();
+		catch(exception $e)
+		{}
 		return redirect()->route('questoes.visualizar');
 	}
 }

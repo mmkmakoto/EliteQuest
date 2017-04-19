@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Categoria;
+use exception;
 class CategoriasController extends Controller
 {
 	public function index(){
@@ -12,7 +13,11 @@ class CategoriasController extends Controller
 	}
 
 	public function create(request $request){
-		Categoria::create($request->all());
+		try{
+			Categoria::create($request->all());
+		}
+		catch(exception $e)
+		{}
 		return redirect()->route('categorias.visualizar');
 	}
 
@@ -27,9 +32,14 @@ class CategoriasController extends Controller
 	}
 
 	public function save(request $request){
-		$categoria = Categoria::find($request->all()['id']);
-		$categoria->fill($request->all());
-		$categoria->save();
+		try{
+			$categoria = Categoria::find($request->all()['id']);
+			$categoria->fill($request->all());
+			$categoria->save();
+
+		}
+		catch(exception $e)
+		{}
 		return redirect()->route('categorias.visualizar');
 	}
 

@@ -209,7 +209,7 @@
           <tr>
         @foreach($questoes as $questao)
           <tr>
-            <td>{{$questao->categoria_id}}</td>
+            <td>{{$questao->categoria->titulo}}</td>
             <td>{{$questao->titulo}}</td>
             <td>{{$questao->opcao_2}}</td>
             <td>{{$questao->opcao_3}}</td>
