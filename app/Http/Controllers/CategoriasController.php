@@ -18,11 +18,15 @@ class CategoriasController extends Controller
 		}
 		catch(exception $e)
 		{}
-		return redirect()->route('categorias.visualizar');
+		return redirect()->route('categorias.visualizar',"lol");
 	}
 
 	public function delete(Categoria $categoria){
-		$categoria->delete();
+		try{
+			$categoria->delete();
+		}
+		catch(exception $e)
+		{}
 		return redirect()->route('categorias.visualizar');
 	}
 
