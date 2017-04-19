@@ -83,7 +83,11 @@
                 <div class="meia">
                     <select name="categoria_id">
                     @foreach($categorias as $categoria)
+                        @if($questaoEdit->categoria->id == $categoria->id)
+                        <option selected value="{{$categoria->id}}">{{$categoria->titulo}}</option>
+                        @else
                         <option value="{{$categoria->id}}">{{$categoria->titulo}}</option>
+                        @endif
                     @endforeach
                     </select>
                 </div>
