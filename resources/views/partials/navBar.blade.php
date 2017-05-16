@@ -4,7 +4,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="/">Home</a></li>
                 <li><a href="/categorias">Categorias (b)</a></li>
-                <li><a href="#">Questões (b)</a></li>
+                <li><a href="/questoes">Questões (b)</a></li>
             </ul>
         </div>
     </div>

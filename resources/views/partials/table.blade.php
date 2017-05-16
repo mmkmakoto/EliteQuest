@@ -1,22 +1,20 @@
-<table class="painel">
+<table class="table">
     <tr>
-        @foreach($titulos as $titulo => $valor)
-            <th>{{$titulo}}</th>
+        @foreach($columns as $column)
+            <th>{{$column['titulo']}}</th>
         @endforeach
-        <th></th>
-        <th></th>
     <tr>
     @foreach($items as $item)
         <tr>
-            @foreach($titulos as $valor)
-                @if(is_callable($valor))
-                    <td>{{$valor($item)}}</td>
+            @foreach($columns as $column)
+                @if(is_callable($column['valor']))
+                    <td>{!!$column['valor']($item)!!}</td>
                 @else
-                    <td>{{$item->$valor}}</td>
+                    {{dump($column['valor'])}}
+                    {{dd($item->$column['valor'])}}
+                    <td>{{$item->$column['valor']}}</td>
                 @endif
             @endforeach
-            <td><a href="/questoes/delete/{{$item->id}}">Delete</a></td>
-            <td><a href="/questoes/edit/{{$item->id}}">Edit</a></td>
         <tr>
     @endforeach
 </table>
