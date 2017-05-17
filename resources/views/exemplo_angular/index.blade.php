@@ -57,9 +57,14 @@
 
 			<h3>Acesso ao backend</h3>
 
-			<div ng-repeat="colecao in retornos" class="col-md-6">
-				<div ng-include="'views/exemplo_angular/partials/dumpJson.html'"></div>
+			<div class="row">
+				<div ng-repeat="colecao in retornos" class="col-md-6">
+					<div ng-include="'views/exemplo_angular/partials/dumpJson.html'"></div>
+				</div>
 			</div>
+
+			<div ng-include="'views/exemplo_angular/partials/formCategoria.html'"></div>
+			<div ng-include="'views/exemplo_angular/partials/formQuestao.html'"></div>
 
 		</div>
 
