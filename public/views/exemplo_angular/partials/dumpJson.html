@@ -1,0 +1,18 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title"><span> ---colecao.model--- cadastradas</span></h3>
+	</div>
+	<div class="panel-body" style="overflow-y:scroll;height:200px;">
+		<div class="padding-top-5" ng-repeat="model in colecao.itens">
+			<div ng-repeat="(atributo,valor) in model">
+				<h5>
+					<span class="label label-primary"> ---atributo--- </span>
+					<span class="label label-success"> ---valor--- </span>
+				</h5>
+			</div>
+		</div>
+	</div>
+	<div class="panel-footer">
+		<a class="btn btn-primary btn-sm" href="---colecao.rota---"><span>---colecao.rota---</span></a>
+	</div>
+</div>

@@ -11,7 +11,7 @@
 
     <h1>Exemplo Angular</h1>
 
-	<!-- tudo dentro do elemento com a tag ng-controller tem acesso ao controller indicado (exemploAngularController no caso) -->    
+	<!-- tudo dentro do elemento com a tag ng-controller tem acesso ao controller indicado (exemploAngularController no caso) -->
     <div class="row" ng-controller='exemploAngularController'>
 
     	<div class="col-md-6">
@@ -23,18 +23,18 @@
 
 			<!-- acessando o item da iteração dentro da tag -->
 				<div ng-class="teste.class" class="panel panel-default">
-				
+
 					<div class="panel-heading">
 						<h3 class="panel-title">Este painel está sendo repetido para cada elemento em $scope.testes</h3>
 					</div>
-				
+
 					<div class="panel-body">
 						<!-- acessando o item da iteração fora de qualquer tag -->
 						<span> ---teste.texto--- </span>
 					</div>
-				
+
 				</div>
-			
+
 			</div>
 
 			<!-- incluindo elementos de outro arquivo -->
@@ -42,13 +42,23 @@
 			</div>
 
 			<!-- iterando testeInputs como item, toda alteracao em item, sera feita no elemnto correspondente de testeInputs -->
-			<div ng-repeat="item in testeInputs" ng-include="'views/partials/inputText.html'">	
+			<div ng-repeat="item in testeInputs" ng-include="'views/partials/inputText.html'">
 			</div>
 
-			
+
 			<span>(denovo)</span>
 			<!-- iniciando item como input1 de testeInputs, toda alteracao em item, sera feita em input1 (logo em testeInputs) -->
-			<div ng-init="item = testeInputs.input1" ng-include="'views/partials/inputText.html'">	
+			<div ng-init="item = testeInputs.input1" ng-include="'views/partials/inputText.html'">
+			</div>
+
+		</div>
+
+		<div class="col-md-6">
+
+			<h3>Acesso ao backend</h3>
+
+			<div ng-repeat="colecao in retornos" class="col-md-6">
+				<div ng-include="'views/exemplo_angular/partials/dumpJson.html'"></div>
 			</div>
 
 		</div>

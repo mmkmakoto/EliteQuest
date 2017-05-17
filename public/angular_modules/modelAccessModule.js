@@ -17,8 +17,17 @@ angular
 	// Servicos
 
 	return ({
-		all : function(){
-			return $http.get('/admin/api/processamentos');
+		//ROTAS FUNCIONAIS
+		categorias : function(){
+			return $http.get('api/categorias/all');
+		},
+		questoes : function(){
+			return $http.get('api/questoes/all');
+		},
+
+		//EXEMPLOS, N USAR
+		all : function(model){
+			return $http.get('api/model_access/' + model);
 		},
 		modelosDoCliente: function(){
 			return $http.get('/admin/api/modelos/modelosDoCliente');

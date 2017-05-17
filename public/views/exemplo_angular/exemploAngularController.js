@@ -1,6 +1,6 @@
 angular
 .module('modelAccessModule')
-.controller('exemploAngularController', ['$scope', function ($scope)
+.controller('exemploAngularController', ['$scope','modelAccess', function ($scope,modelAccess)
 {
 	//tudo isso executa quando o controller inicia
 
@@ -11,7 +11,7 @@ angular
 		},
 		{
 			texto:'com ng-repeat! also...',
-			class:'panel panel-primary',		
+			class:'panel panel-primary',
 		},
 		{
 			texto:'Lorem ipsum dolor sit amet',
@@ -36,7 +36,33 @@ angular
 		}
 	};
 
+	$scope.retornos = {
+		categorias:{
+			model:'Categorias',
+			rota:'http://quest.dev/api/categorias/all',
+			itens:null,
+		},
+		questoes:{
+			model:'Questoes',
+			rota:'http://quest.dev/api/questoes/all',
+			itens:null,
+		},
+	}
+
+	modelAccess.categorias().then(function(data){
+		//route retorna
+		$scope.retornos.categorias.itens = data.data;
+	});
+
+	modelAccess.questoes().then(function(data){
+		//route retorna
+		$scope.retornos.questoes.itens = data.data;
+	});
+
+
+	console.log('--- $scope.testes ---');
 	console.log($scope.testes);
+
 }]).run([function()
 {
 	// Evento ao rodar o controller
