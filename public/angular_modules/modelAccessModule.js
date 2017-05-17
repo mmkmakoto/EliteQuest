@@ -1,15 +1,18 @@
 angular
 .module('modelAccessModule',[])
-.config(function ()
+.config(function ($interpolateProvider)
 {
-	// Configs aqui
+  // Configs aqui
+  // Mudando o simbolo para acessar as infos do angular, pois o padrao conflita com o blade {{}}
+  $interpolateProvider.startSymbol('---');
+  $interpolateProvider.endSymbol('---');
 })
 .run([function()
 {
 	// Evento ao rodar o modulo
-	console.log("modelAccessModule running!");
+	console.log("modelAccessModule iniciando! =D");
 }])
-.service('Processamentos', ['$http', function ($http)
+.service('modelAccess', ['$http', function ($http)
 {
 	// Servicos
 

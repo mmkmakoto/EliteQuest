@@ -26,3 +26,5 @@ Route::post('/questoes/create', ['as' => 'questoes.criar', 'uses' => 'QuestoesCo
 Route::get('/questoes/delete/{questao}', ['as' => 'questoes.deletar', 'uses' => 'QuestoesController@delete']);
 Route::get('/questoes/edit/{questao}', ['as' => 'questoes.editar', 'uses' => 'QuestoesController@edit']);
 Route::post('/questoes/save', ['as' => 'questoes.salvar', 'uses' => 'QuestoesController@save']);
+
+Route::get('/exemplo_angular', ['as' => 'exemplo_angular.visualizar', 'uses' => 'ExemploAngularController@index']);
