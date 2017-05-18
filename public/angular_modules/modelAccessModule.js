@@ -24,6 +24,12 @@ angular
 		questoes : function(){
 			return $http.get('api/questoes/all');
 		},
+		enviarCategoria : function(categoria){
+			return $http.post('api/categorias/create',categoria);
+		},
+		enviarQuestao : function(questao){
+			return $http.post('api/questoes/create',questao);
+		},
 
 		//EXEMPLOS, N USAR
 		all : function(model){

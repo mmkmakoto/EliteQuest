@@ -40,12 +40,30 @@ angular
 		categorias:{
 			model:'Categorias',
 			rota:'http://quest.dev/api/categorias/all',
-			itens:null,
+			itens:[],
 		},
 		questoes:{
 			model:'Questoes',
 			rota:'http://quest.dev/api/questoes/all',
-			itens:null,
+			itens:[],
+		},
+	}
+
+	
+
+
+	$scope.forms = {
+		categoria:{
+			titulo:null,
+			descricao:null,
+		},
+		questao:{
+			categoria_id:null,
+			titulo:null,
+			opcao_2:null,
+			opcao_3:null,
+			opcao_4:null,
+			status:null,
 		},
 	}
 
@@ -59,6 +77,39 @@ angular
 		$scope.retornos.questoes.itens = data.data;
 	});
 
+	$scope.enviarCategoria = function(categoria){
+		modelAccess.enviarCategoria(categoria).then(function(data){
+			//route retorna
+			if(angular.equals(data.data,{})){
+				console.log('error');
+			}
+			else{
+				$scope.retornos.categorias.itens.push(data.data);
+
+				categoria.titulo = null;
+				categoria.descricao = null;
+			}
+		});
+	}
+
+	$scope.enviarQuestao = function(questao){
+		modelAccess.enviarQuestao(questao).then(function(data){
+			//route retorna
+			if(angular.equals(data.data,{})){
+				console.log('error');
+			}
+			else{
+				$scope.retornos.questoes.itens.push(data.data);
+
+				questao.categoria_id = null;
+				questao.titulo = null;
+				questao.opcao_2 = null;
+				questao.opcao_3 = null;
+				questao.opcao_4 = null;
+				questao.status = null;
+			}
+		});
+	}
 
 	console.log('--- $scope.testes ---');
 	console.log($scope.testes);
