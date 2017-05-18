@@ -49,7 +49,7 @@ angular
 		},
 	}
 
-	
+
 
 
 	$scope.forms = {
@@ -64,6 +64,18 @@ angular
 			opcao_3:null,
 			opcao_4:null,
 			status:null,
+		},
+	}
+	$scope.formStatus = {
+		categoria:{
+			class:null,
+			message:null,
+			dismissed:true,
+		},
+		questao:{
+			class:null,
+			message:null,
+			dismissed:true,
 		},
 	}
 
@@ -81,13 +93,22 @@ angular
 		modelAccess.enviarCategoria(categoria).then(function(data){
 			//route retorna
 			if(angular.equals(data.data,{})){
-				console.log('error');
+				//msg de erro
+				$scope.formStatus.categoria.class = "alert-danger";
+				$scope.formStatus.categoria.message = 'erro de cadastro';
+				$scope.formStatus.categoria.dismissed = false;
 			}
 			else{
 				$scope.retornos.categorias.itens.push(data.data);
 
+				//Limpar form
 				categoria.titulo = null;
 				categoria.descricao = null;
+
+				//msg de sucesso
+				$scope.formStatus.categoria.class = "alert-success";
+				$scope.formStatus.categoria.message = 'cadastro bem sucedido';
+				$scope.formStatus.categoria.dismissed = false;
 			}
 		});
 	}
@@ -96,17 +117,26 @@ angular
 		modelAccess.enviarQuestao(questao).then(function(data){
 			//route retorna
 			if(angular.equals(data.data,{})){
-				console.log('error');
+				//msg de erro
+				$scope.formStatus.questao.class = "alert-danger";
+				$scope.formStatus.questao.message = 'erro de cadastro';
+				$scope.formStatus.questao.dismissed = false;
 			}
 			else{
 				$scope.retornos.questoes.itens.push(data.data);
 
+				//Limpar form
 				questao.categoria_id = null;
 				questao.titulo = null;
 				questao.opcao_2 = null;
 				questao.opcao_3 = null;
 				questao.opcao_4 = null;
 				questao.status = null;
+
+				//msg de sucesso
+				$scope.formStatus.questao.class = "alert-success";
+				$scope.formStatus.questao.message = 'cadastro bem sucedido';
+				$scope.formStatus.questao.dismissed = false;
 			}
 		});
 	}
