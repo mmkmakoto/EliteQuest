@@ -1,1 +1,1 @@
-Projeto Quest, por Elite Jogos tested
+Projeto Quest, por Elite Jogos
