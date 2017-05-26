@@ -6,6 +6,7 @@
                 <li><a href="/categorias">Categorias (b)</a></li>
                 <li><a href="/questoes">Questões (b)</a></li>
                 <li><a href="/exemplo_angular">Exemplo angular (a)</a></li>
+                <li><a href="/partida">Demo partida</a></li>
             </ul>
         </div>
     </div>

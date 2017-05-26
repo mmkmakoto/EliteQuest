@@ -28,3 +28,5 @@ Route::get('/questoes/edit/{questao}', ['as' => 'questoes.editar', 'uses' => 'Qu
 Route::post('/questoes/save', ['as' => 'questoes.salvar', 'uses' => 'QuestoesController@save']);
 
 Route::get('/exemplo_angular', ['as' => 'exemplo_angular.visualizar', 'uses' => 'ExemploAngularController@index']);
+
+Route::get('/partida', ['as' => 'partida.visualizar', 'uses' => 'ViewController@viewPartida']);
