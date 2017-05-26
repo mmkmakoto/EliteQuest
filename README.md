@@ -1,2 +1,1 @@
-# quest
-Projeto Vitão
+Projeto Quest, por Elite Jogos
