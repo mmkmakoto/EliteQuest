@@ -2,6 +2,7 @@ var intervalo = null;
 var $question = null;
 var $jogador = null;
 var $atualizarTurno = true;
+var $categiruas = null;
 ////////////////////////////////////////
 
 function requestTurno(dataToSend){
@@ -63,7 +64,22 @@ function updateTurnoTimer(){
   }
 }
 
+function setCategorias(){
+  requestCategorias(function(categorias){
+    $categorias = categorias;
+    var html = "";
+    for(key in categorias){
+      html += "<div class='col-lg-12'> Titulo: " +
+        categorias[key].titulo + " - Descriçaõ: " + categorias[key].descricao
+        +"</div>";
+    }
+    $("#categoriasArea").append(html);
+  });
+}
+
 $(document).ready(function(){
+
+  setCategorias();
   statusTurno();
   setInterval(function(){
     statusTurno();

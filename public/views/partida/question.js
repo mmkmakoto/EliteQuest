@@ -17,7 +17,7 @@ function answerResponse(response){
       $jogador.posicao = response.steps;
       walk("player_1", response.steps, true);
       $selectedFicha = null;
-      statusTurno()
+      statusTurno();
   }else{
     $("#answer_result").text("Resposta errada - Que pena....");
   }
@@ -26,9 +26,24 @@ function answerResponse(response){
 }
 
 function getQuestion(configuration, callback){
+
+  requestQuestion(function(question){
+    //Temporario:
+    var key = question.length;
+    if(key > 1)
+      key = Math.floor(((Math.random() * key)));
+
+    //Temporario
+    if(key === 0)
+      key ++;
+
+    $question = question[key - 1];
+    callback($question);
+  });
+
   var question = getRandomQuestion();
 
-  callback(question);
+  //callback(question);
 }
 
 function selectAnswer(notAnswered){
@@ -50,12 +65,13 @@ function selectAnswer(notAnswered){
   $question = null;
 }
 
-function showQuestion(question){
-  $("#enunciado").text(question.enunciado);
-  $("#choice_a").text(question.respostas.a.valor);
-  $("#choice_b").text(question.respostas.b.valor);
-  $("#choice_c").text(question.respostas.c.valor);
-  $("#choice_d").text(question.respostas.d.valor);
+function showQuestion(){
+  console.log($question);
+  $("#enunciado").text($question.titulo);
+  $("#choice_a").text($question.opcao_1);
+  $("#choice_b").text($question.opcao_2);
+  $("#choice_c").text($question.opcao_3);
+  $("#choice_d").text($question.opcao_4);
 }
 
 function checkQuestion(){
@@ -70,12 +86,15 @@ function checkQuestion(){
 
     getQuestion(configuration, function(question){
       $question = question;
-      showQuestion(question);
+      showQuestion();
     });
   }
 }
 
 $(document).ready(function(){
+
+  requestQuestion();
+
   $("#desistir").on("click", function(){
     selectAnswer(true);
   });

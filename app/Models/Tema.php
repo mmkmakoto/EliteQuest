@@ -6,14 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Categoria;
 class Questao extends Model
 {
-	protected $table = "questoes";
+	protected $table = "temas";
 	protected $fillable = [
-	    'categoria_id',
-	    'titulo',
-	    'opcao_2',
-	    'opcao_3',
-	    'opcao_4',
-	    'status',
+	    'nome',
 	];
 	public function categoria(){
 		return $this->belongsTo(Categoria::class);
