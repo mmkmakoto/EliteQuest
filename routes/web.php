@@ -11,9 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::get('/categorias', ['as' => 'categorias.visualizar', 'uses' => 'CategoriasController@index']);
 Route::post('/categorias/create', ['as' => 'categorias.criar', 'uses' => 'CategoriasController@create']);
@@ -29,4 +26,9 @@ Route::post('/questoes/save', ['as' => 'questoes.salvar', 'uses' => 'QuestoesCon
 
 Route::get('/exemplo_angular', ['as' => 'exemplo_angular.visualizar', 'uses' => 'ExemploAngularController@index']);
 
+
+
+
+
+Route::get('/', ['as' => 'view.index', 'uses' => 'ViewController@viewIndex']);
 Route::get('/partida', ['as' => 'partida.visualizar', 'uses' => 'ViewController@viewPartida']);
