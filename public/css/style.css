@@ -2,7 +2,7 @@ html, body {
 	margin: 0;
 	background: green;
 	font-weight: bold;
-	background-image: url("fundo4.jpg");
+	background-image: url("./../assets/fundo4.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 	max-width: 100%;
