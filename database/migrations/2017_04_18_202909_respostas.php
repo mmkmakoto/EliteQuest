@@ -11,6 +11,7 @@ class Respostas extends Migration
             $table->increments('id');
             $table->string('resposta');
             $table->integer('pergunta_id')->unsigned();
+            $table->boolean('correta');
             $table->timestamps();
 
             $table->foreign('pergunta_id')->references('id')->on('perguntas');
