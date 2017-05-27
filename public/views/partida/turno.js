@@ -21,8 +21,8 @@ function requestTurno(dataToSend){
 }
 
 function setGeneral(){
-  for(player in $status){
-    var jogador = $status[player].jogador;
+  for(player in $status.partida){
+    var jogador = $status.partida[player].jogador;
     $("#name_" + player).text(jogador.nome);
     walk(player, jogador.posicao);
   }
@@ -31,7 +31,7 @@ function setGeneral(){
 function prepareTurno(){
   //alert("É a sua vez de jogar " + jogador.nome);
   $atualizarTurno = false;
-  $fichas = $status.player_1.fichas;
+  $fichas = $status.partida.player_1.fichas;
 }
 
 function prepareEspectador(configuration){
@@ -40,7 +40,7 @@ function prepareEspectador(configuration){
 
 function statusTurno(){
   console.log("buscando status do turno...");
-  $jogador = $status.player_1.jogador;
+  $jogador = $status.partida.player_1.jogador;
   if($jogador != null)
     if($jogador.seu_turno){
       if($question == null)

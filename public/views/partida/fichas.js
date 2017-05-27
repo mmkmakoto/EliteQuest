@@ -11,7 +11,7 @@ function toggleFicha($fichaComponent){
   return;
 
   var fichaValue = $fichaComponent.attr("ficha");
-  $selectedFicha = $status.player_1.fichas[fichaValue];
+  $selectedFicha = $status.partida.player_1.fichas[fichaValue];
 
   $(".ficha").removeClass("btn-success");
   $(".ficha").removeClass("selected_ficha");
@@ -37,9 +37,9 @@ function resetarFichas(){
 function attFichas(){
   resetarFichas();
   console.log("atualizando fichas...");
-  var fichas =  $status.player_1.fichas;
+  var fichas =  $status.partida.player_1.fichas;
   for(var key in fichas){
-    var ficha = $status.player_1.fichas[String(key)];
+    var ficha = $status.partida.player_1.fichas[String(key)];
     if(!ficha.disponivel){
       var $fichaComponent = $("#ficha_" + String(ficha.valor));
       disableFicha($fichaComponent);
