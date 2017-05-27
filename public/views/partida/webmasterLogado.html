@@ -12,7 +12,7 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="./../../css/style.css">
 
 </head>
 
@@ -21,7 +21,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12 logo">
-				<img src="./Logo Quest.png">
+				<img src="./../../assets/Logo Quest.png">
 			</div>
 		</div>
 	</div>
@@ -33,10 +33,6 @@
 						<ul>
 							<li class="btn" data-toggle="modal" data-target="#tema">Cadastrar Temas</li>
 							<li class="btn" data-toggle="modal" data-target="#pergunta">Cadastrar Perguntas</li>
-							<li>Outro Item</li>
-							<li>Outro Item</li>
-							<li>Outro Item</li>
-							<li>Outro Item</li>
 						</ul>
 					</div>
 				</div>
@@ -52,15 +48,15 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Cadastro de Temas</h4>
+					<h4 class="modal-title text-center">Cadastro de Temas</h4>
 				</div>
 				<div class="modal-body">
-					<p>Tema</p>
-					<input class="btn" type="text" name="tema" placeholder="Digite um tema">
+					Tema:
+					<input class="btn inputCss" type="text" name="tema" placeholder="Digite um tema">
 				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn" data-search="modal">Pesquisar</button>
-					<button type="button" class="btn" data-save="modal">Salvar</button>
+				<div class="modal-footer botoes">
+					<button type="button" class="btn btn-info" data-search="modal">Pesquisar</button>
+					<button type="button" class="btn btn-success" data-save="modal">Salvar</button>
 				</div>
 			</div>
 
@@ -74,42 +70,44 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Cadastro de Perguntas</h4>
+					<h4 class="modal-title text-center">Cadastro de Perguntas</h4>
 				</div>
 				<div class="col-sm-6">
 					<div class="modal-body">
-						<p>Pergunta</p>
-						<textarea rows="3" cols="30"></textarea>
-						<p>Tema</p>
-						<select>
+						<p>Pergunta:</p>
+						<textarea rows="5" cols="30" class="form-control inputCss"></textarea>
+						<br/>
+						<p>Tema:</p>
+						<select class="btn btn-sm inputCss">
 							<!-- iterate with a for to display all themes
 								<option value=""></option>
 							 -->
 							<option value="teste">Teste</option>
-						</select>
-						<p>Grau de Dificuldade</p>
-						<input type="checkbox" name="dificuldade">Fácil
-						<input type="checkbox" name="dificuldade">Médio
-						<input type="checkbox" name="dificuldade">Difícil
+						</select><br/><br/>
+						<p>Grau de Dificuldade:</p>
+						<div class="col-sm-12"><input type="radio" name="dificuldade">Fácil</div><br/><br/>
+						<div class="col-sm-12"><input type="radio" name="dificuldade">Médio</div><br/><br/>
+						<div class="col-sm-12"><input type="radio" name="dificuldade">Difícil</div>
 					</div>
 				</div>
 				<div class="col-sm-6">
-					<p>Respostas</p>
-					<p>A)<input type="text" name="a"></p>
-					<p>B)<input type="text" name="b"></p>
-					<p>C)<input type="text" name="c"></p>
-					<p>D)<input type="text" name="d"></p>
+					<div class="modal-body"><p>Respostas:</p>
+						<p>A)<input type="text" class="btn btn-sm inputCss" name="a"></p>
+						<p>B)<input type="text" class="btn btn-sm inputCss" name="b"></p>
+						<p>C)<input type="text" class="btn btn-sm inputCss" name="c"></p>
+						<p>D)<input type="text" class="btn btn-sm inputCss" name="d"></p>
 
-					<input type="radio" name="respostaCerta">A
-					<input type="radio" name="respostaCerta">B
-					<input type="radio" name="respostaCerta">C
-					<input type="radio" name="respostaCerta">D
-
+						<p>Resposta Certa:</p>
+						<div class="col-sm-3"><input type="radio" name="respostaCerta">A</div>
+						<div class="col-sm-3"><input type="radio" name="respostaCerta">B</div>
+						<div class="col-sm-3"><input type="radio" name="respostaCerta">C</div>
+						<div class="col-sm-3"><input type="radio" name="respostaCerta">D</div>
+					</div>
 				</div>
 				
-				<div class="modal-footer">
-					<button type="button" class="btn" data-search="modal">Pesquisar</button>
-					<button type="button" class="btn" data-save="modal">Salvar</button>
+				<div class="modal-footer botoes">
+					<button type="button" class="btn btn-info" data-search="modal">Pesquisar</button>
+					<button type="button" class="btn btn-success" data-save="modal">Salvar</button>
 				</div>
 			</div>
 
@@ -127,10 +125,6 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <!-- script to auto reload page -->
-    <script>
-        setInterval(() => window.location.reload(), 50000);
-    </script>
 
 </body>
 
