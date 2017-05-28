@@ -7,6 +7,7 @@
   <script type="text/javascript" src='/bower_components/jquery/dist/jquery.js'></script>
   <script type="text/javascript" src='/bower_components/bootstrap/dist/js/bootstrap.js'></script>
 
+  <script type="text/javascript" src="/views/partida/data/fetchData.js"></script>
   <script type="text/javascript" src="/views/partida/parameters.js"></script>
   <script type="text/javascript" src="/views/partida/data/questions.js"></script>
   <script type="text/javascript" src="/views/partida/question.js"></script>
@@ -32,7 +33,7 @@
       </div>
     </div>
     <div class="col-lg-12">
-      <div class="col-lg-12" id="fichasArea">
+      <div class="col-lg-6" id="fichasArea">
         <div class="col-lg-12">
           <button type="button" id="ficha_1" ficha="1" class="btn ficha">Ficha 1</button>
         </div>
@@ -52,7 +53,11 @@
           <button type="button" id="ficha_6" ficha="6" class="btn ficha">Ficha 6</button>
         </div>
       </div>
-      <button type="button" id="get_question" class="btn hidden">Responser pergunta</button>
+      <div class="col-lg-6" id="categoriasArea">
+        <div class="col-lg-12"><h3>Categorias cadastradas:</h3></div>
+      </div>
+      <!--<button type="button" id="get_question" class="btn hidden">Responser pergunta</button>
+      -->
     </div>
     <br>
   </div>
@@ -99,7 +104,7 @@
   </div>
 
   <!-- Modal -->
-  <div class="modal fade" id="questionArea" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal fade" id="questionArea" tabindex="-1" role="dialog" aria-labelledby="Question" data-keyboard="false" data-backdrop="static" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
