@@ -50,14 +50,16 @@
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<h4 class="modal-title text-center">Cadastro de Temas</h4>
 				</div>
-				<div class="modal-body">
+				<form action="/categorias/create" method="post">
+					<div class="modal-body">
 					Tema:
-					<input class="btn inputCss" type="text" name="tema" placeholder="Digite um tema">
-				</div>
-				<div class="modal-footer botoes">
-					<button type="button" class="btn btn-info" data-search="modal">Pesquisar</button>
-					<button type="button" class="btn btn-success" data-save="modal">Salvar</button>
-				</div>
+					<input class="btn inputCss" type="text" name="nome" placeholder="Digite um tema">
+					</div>
+					<div class="modal-footer botoes">
+						<button type="button" class="btn btn-info" data-search="modal">Pesquisar</button>
+						<button type="submit" class="btn btn-success" data-save="modal">Salvar</button>
+					</div>
+				</form>
 			</div>
 
 		</div>
@@ -72,43 +74,45 @@
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<h4 class="modal-title text-center">Cadastro de Perguntas</h4>
 				</div>
-				<div class="col-sm-6">
-					<div class="modal-body">
-						<p>Pergunta:</p>
-						<textarea rows="5" cols="30" class="form-control inputCss"></textarea>
-						<br/>
-						<p>Tema:</p>
-						<select class="btn btn-sm inputCss">
-							<!-- iterate with a for to display all themes
-								<option value=""></option>
-							 -->
-							<option value="teste">Teste</option>
-						</select><br/><br/>
-						<p>Grau de Dificuldade:</p>
-						<div class="col-sm-12"><input type="radio" name="dificuldade">Fácil</div><br/><br/>
-						<div class="col-sm-12"><input type="radio" name="dificuldade">Médio</div><br/><br/>
-						<div class="col-sm-12"><input type="radio" name="dificuldade">Difícil</div>
+				<form action="/questoes/create" method="post">
+					<div class="col-sm-6">
+						<div class="modal-body">
+							<p>Pergunta:</p>
+							<textarea rows="5" cols="30" class="form-control inputCss" name="pergunta"></textarea>
+							<br/>
+							<p>Tema:</p>
+							<select class="btn btn-sm inputCss" name="tema">
+								<!-- iterate with a for to display all themes
+									<option value=""></option>
+								 -->
+								<option value="teste">Teste</option>
+							</select><br/><br/>
+							<p>Grau de Dificuldade:</p>
+							<div class="col-sm-12"><input type="radio" name="dificuldade">Fácil</div><br/><br/>
+							<div class="col-sm-12"><input type="radio" name="dificuldade">Médio</div><br/><br/>
+							<div class="col-sm-12"><input type="radio" name="dificuldade">Difícil</div>
+						</div>
 					</div>
-				</div>
-				<div class="col-sm-6">
-					<div class="modal-body"><p>Respostas:</p>
-						<p>A)<input type="text" class="btn btn-sm inputCss" name="a"></p>
-						<p>B)<input type="text" class="btn btn-sm inputCss" name="b"></p>
-						<p>C)<input type="text" class="btn btn-sm inputCss" name="c"></p>
-						<p>D)<input type="text" class="btn btn-sm inputCss" name="d"></p>
+					<div class="col-sm-6">
+						<div class="modal-body"><p>Respostas:</p>
+							<p>A)<input type="text" class="btn btn-sm inputCss" name="a"></p>
+							<p>B)<input type="text" class="btn btn-sm inputCss" name="b"></p>
+							<p>C)<input type="text" class="btn btn-sm inputCss" name="c"></p>
+							<p>D)<input type="text" class="btn btn-sm inputCss" name="d"></p>
 
-						<p>Resposta Certa:</p>
-						<div class="col-sm-3"><input type="radio" name="respostaCerta">A</div>
-						<div class="col-sm-3"><input type="radio" name="respostaCerta">B</div>
-						<div class="col-sm-3"><input type="radio" name="respostaCerta">C</div>
-						<div class="col-sm-3"><input type="radio" name="respostaCerta">D</div>
+							<p>Resposta Certa:</p>
+							<div class="col-sm-3"><input type="radio" name="respostaCerta">A</div>
+							<div class="col-sm-3"><input type="radio" name="respostaCerta">B</div>
+							<div class="col-sm-3"><input type="radio" name="respostaCerta">C</div>
+							<div class="col-sm-3"><input type="radio" name="respostaCerta">D</div>
+						</div>
 					</div>
-				</div>
-				
-				<div class="modal-footer botoes">
-					<button type="button" class="btn btn-info" data-search="modal">Pesquisar</button>
-					<button type="button" class="btn btn-success" data-save="modal">Salvar</button>
-				</div>
+					
+					<div class="modal-footer botoes">
+						<button type="button" class="btn btn-info" data-search="modal">Pesquisar</button>
+						<button type="submit" class="btn btn-success" data-save="modal">Salvar</button>
+					</div>
+				</form>
 			</div>
 
 		</div>
