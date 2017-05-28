@@ -1,83 +1,64 @@
 var $selectedFicha = null;
 
-var $fichas = {
-  "1": {
-    "valor": 1,
-    "disponivel": true
-  },
-  "2": {
-    "valor": 2,
-    "disponivel": false
-  },
-  "3": {
-    "valor": 3,
-    "disponivel": true
-  },
-  "4": {
-    "valor": 4,
-    "disponivel": false
-  },
-  "5": {
-    "valor": 5,
-    "disponivel": true
-  },
-  "6": {
-    "valor": 6,
-    "disponivel": true
-  }
-}
-
 function disableFicha($fichaComponent){
   $fichaComponent.prop("disabled", true);
   $fichaComponent.addClass("btn-primary");
   $fichaComponent.removeClass("btn-success");
-
 }
 
 function toggleFicha($fichaComponent){
   if ($fichaComponent.is(":disabled"))
-    return;
+  return;
 
-    var fichaValue = $fichaComponent.attr("ficha");
-    $selectedFicha = $fichas[fichaValue];
+  var fichaValue = $fichaComponent.attr("ficha");
+  $selectedFicha = $status.player_1.fichas[fichaValue];
 
-    $(".ficha").removeClass("btn-success");
-    $(".ficha").removeClass("selected_ficha");
-    $fichaComponent.addClass("btn-success");
-    $fichaComponent.addClass("selected_ficha");
-
-  $("#get_question").removeClass("hidden");
-
-
+  $(".ficha").removeClass("btn-success");
+  $(".ficha").removeClass("selected_ficha");
+  $fichaComponent.addClass("btn-success");
+  $fichaComponent.addClass("selected_ficha");
 }
 
 function selectFichaAndGetQuestion(){
-
-  console.log($("#get_question").attr("ficha_value"));
-
+  //$("#get_question").removeClass("hidden");
+  $("#questionArea").modal("show");
   disableFicha($(".selected_ficha"));
   checkQuestion();
+  $("#fichasArea").hide();
 }
 
-$(document).ready(function(){
-  for(var key in $fichas){
-    var ficha = $fichas[String(key)];
+function resetarFichas(){
+  var $fichaComponent = $(".btn-primary");
+  $fichaComponent.removeClass("btn-primary");
+  $fichaComponent.prop("disabled", false);
+}
+
+function attFichas(){
+  resetarFichas();
+  console.log("atualizando fichas...");
+  var fichas =  $status.player_1.fichas;
+  for(var key in fichas){
+    var ficha = $status.player_1.fichas[String(key)];
     if(!ficha.disponivel){
       var $fichaComponent = $("#ficha_" + String(ficha.valor));
       disableFicha($fichaComponent);
-    }else {
-      resetFichas = false;
     }
-
-    if(resetFichas)
-      resetarFichas();
   }
+}
 
-  $("#get_question").on('click', function(){
+$(document).ready(function(){
+  $("#cancelFichaSelection").on("click", function(){
+    $(".ficha").removeClass("btn-success");
+    $(".ficha").removeClass("selected_ficha");
+  });
+
+  $("#confirmFichaSelection").on("click", function(){
     selectFichaAndGetQuestion();
+    $("#fichaConfirm").modal("hide");
   });
 
   $(".ficha").on('click', function(){
     toggleFicha($(this));
+    $("#fichaConfirm").modal("show");
   });
 });

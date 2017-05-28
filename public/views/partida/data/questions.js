@@ -116,26 +116,62 @@ var question5 = {
   }
 }
 
+function resetzFichas(){
+  console.log("resetando fichas....");
+  var fichas =  $status.player_1.fichas;
+  var fichasZeradas = true;
+  for(ficha in fichas){
+    if($status.player_1.fichas[ficha].disponivel)
+      fichasZeradas = false;
+  }
+
+  console.log(fichasZeradas);
+
+  if(fichasZeradas){
+    for(ficha in fichas){
+      $status.player_1.fichas[ficha].disponivel = true;
+    }
+  }
+}
+
 function getResponseForRandomQuestion(answer){
   var response = {};
   response["answered"] = true;
   switch(answer.question){
     case 1:
-      response["correct"] = (answer.choice === 1);
-      break;
-      case 2:
-      response["correct"] = (answer.choice === 3);
-      break;
-      case 3:
-      response["correct"] = (answer.choice === 3);
-      break;
-      case 4:
-      response["correct"] = (answer.choice === 4);
-      break;
-      case 5:
-      response["correct"] = (answer.choice === 1);
-      break;
+    response["correct"] = (answer.choice === 1);
+    break;
+    case 2:
+    response["correct"] = (answer.choice === 1);
+    break;
+    case 3:
+    response["correct"] = (answer.choice === 1);
+    break;
+    case 4:
+    response["correct"] = (answer.choice === 1);
+    break;
+    case 5:
+    response["correct"] = (answer.choice === 1);
+    break;
   }
+
+  var fichas =  $status.player_1.fichas;
+  for(ficha in fichas){
+    if($status.player_1.fichas[ficha].valor === answer.ficha){
+      $status.player_1.fichas[ficha].disponivel = false;
+    }
+  }
+
+  console.log($status.player_1.fichas);
+
+
+  if(response.correct){
+    $status.player_1.jogador.posicao += answer.ficha;
+    response.steps = $status.player_1.jogador.posicao;
+  }else {
+    response.steps = 0;
+  }
+  resetzFichas();
   return response;
 }
 

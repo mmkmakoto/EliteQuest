@@ -1,26 +1,7 @@
 var intervalo = null;
-var $turno = {
-  toPlay: "you",
-  position: 0,
-  points: 0,
-  question: null,
-  answers: 0
-}
-
-/////////////////////////////////////////
-
-
-
-function checkTurnoJSON(){
-  var obj = {
-    turno:  true
-  }
-
-  return obj;
-}
-
-
-
+var $question = null;
+var $jogador = null;
+var $atualizarTurno = true;
 ////////////////////////////////////////
 
 function requestTurno(dataToSend){
@@ -38,10 +19,18 @@ function requestTurno(dataToSend){
   });
 }
 
+function setGeneral(){
+  for(player in $status){
+    var jogador = $status[player].jogador;
+    $("#name_" + player).text(jogador.nome);
+    walk(player, jogador.posicao);
+  }
+}
 
-function prepareTurno(configuration){
-  $turno.toPlay = "you";
-  $("#turno").text("sua vez de jogar");
+function prepareTurno(){
+  //alert("É a sua vez de jogar " + jogador.nome);
+  $atualizarTurno = false;
+  $fichas = $status.player_1.fichas;
 }
 
 function prepareEspectador(configuration){
@@ -49,31 +38,40 @@ function prepareEspectador(configuration){
 }
 
 function statusTurno(){
-  var configuration = checkTurnoJSON();
+  console.log("buscando status do turno...");
+  $jogador = $status.player_1.jogador;
+  if($jogador != null)
+    if($jogador.seu_turno){
+      if($question == null)
+        $("#fichasArea").show();
+      attFichas();
+      if($atualizarTurno){
+        prepareTurno();
+      }
+    }else
+      prepareEspectador();
 
-  if(configuration.turno)
-    prepareTurno(configuration);
-  else
-    prepareEspectador(configuration);
+      setGeneral();
 }
 
 function updateTurnoTimer(){
-    var secAtual = Number($("#turno_timer").text());
-    $("#turno_timer").text(++secAtual);
+  var secAtual = Number($("#turno_timer").text());
+  $("#turno_timer").text(++secAtual);
 
-    if(secAtual >= 30){
-      selectAnswer(true);
-    }
+  if(secAtual >= 30){
+    selectAnswer(true);
+  }
 }
 
 $(document).ready(function(){
   statusTurno();
   setInterval(function(){
     statusTurno();
-  }, 2000);
-  $("#get_question").on("click",function(){
+  }, 5000);
+
+  $("#confirmFichaSelection").on("click",function(){
     intervalo = setInterval(function(){
-    updateTurnoTimer();
+      updateTurnoTimer();
     }, 1000);
   });
 });
