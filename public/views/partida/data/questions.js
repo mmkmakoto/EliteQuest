@@ -142,7 +142,8 @@ function getResponseForRandomQuestion(answer){
   var response = {};
   response["respondido"] = true;
 
-  response.correto = Number($question.opcao_correta) === answer.opcao;
+  //response.correto = Number($question.opcao_correta) === answer.opcao;
+  response.correto = $question.respostas[answer.opcao].correta === 1;
 
   var fichas =  $status.partida.player_1.fichas;
   for(ficha in fichas){
