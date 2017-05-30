@@ -25,7 +25,6 @@ function toggleFicha($fichaComponent){
 function selectFichaAndGetQuestion(){
   console.log("SE");
   //$("#get_question").removeClass("hidden");
-  $("#questionArea").modal("show");
   disableFicha($(".selected_ficha"));
   checkQuestion();
   //$("#fichasArea").hide();

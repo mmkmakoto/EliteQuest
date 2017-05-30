@@ -266,7 +266,7 @@
             <div class="modal-header">
               <h3 class="modal-title col-lg-12">Pergunta</h3>
               <div class=col-lg-12>
-                Tempo para finalizar a rodada: <span id="turno_timer">0</span>
+                Tempo para finalizar a rodada: <span id="turno_timer">30</span>
               </div>
             </div>
             <div class="modal-body">
@@ -277,20 +277,20 @@
               </div>
               <div class="col-lg-12">
                 <div id="answerAArea">
-                  <input type="radio" name="answer" id="answer_a" value="1" checked/>
-                  (A) <span id="choice_a"></span>
+                  <input type="radio" name="answer" id="answer_a" value="0" checked/>
+                  (A) <span id="choice_0"></span>
                 </div>
                 <div id="answerBArea">
-                  <input type="radio" name="answer" id="answer_b" value="2" checked/>
-                  (B) <span id="choice_b"></span>
+                  <input type="radio" name="answer" id="answer_b" value="1" checked/>
+                  (B) <span id="choice_1"></span>
                 </div>
                 <div id="answerCArea">
-                  <input type="radio" name="answer" id="answer_c" value="3" checked/>
-                  (C) <span id="choice_c"></span>
+                  <input type="radio" name="answer" id="answer_c" value="2" checked/>
+                  (C) <span id="choice_2"></span>
                 </div>
                 <div id="answerDArea">
-                  <input type="radio" name="answer" id="answer_d" value="4" checked/>
-                  (D) <span id="choice_d"></span>
+                  <input type="radio" name="answer" id="answer_d" value="3" checked/>
+                  (D) <span id="choice_3"></span>
                 </div>
             </div>
             <div class="modal-footer">
