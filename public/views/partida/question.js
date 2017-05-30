@@ -3,12 +3,12 @@ function answer(answer){
   console.log(answer);
 
   var response = getResponseForRandomQuestion(answer);
+
   if(answer.id_pergunta === 0 && answer.opcao === 0)
   response["respondido"] = false;
   else
   response["respondido"] = true;
 
-  console.log(response);
 
   answerResponse(response);
 }
@@ -26,7 +26,9 @@ function answerResponse(response){
     $("#answer_result").text("Resposta errada - Que pena....");
   }
   $("#turno_timer").text("0");
+  $("#questionArea").modal("hide");
   $("#resultadoAnswer").modal("show");
+
 }
 
 function getQuestion(configuration, callback){

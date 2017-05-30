@@ -40,10 +40,6 @@ var $status = {
         "5": {
           "valor": 5,
           "disponivel": true
-        },
-        "6": {
-          "valor": 6,
-          "disponivel": true
         }
       }
     },
