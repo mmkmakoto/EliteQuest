@@ -9,13 +9,10 @@ class Jogadores extends Migration
     public function up(){
         Schema::create('jogadores', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nome');
-            $table->string('usuario');
-            $table->string('email')->unique();;
-            $table->string('password');
+            $table->integer('user_id')->unsigned();
             $table->string('tipo');
             $table->timestamps();
-            $table->rememberToken();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
     public function down()

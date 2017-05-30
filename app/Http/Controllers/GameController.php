@@ -11,7 +11,7 @@ class GameController extends Controller
 {
 	public function gameStatus()
 	{
-		$partida = Partida::first();
+		$partida = Partida::with(['jogadores.user','dificuldade'])->first();
 
 		return response()->json($partida);
 		//return response()->json(Auth::user());

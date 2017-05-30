@@ -9,7 +9,7 @@ class PerguntasRespostasSeeder extends Seeder
 {
     public function run()
     {
-    	
+
 		$pergunta = Pergunta::create([
 			'pergunta' => 'quanto é 2x3?',
 			'tema_id' => Tema::where('nome','matemática')->first()->id,
@@ -93,5 +93,32 @@ class PerguntasRespostasSeeder extends Seeder
     		'correta' => false,
     		'pergunta_id' => $pergunta->id,
     	]);
+
+        $pergunta = Pergunta::create([
+            'pergunta' => 'qual é o sinônimo de jocoso?',
+            'tema_id' => Tema::where('nome','português')->first()->id,
+            'dificuldade_id' => Dificuldade::where('nome','difícil')->first()->id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Sujo, grudento',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'engraçado, cômico',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'feio, esquisito',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'novo, recente',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
     }
 }
