@@ -7,7 +7,7 @@ use Illuminate\Database\Migrations\Migration;
 class StatsJogadoresRodada extends Migration
 {
     public function up(){
-        Schema::create('stats_jogadores_rodada', function (Blueprint $table) {
+        Schema::create('stats_jogadores_rodadas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('fichas');
             $table->integer('posicao')->default(0);
@@ -20,6 +20,6 @@ class StatsJogadoresRodada extends Migration
     }
     public function down()
     {
-        Schema::dropIfExists('stats_jogadores_rodada');
+        Schema::dropIfExists('stats_jogadores_rodadas');
     }
 }

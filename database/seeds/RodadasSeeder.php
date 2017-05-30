@@ -6,44 +6,37 @@ use App\Models\Pergunta;
 use App\Models\Resposta;
 use App\Models\Jogador;
 use App\Models\Partida;
+use App\Models\StatsJogadorRodada;
 class RodadasSeeder extends Seeder
 {
     public function run()
     {
-    	$perguntas = Pergunta::all()->shuffle();
-    	$jogadores = Jogador::all()->shuffle();
-    	$partida = Partida::find(1);
+    	foreach(Partida::all() as $partida){
 
-		$pergunta = $perguntas->shift();
-    	Rodada::create([
-			'pergunta_id' => $pergunta->id,
-			'resposta_id' => $pergunta->respostas->random()->id,
-			'partida_id' => $partida->id,
-			'jogador_id' => $jogadores->shift()->id,
-    	]);
+	    	$perguntas = Pergunta::all()->shuffle();
+	    	$jogadores = Jogador::all()->shuffle();
+	    	$jogadoresDaPartida = $jogadores;
 
-		$pergunta = $perguntas->shift();
-    	Rodada::create([
-			'pergunta_id' => $pergunta->id,
-			'resposta_id' => $pergunta->respostas->random()->id,
-			'partida_id' => $partida->id,
-			'jogador_id' => $jogadores->shift()->id,
-    	]);
+	    	foreach($jogadores as $jogador)
+	    	{
+				$pergunta = $perguntas->shift();
+		    	$rodada = Rodada::create([
+					'pergunta_id' => $pergunta->id,
+					'resposta_id' => $pergunta->respostas->random()->id,
+					'partida_id' => $partida->id,
+					'jogador_id' => $jogador->id,
+		    	]);
 
-		$pergunta = $perguntas->shift();
-    	Rodada::create([
-			'pergunta_id' => $pergunta->id,
-			'resposta_id' => $pergunta->respostas->random()->id,
-			'partida_id' => $partida->id,
-			'jogador_id' => $jogadores->shift()->id,
-    	]);
-
-		$pergunta = $perguntas->shift();
-    	Rodada::create([
-			'pergunta_id' => $pergunta->id,
-			'resposta_id' => $pergunta->respostas->random()->id,
-			'partida_id' => $partida->id,
-			'jogador_id' => $jogadores->shift()->id,
-    	]);
+		    	foreach($jogadoresDaPartida as $jogadorDaPartida)
+		    	{
+		    		StatsJogadorRodada::create([
+		    			'jogador_id' => $jogadorDaPartida->id,
+		    			'rodada_id' => $rodada->id,
+		    			'posicao' => rand(0,20),
+		    			'fichas' => json_encode(collect(range(1,rand(1,5)))->shuffle()->take(rand(1,5))->toArray()),
+		    		]);
+		    	}
+		    }
+    	}
     }
 }
