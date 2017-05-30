@@ -11,7 +11,7 @@
 |
 */
 
-
+//ROTAS LIVRES
 Route::get('/categorias', ['as' => 'categorias.visualizar', 'uses' => 'CategoriasController@index']);
 Route::post('/categorias/create', ['as' => 'categorias.criar', 'uses' => 'CategoriasController@create']);
 Route::get('/categorias/delete/{categoria}', ['as' => 'categorias.deletar', 'uses' => 'CategoriasController@delete']);
@@ -28,7 +28,12 @@ Route::get('/exemplo_angular', ['as' => 'exemplo_angular.visualizar', 'uses' => 
 
 
 
+//ROTAS PARA USERS NÃO AUTENTICADOS APENAS
+Route::middleware('guest')->get('/', ['as' => 'view.index', 'uses' => 'ViewController@viewIndex']);
 
+//ROTAS PARA USERS AUTENTICADOS APENAS
+Route::middleware('auth')->get('/partida', ['as' => 'partida.visualizar', 'uses' => 'ViewController@viewPartida']);
+Route::middleware('auth')->get('/dashboard',['as' => 'view.dashboard', 'uses' => 'ViewController@viewDashboard']);
+Route::middleware('auth')->get('/home',['as' => 'view.home', 'uses' => 'ViewController@viewHome']);
 
-Route::get('/', ['as' => 'view.index', 'uses' => 'ViewController@viewIndex']);
-Route::get('/partida', ['as' => 'partida.visualizar', 'uses' => 'ViewController@viewPartida']);
+Auth::routes();

@@ -3,8 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Categoria;
-class Questao extends Model
+use App\Models\Pergunta;
+use App\Modela\Rodada;
+
+class Resposta extends Model
 {
 	protected $table = "respostas";
 	protected $fillable = [
@@ -12,7 +14,10 @@ class Questao extends Model
 	    'pergunta_id',
 	    'correta',
 	];
-	public function categoria(){
-		return $this->belongsTo(Categoria::class);
+	public function pergunta(){
+		return $this->belongsTo(Pergunta::class);
+	}
+	public function rodadas(){
+		return $this->hasMany(Rodada::class);
 	}
 }

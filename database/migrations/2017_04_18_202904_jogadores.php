@@ -11,10 +11,11 @@ class Jogadores extends Migration
             $table->increments('id');
             $table->string('nome');
             $table->string('usuario');
-            $table->string('email');
-            $table->string('senha');
+            $table->string('email')->unique();;
+            $table->string('password');
             $table->string('tipo');
-            $table->timestamps(); 
+            $table->timestamps();
+            $table->rememberToken();
         });
     }
     public function down()

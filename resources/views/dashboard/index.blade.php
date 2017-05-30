@@ -23,29 +23,23 @@
 			<div class="col-sm-12 logo">
 				<img src="./../../assets/Logo Quest.png">
 			</div>
-			<div id="login" class="col-sm-6 formulario">
-				<form action="{{ route('login') }}" method="POST">
-					{{ csrf_field() }}
-					<input class="btn" type="text" name="email" placeholder="E-mail*"><br/>
-					<input class="btn" type="password" name="password" placeholder="Senha*"><br/>
-					<button id="botao" class="btn btn-success" type="submit">Jogar</button><br/>
-					<div class="esqueciSenha"><a href="/">ESQUECI A SENHA</a></div>
-				</form>
+			<div class="col-sm-6 formulario">
+				<div>
+					<span>Jogador: {{ Auth::user()->name }}</span>
+				</div>
+				<div>
+					<span>E-Mail: {{ Auth::user()->email }}</span>
+				</div>
 			</div>
 			<div class="col-sm-6 formulario">
-				<form action="{{ route('register') }}" method="POST">
-					{{ csrf_field() }}
-					<p>Não tem cadastro? Registre-se agora</p>
-					
-					<input class="btn {{ $errors->has('name') ? 'temErro':''}}" type="text" name="name" placeholder="Nome Completo* {{$errors->first('name')}}"><br/>
-					<input class="btn {{ $errors->has('email') ? 'temErro':''}}" type="text" name="email" placeholder="E-mail* {{$errors->first('email')}}"><br/>
-					<input class="btn {{ $errors->has('password') ? 'temErro':''}}" type="password" name="password" placeholder="Senha* {{$errors->first('password')}}"><br/>
-					<input class="btn {{ $errors->has('password_confirmation') ? 'temErro':''}}" type="password" name="password_confirmation" placeholder="Confirmar Senha* {{$errors->first('password_confirmation')}}"><br/>
-					<button id="botao" class="btn btn-success" type="submit">Cadastrar</button>
-				</form>
+	            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+	                {{ csrf_field() }}
+	                <button id="botao" class="btn btn-success" type="submit">Logout</button>
+	            </form>
 			</div>
 		</div>
 	</div>
+
 
 	<div class="container">
 		<div class="row footer">
