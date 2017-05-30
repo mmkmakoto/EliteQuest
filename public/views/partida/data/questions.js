@@ -125,35 +125,24 @@ function resetzFichas(){
       fichasZeradas = false;
   }
 
-  console.log(fichasZeradas);
 
   if(fichasZeradas){
     for(ficha in fichas){
+      var ficha_id = "ficha_" + $status.partida.player_1.fichas[ficha].valor;
+      var f = "./../../assets/" + ficha_id  + ".png"
       $status.partida.player_1.fichas[ficha].disponivel = true;
+      $("#" + ficha_id).attr("src", f);      ;
     }
+
+    $(".ficha").prop("disabled", false);
   }
 }
 
 function getResponseForRandomQuestion(answer){
   var response = {};
   response["respondido"] = true;
-  switch(answer.id_pergunta){
-    case 1:
-    response["correto"] = (answer.opcao === 1);
-    break;
-    case 2:
-    response["correto"] = (answer.opcao === 1);
-    break;
-    case 3:
-    response["correto"] = (answer.opcao === 1);
-    break;
-    case 4:
-    response["correto"] = (answer.opcao === 1);
-    break;
-    case 5:
-    response["correto"] = (answer.opcao === 1);
-    break;
-  }
+
+  response.correto = Number($question.opcao_correta) === answer.opcao;
 
   var fichas =  $status.partida.player_1.fichas;
   for(ficha in fichas){

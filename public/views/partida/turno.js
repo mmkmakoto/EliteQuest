@@ -24,6 +24,8 @@ function setGeneral(){
   for(player in $status.partida){
     var jogador = $status.partida[player].jogador;
     $("#name_" + player).text(jogador.nome);
+    if(jogador.seu_turno)
+      $("#area_" + player).css("color", "white");
     walk(player, jogador.posicao);
   }
 }
@@ -44,6 +46,7 @@ function statusTurno(){
   if($jogador != null)
     if($jogador.seu_turno){
       if($question == null)
+
         $("#fichasArea").show();
       attFichas();
       if($atualizarTurno){

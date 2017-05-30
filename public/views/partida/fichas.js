@@ -1,9 +1,12 @@
 var $selectedFicha = null;
 
 function disableFicha($fichaComponent){
+  //$fichaComponent.addClass("darkableImage");
+  var darken = "./../../assets/darken_" + $fichaComponent.prop("id")  + ".png";
+  $fichaComponent.attr("src", darken);
   $fichaComponent.prop("disabled", true);
-  $fichaComponent.addClass("btn-primary");
-  $fichaComponent.removeClass("btn-success");
+  // $fichaComponent.addClass("btn-primary");
+  // $fichaComponent.removeClass("btn-success");
 }
 
 function toggleFicha($fichaComponent){
@@ -15,7 +18,7 @@ function toggleFicha($fichaComponent){
 
   $(".ficha").removeClass("btn-success");
   $(".ficha").removeClass("selected_ficha");
-  $fichaComponent.addClass("btn-success");
+  //$fichaComponent.addClass("btn-success");
   $fichaComponent.addClass("selected_ficha");
 }
 
