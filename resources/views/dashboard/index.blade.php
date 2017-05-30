@@ -46,7 +46,7 @@
 			<div class="col-sm-6 empresa">ELITE JOGOS</div>
 			<div class="col-sm-6 webmaster"><a href="/"><u>Webmaster</u></a></div>
 		</div>
-	</div>	
+	</div>
 
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
