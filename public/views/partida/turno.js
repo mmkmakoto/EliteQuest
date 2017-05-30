@@ -60,9 +60,9 @@ function statusTurno(){
 
 function updateTurnoTimer(){
   var secAtual = Number($("#turno_timer").text());
-  $("#turno_timer").text(++secAtual);
+  $("#turno_timer").text(--secAtual);
 
-  if(secAtual >= 30){
+  if(secAtual <= 0){
     selectAnswer(true);
   }
 }

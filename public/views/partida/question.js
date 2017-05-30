@@ -25,25 +25,24 @@ function answerResponse(response){
   }else{
     $("#answer_result").text("Resposta errada - Que pena....");
   }
-  $("#turno_timer").text("0");
+  $("#turno_timer").text("30");
   $("#questionArea").modal("hide");
   $("#resultadoAnswer").modal("show");
 
 }
 
-function getQuestion(configuration, callback){
-
+function getQuestion(callback){
   requestQuestion(function(question){
     //Temporario:
-    var key = question.length;
-    if(key > 1)
-    key = Math.floor(((Math.random() * key)));
+    // var key = question.length;
+    // if(key > 1)
+    // key = Math.floor(((Math.random() * key)));
+    //
+    // //Temporario
+    // if(key === 0)
+    // key ++;F
 
-    //Temporario
-    if(key === 0)
-    key ++;
-
-    $question = question[key - 1];
+    $question = question;
     callback($question);
   });
 }
@@ -68,12 +67,42 @@ function selectAnswer(notAnswered){
 }
 
 function showQuestion(){
-  console.log($question);
-  $("#enunciado").text($question.titulo);
-  $("#choice_a").text($question.opcao_1);
-  $("#choice_b").text($question.opcao_2);
-  $("#choice_c").text($question.opcao_3);
-  $("#choice_d").text($question.opcao_4);
+  $question = {
+    "pergunta": "teste modelo pergunta",
+    "dificuldade": {"nome": "facil"},
+    "tema": {"nome": "matemática"},
+    "respostas": [
+      {
+        "resposta": "a resposta é 6",
+        "correta": 1
+      },
+      {
+        "resposta": "a resposta é 26",
+        "correta": 0
+      },
+      {
+        "resposta": "a resposta é 63",
+        "correta": 0
+      },
+      {
+        "resposta": "a resposta é 67",
+        "correta": 0
+      }
+    ]
+  };
+
+  $("#enunciado").text($question.pergunta);
+  for(index_resp in $question.respostas){
+    var opcao = $question.respostas[index_resp];
+    $("#choice_" + index_resp).text(opcao.resposta);
+  }
+
+  $("#questionArea").modal("show");
+
+  // $("#choice_a").text($question.opcao_1);
+  // $("#choice_b").text($question.opcao_2);
+  // $("#choice_c").text($question.opcao_3);
+  // $("#choice_d").text($question.opcao_4);
 }
 
 function checkQuestion(){
@@ -82,11 +111,7 @@ function checkQuestion(){
   $fichas[String($selectedFicha.valor)] = $selectedFicha;
   if(($jogador.seu_turno) && ($question === null)){
 
-    var configuration = {
-      "tema": 123
-    };
-
-    getQuestion(configuration, function(question){
+    getQuestion(function(question){
       $question = question;
       showQuestion();
     });
