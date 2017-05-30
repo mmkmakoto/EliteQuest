@@ -10,9 +10,11 @@ class Questao extends Model
 	protected $fillable = [
 	    'categoria_id',
 	    'titulo',
+			'opcao_1',
 	    'opcao_2',
 	    'opcao_3',
 	    'opcao_4',
+			'opcao_correta',
 	    'status',
 	];
 	public function categoria(){
