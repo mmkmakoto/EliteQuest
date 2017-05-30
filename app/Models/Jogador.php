@@ -4,6 +4,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Rodada;
 use App\Models\Partida;
+use App\User;
 class Jogador extends Model
 {
 	protected $table = "jogadores";
@@ -21,6 +22,9 @@ class Jogador extends Model
         return $this->hasMany(Partida::class, 'id', 'vencedor_id');
     }
 	public function partidas(){
-		return $this->belongsToMany(Partida::class, 'jogadores_partidas', 'partida_id', 'jogador_id');
+		return $this->belongsToMany(Partida::class, 'jogadores_partidas', 'jogador_id', 'partida_id');
+	}
+	public function user(){
+		return $this->belongsTo(User::class);
 	}
 }
