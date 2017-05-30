@@ -1,10 +1,11 @@
 <?php
 namespace App\Models;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-class Jogador extends Authenticatable
+
+use Illuminate\Database\Eloquent\Model;
+use App\Models\Rodada;
+use App\Models\Partida;
+class Jogador extends Model
 {
-    use Notifiable;
 	protected $table = "jogadores";
 	protected $fillable = [
 	    'nome',
@@ -13,8 +14,13 @@ class Jogador extends Authenticatable
 	    'password',
 	    'tipo',
 	];
-
-	protected $hidden = [
-        'password', 'remember_token',
-    ];
+	public function rodadas(){
+		return $this->hasMany(Rodada::class);
+	}
+    public function partidasVencidas(){
+        return $this->hasMany(Partida::class, 'id', 'vencedor_id');
+    }
+	public function partidas(){
+		return $this->belongsToMany(Partida::class, 'jogadores_partidas', 'partida_id', 'jogador_id');
+	}
 }

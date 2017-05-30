@@ -3,14 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Categoria;
-class Questao extends Model
+use App\Models\Pergunta;
+class Tema extends Model
 {
 	protected $table = "temas";
 	protected $fillable = [
 	    'nome',
 	];
-	public function categoria(){
-		return $this->belongsTo(Categoria::class);
+	public function perguntas(){
+		return $this->hasMany(Pergunta::class);
 	}
 }
