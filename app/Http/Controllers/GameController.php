@@ -19,7 +19,7 @@ class GameController extends Controller
 
 	public function gamePergunta()
 	{
-		$pergunta = Pergunta::with(['dificuldade','tema','respostas'])->first();
+		$pergunta = Pergunta::with(['dificuldade','tema','respostas'])->get()->random();
 		return response()->json($pergunta);
 	}
 }
