@@ -112,3 +112,8 @@ li {
 .pokerChips {
 	margin-top: 5em;
 }
+
+.temErro {
+	border-color: indianred;
+    border-width: medium;
+}

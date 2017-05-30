@@ -1,16 +1,20 @@
 <?php
-
 namespace App\Models;
-
-use Illuminate\Database\Eloquent\Model;
-class Jogador extends Model
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+class Jogador extends Authenticatable
 {
+    use Notifiable;
 	protected $table = "jogadores";
 	protected $fillable = [
 	    'nome',
 	    'usuario',
 	    'email',
-	    'senha',
+	    'password',
 	    'tipo',
 	];
+
+	protected $hidden = [
+        'password', 'remember_token',
+    ];
 }
