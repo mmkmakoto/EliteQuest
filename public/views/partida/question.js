@@ -1,28 +1,34 @@
 function answer(answer){
   answer["ficha"] = $selectedFicha.valor;
+  console.log(answer);
+
   var response = getResponseForRandomQuestion(answer);
-    if(answer.question === 0 && answer.choice === 0)
-      response["answered"] = false;
-    else
-      response["answered"] = true;
+
+  if(answer.id_pergunta === 0 && answer.opcao === 0)
+  response["respondido"] = false;
+  else
+  response["respondido"] = true;
+
 
   answerResponse(response);
 }
 
 function answerResponse(response){
-  if(!response.answered){
+  if(!response.respondido){
     $("#answer_result").text("Não respondido :(");
-  }else if(response.correct){
-      $("#answer_result").text("Resposta correta - BIIIIIIIIIIRL");
-      $jogador.posicao = response.steps;
-      walk("player_1", response.steps, true);
-      $selectedFicha = null;
-      statusTurno();
+  }else if(response.correto){
+    $("#answer_result").text("Resposta correta - BIIIIIIIIIIRL");
+    $jogador.posicao = response.nova_posicao;
+    walk("player_1", response.nova_posicao, true);
+    $selectedFicha = null;
+    statusTurno();
   }else{
     $("#answer_result").text("Resposta errada - Que pena....");
   }
   $("#turno_timer").text("0");
+  $("#questionArea").modal("hide");
   $("#resultadoAnswer").modal("show");
+
 }
 
 function getQuestion(configuration, callback){
@@ -31,19 +37,15 @@ function getQuestion(configuration, callback){
     //Temporario:
     var key = question.length;
     if(key > 1)
-      key = Math.floor(((Math.random() * key)));
+    key = Math.floor(((Math.random() * key)));
 
     //Temporario
     if(key === 0)
-      key ++;
+    key ++;
 
     $question = question[key - 1];
     callback($question);
   });
-
-  var question = getRandomQuestion();
-
-  //callback(question);
 }
 
 function selectAnswer(notAnswered){
@@ -51,16 +53,16 @@ function selectAnswer(notAnswered){
 
   if(notAnswered){
     var answer = {
-      "question": 0,
-      "choice": 0
+      "id_pergunta": 0,
+      "opcao": 0
     }
   }else{
-  var answerValue = $("input[name='answer']:checked").val();
-  var answer = {
-    "question": $question.id,
-    "choice": Number(answerValue)
+    var answerValue = $("input[name='answer']:checked").val();
+    var answer = {
+      "id_pergunta": $question.id,
+      "opcao": Number(answerValue)
+    }
   }
-}
   this.answer(answer);
   $question = null;
 }

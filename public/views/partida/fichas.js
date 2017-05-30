@@ -1,9 +1,12 @@
 var $selectedFicha = null;
 
 function disableFicha($fichaComponent){
+  //$fichaComponent.addClass("darkableImage");
+  var darken = "./../../assets/darken_" + $fichaComponent.prop("id")  + ".png";
+  $fichaComponent.attr("src", darken);
   $fichaComponent.prop("disabled", true);
-  $fichaComponent.addClass("btn-primary");
-  $fichaComponent.removeClass("btn-success");
+  // $fichaComponent.addClass("btn-primary");
+  // $fichaComponent.removeClass("btn-success");
 }
 
 function toggleFicha($fichaComponent){
@@ -11,11 +14,11 @@ function toggleFicha($fichaComponent){
   return;
 
   var fichaValue = $fichaComponent.attr("ficha");
-  $selectedFicha = $status.player_1.fichas[fichaValue];
+  $selectedFicha = $status.partida.player_1.fichas[fichaValue];
 
   $(".ficha").removeClass("btn-success");
   $(".ficha").removeClass("selected_ficha");
-  $fichaComponent.addClass("btn-success");
+  //$fichaComponent.addClass("btn-success");
   $fichaComponent.addClass("selected_ficha");
 }
 
@@ -37,9 +40,9 @@ function resetarFichas(){
 function attFichas(){
   resetarFichas();
   console.log("atualizando fichas...");
-  var fichas =  $status.player_1.fichas;
+  var fichas =  $status.partida.player_1.fichas;
   for(var key in fichas){
-    var ficha = $status.player_1.fichas[String(key)];
+    var ficha = $status.partida.player_1.fichas[String(key)];
     if(!ficha.disponivel){
       var $fichaComponent = $("#ficha_" + String(ficha.valor));
       disableFicha($fichaComponent);

@@ -118,58 +118,47 @@ var question5 = {
 
 function resetzFichas(){
   console.log("resetando fichas....");
-  var fichas =  $status.player_1.fichas;
+  var fichas =  $status.partida.player_1.fichas;
   var fichasZeradas = true;
   for(ficha in fichas){
-    if($status.player_1.fichas[ficha].disponivel)
+    if($status.partida.player_1.fichas[ficha].disponivel)
       fichasZeradas = false;
   }
 
-  console.log(fichasZeradas);
 
   if(fichasZeradas){
     for(ficha in fichas){
-      $status.player_1.fichas[ficha].disponivel = true;
+      var ficha_id = "ficha_" + $status.partida.player_1.fichas[ficha].valor;
+      var f = "./../../assets/" + ficha_id  + ".png"
+      $status.partida.player_1.fichas[ficha].disponivel = true;
+      $("#" + ficha_id).attr("src", f);      ;
     }
+
+    $(".ficha").prop("disabled", false);
   }
 }
 
 function getResponseForRandomQuestion(answer){
   var response = {};
-  response["answered"] = true;
-  switch(answer.question){
-    case 1:
-    response["correct"] = (answer.choice === 1);
-    break;
-    case 2:
-    response["correct"] = (answer.choice === 1);
-    break;
-    case 3:
-    response["correct"] = (answer.choice === 1);
-    break;
-    case 4:
-    response["correct"] = (answer.choice === 1);
-    break;
-    case 5:
-    response["correct"] = (answer.choice === 1);
-    break;
-  }
+  response["respondido"] = true;
 
-  var fichas =  $status.player_1.fichas;
+  response.correto = Number($question.opcao_correta) === answer.opcao;
+
+  var fichas =  $status.partida.player_1.fichas;
   for(ficha in fichas){
-    if($status.player_1.fichas[ficha].valor === answer.ficha){
-      $status.player_1.fichas[ficha].disponivel = false;
+    if($status.partida.player_1.fichas[ficha].valor === answer.ficha){
+      $status.partida.player_1.fichas[ficha].disponivel = false;
     }
   }
 
-  console.log($status.player_1.fichas);
+  console.log($status.partida.player_1.fichas);
 
 
-  if(response.correct){
-    $status.player_1.jogador.posicao += answer.ficha;
-    response.steps = $status.player_1.jogador.posicao;
+  if(response.correto){
+    $status.partida.player_1.jogador.posicao += answer.ficha;
+    response.nova_posicao = $status.partida.player_1.jogador.posicao;
   }else {
-    response.steps = 0;
+    response.nova_posicao = 0;
   }
   resetzFichas();
   return response;
