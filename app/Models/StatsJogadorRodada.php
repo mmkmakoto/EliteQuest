@@ -9,7 +9,7 @@ use App\Models\Jogador;
 
 class StatsJogadorRodada extends Model
 {
-	protected $table = "stats_jogador_rodada";
+	protected $table = "stats_jogadores_rodadas";
 	protected $fillable = [
 	    'fichas',
 	    'posicao',
