@@ -14,7 +14,7 @@ function requestCategorias(callback){
 
 function requestQuestion(callback){
   $.ajax({
-    url: urlBase + "api/questoes/all",
+    url: urlBase + "api/pergunta",
     type: "GET",
     cache: false,
     success: callback,
