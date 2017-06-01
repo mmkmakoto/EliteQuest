@@ -23,3 +23,16 @@ function requestQuestion(callback){
     }
   });
 }
+
+function requestStatus(callback){
+  $.ajax({
+    async: true,
+    url: urlBase + "api/game_status",
+    type: "GET",
+    cache: false,
+    success: callback,
+    error: function(response){
+      console.log("ERROR!");
+    }
+  });
+}
