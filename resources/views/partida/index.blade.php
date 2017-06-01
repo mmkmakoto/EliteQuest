@@ -179,26 +179,26 @@
 		<div class="row">
 			<div class="col-sm-12 players">
         <div class="col-lg-3" id="area_player_1">
-          <span class="nome_player" id="name_player_1">Jogador 1</span> - Posição: <span id="pos_player_1">0</span>
+          <span class="nome_player" id="name_player_1">-</span> - Posição: <span id="pos_player_1">0</span>
         </div>
         <div class="col-lg-3" id="area_player_2">
-          <span class="nome_player" id="name_player_2">Jogador 2</span> - Posição: <span id="pos_player_2">0</span>
+          <span class="nome_player" id="name_player_2">-</span> - Posição: <span id="pos_player_2">0</span>
         </div>
         <div class="col-lg-3" id="area_player_3">
-          <span class="nome_player" id="name_player_3">Jogador 3</span> - Posição: <span id="pos_player_3">0</span>
+          <span class="nome_player" id="name_player_3">-</span> - Posição: <span id="pos_player_3">0</span>
         </div>
         <div class="col-lg-3" id="area_player_4">
-          <span class="nome_player" id="name_player_4">Jogador 4</span> - Posição: <span id="pos_player_4">0</span>
+          <span class="nome_player" id="name_player_4">-</span> - Posição: <span id="pos_player_4">0</span>
         </div>
 			</div>
 			<div class="col-sm-1 pokerChips">
 				<!-- <img src="./../../assets/poker 1.png" name="1" value="1"> -->
 
-        <input type="image" class="ficha" id="ficha_1" ficha="1" src="./../../assets/ficha_1.png"/>
-				<input type="image" class="ficha" id="ficha_2" ficha="2"  src="./../../assets/ficha_2.png" >
-        <input type="image" class="ficha" id="ficha_3" ficha="3" src="./../../assets/ficha_3.png"/>
-				<input type="image" class="ficha" id="ficha_4" ficha="4"  src="./../../assets/ficha_4.png" >
-				<input type="image" class="ficha" id="ficha_5" ficha="5"  src="./../../assets/ficha_5.png" >
+        <input type="image" class="ficha" id="ficha_1" ficha="1" src="./../../assets/darken_ficha_1.png"/>
+				<input type="image" class="ficha" id="ficha_2" ficha="2"  src="./../../assets/darken_ficha_2.png" >
+        <input type="image" class="ficha" id="ficha_3" ficha="3" src="./../../assets/darken_ficha_3.png"/>
+				<input type="image" class="ficha" id="ficha_4" ficha="4"  src="./../../assets/darken_ficha_4.png" >
+				<input type="image" class="ficha" id="ficha_5" ficha="5"  src="./../../assets/darken_ficha_5.png" >
 			</div>
 			<div class="col-sm-offset-1 col-sm-10 board">
 				<img src="./../../assets/tabuleiro.png" name="board">
@@ -220,6 +220,24 @@
 	<!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+		<div class="modal fade" id="modalFinish" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h3 class="modal-title">Resultado</h3>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<h3><span id="finishMessage">-</span></h3>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar a Home</button>
+					</div>
+				</div>
+			</div>
+		</div>
 
       <div class="modal fade" id="resultadoAnswer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
