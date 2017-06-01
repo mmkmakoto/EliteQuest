@@ -117,26 +117,21 @@ var question5 = {
 }
 
 function resetzFichas(){
-  console.log("resetando fichas....");
-  var fichas =  $status.partida.player_1.fichas;
-  var fichasZeradas = true;
-  for(ficha in fichas){
-    if($status.partida.player_1.fichas[ficha].disponivel)
-      fichasZeradas = false;
-  }
-
+  var fichasZeradas = $fichas.length <= 0;
 
   if(fichasZeradas){
-    for(ficha in fichas){
-      var ficha_id = "ficha_" + $status.partida.player_1.fichas[ficha].valor;
+    for(i = 0; i<= 4; i++){
+      var ficha_id = "ficha_" + (i + 1);
       var f = "./../../assets/" + ficha_id  + ".png"
-      $status.partida.player_1.fichas[ficha].disponivel = true;
+      $fichas.push(i + 1);
       $("#" + ficha_id).attr("src", f);      ;
     }
 
     $(".ficha").prop("disabled", false);
   }
 }
+
+var $usedFichas = [];
 
 function getResponseForRandomQuestion(answer){
   var response = {};
@@ -145,19 +140,12 @@ function getResponseForRandomQuestion(answer){
   //response.correto = Number($question.opcao_correta) === answer.opcao;
   response.correto = $question.respostas[answer.opcao].correta === 1;
 
-  var fichas =  $status.partida.player_1.fichas;
-  for(ficha in fichas){
-    if($status.partida.player_1.fichas[ficha].valor === answer.ficha){
-      $status.partida.player_1.fichas[ficha].disponivel = false;
-    }
-  }
-
-  console.log($status.partida.player_1.fichas);
-
-
+  $usedFichas.push($selectedFicha);
+  var meu_status = getRodadaAtual().stats_jogadores.filter(function(s){return s.jogador_id === $eu.id})[0];
   if(response.correto){
-    $status.partida.player_1.jogador.posicao += answer.ficha;
-    response.nova_posicao = $status.partida.player_1.jogador.posicao;
+    //$status.partida.player_1.jogador.posicao += answer.ficha;
+    response.nova_posicao = meu_status.posicao + Number(answer.ficha);
+
   }else {
     response.nova_posicao = 0;
   }

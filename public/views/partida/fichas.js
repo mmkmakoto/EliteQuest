@@ -1,5 +1,14 @@
 var $selectedFicha = null;
 
+function enableFicha($fichaComponent){
+  //$fichaComponent.addClass("darkableImage");
+  var not_darken = "./../../assets/" + $fichaComponent.prop("id")  + ".png";
+  $fichaComponent.attr("src", not_darken);
+  $fichaComponent.prop("disabled", false);
+  // $fichaComponent.addClass("btn-primary");
+  // $fichaComponent.removeClass("btn-success");
+}
+
 function disableFicha($fichaComponent){
   //$fichaComponent.addClass("darkableImage");
   var darken = "./../../assets/darken_" + $fichaComponent.prop("id")  + ".png";
@@ -14,7 +23,7 @@ function toggleFicha($fichaComponent){
   return;
 
   var fichaValue = $fichaComponent.attr("ficha");
-  $selectedFicha = $status.partida.player_1.fichas[fichaValue];
+  $selectedFicha = $fichaComponent.attr("ficha");
 
   $(".ficha").removeClass("btn-success");
   $(".ficha").removeClass("selected_ficha");
@@ -23,7 +32,6 @@ function toggleFicha($fichaComponent){
 }
 
 function selectFichaAndGetQuestion(){
-  console.log("SE");
   //$("#get_question").removeClass("hidden");
   disableFicha($(".selected_ficha"));
   checkQuestion();
@@ -37,16 +45,25 @@ function resetarFichas(){
 }
 
 function attFichas(){
-  resetarFichas();
-  console.log("atualizando fichas...");
-  var fichas =  $status.partida.player_1.fichas;
-  for(var key in fichas){
-    var ficha = $status.partida.player_1.fichas[String(key)];
-    if(!ficha.disponivel){
-      var $fichaComponent = $("#ficha_" + String(ficha.valor));
-      disableFicha($fichaComponent);
-    }
-  }
+  //resetarFichas();
+
+for(var key in $fichas){
+  var ficha = $fichas[key];
+  var $fichaComponent = $("#ficha_" + String($fichas[key]));
+  console.log("ficha -->" + $selectedFicha);
+  if(ficha != $selectedFicha)
+    enableFicha($fichaComponent);
+}
+
+  // console.log("atualizando fichas...");
+  // var fichas =  $status.partida.player_1.fichas;
+  // for(var key in fichas){
+  //   var ficha = $status.partida.player_1.fichas[String(key)];
+  //   if(!ficha.disponivel){
+  //     var $fichaComponent = $("#ficha_" + String(ficha.valor));
+  //     disableFicha($fichaComponent);
+  //   }
+  // }
 }
 
 $(document).ready(function(){

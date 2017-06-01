@@ -1,5 +1,5 @@
 function answer(answer){
-  answer["ficha"] = $selectedFicha.valor;
+  answer["ficha"] = $selectedFicha;
   console.log(answer);
 
   var response = getResponseForRandomQuestion(answer);
@@ -14,20 +14,24 @@ function answer(answer){
 }
 
 function answerResponse(response){
+  var el = $("[player_id=" + $eu.id + "]");
+  var id = el.attr('id').split("_");
+  id.shift();
+  var all_id = id.join("_");
   if(!response.respondido){
     $("#answer_result").text("Não respondido :(");
   }else if(response.correto){
     $("#answer_result").text("Resposta correta - BIIIIIIIIIIRL");
-    $jogador.posicao = response.nova_posicao;
-    walk("player_1", response.nova_posicao, true);
+    walk(all_id, response.nova_posicao, true);
     $selectedFicha = null;
-    statusTurno();
+    setInterval(function(){statusTurno();}, 3000);
   }else{
     $("#answer_result").text("Resposta errada - Que pena....");
   }
   $("#turno_timer").text("30");
   $("#questionArea").modal("hide");
   $("#resultadoAnswer").modal("show");
+  $selectedFicha = null;
 
 }
 
@@ -79,10 +83,7 @@ function showQuestion(){
 
 function checkQuestion(){
   console.log("Checking question...");
-  $selectedFicha.disponivel = false;
-  $fichas[String($selectedFicha.valor)] = $selectedFicha;
-  if(($jogador.seu_turno) && ($question === null)){
-
+  if($question === null){
     getQuestion(function(question){
       $question = question;
       showQuestion();
