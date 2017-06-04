@@ -79,6 +79,11 @@ li {
 
 /* webmasterlogado.html css*/
 
+.crud {
+	margin-left: 0;
+	padding-left: 0.5em;
+}
+
 .sidebar-nav {
 	margin-top: 2em;
 	margin-bottom: 1em;
