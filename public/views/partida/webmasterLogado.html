@@ -30,9 +30,19 @@
 			<div class="col-sm-3">
 				<div class="sidebar-nav">
 					<div class="navbar navbar-default" role="navigation">
-						<ul>
-							<li class="btn" data-toggle="modal" data-target="#tema">Cadastrar Temas</li>
-							<li class="btn" data-toggle="modal" data-target="#pergunta">Cadastrar Perguntas</li>
+						<ul class="crud">
+							<ul> 
+							Temas
+								<li class="btn" data-toggle="modal" data-target="#cadastrarTema">Cadastro de Temas</li>
+								<li class="btn" data-toggle="modal" data-target="#editarTema">Edição de Temas</li>
+								<li class="btn" data-toggle="modal" data-target="#pesquisarTema">Pesquisar Temas</li>
+								<li class="btn" data-toggle="modal" data-target="#excluirTema">Exclusão de Temas</li>
+							Perguntas
+								<li class="btn" data-toggle="modal" data-target="#cadastrarPergunta">Cadastro de Perguntas</li>
+								<li class="btn" data-toggle="modal" data-target="#editarPergunta">Alteração de Perguntas</li>
+								<li class="btn" data-toggle="modal" data-target="#pesquisarPergunta">Pesquisar Perguntas</li>
+								<li class="btn" data-toggle="modal" data-target="#excluirPergunta">Exclusão de Perguntas</li>
+							</ul>
 						</ul>
 					</div>
 				</div>
@@ -41,9 +51,8 @@
 	</div>
 
 	<!-- Modais -->
-	<div id="tema" class="modal fade" role="dialog">
+	<div id="cadastrarTema" class="modal fade" role="dialog">
 		<div class="modal-dialog">
-
 		<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
@@ -59,11 +68,72 @@
 					<button type="button" class="btn btn-success" data-save="modal">Salvar</button>
 				</div>
 			</div>
-
 		</div>
 	</div>
 
-	<div id="pergunta" class="modal fade" role="dialog">
+	<div id="editarTema" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+		<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title text-center">Edição de Temas</h4>
+				</div>
+				<div class="modal-body">
+					<!--
+					for contendo todos os temas para que possam ser
+					editados individualmente
+					-->
+				</div>
+				<div class="modal-footer botoes">
+					<button type="button" class="btn btn-success pull-right" data-save="modal">Salvar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="pesquisarTema" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+		<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title text-center">Pesquisa de Temas</h4>
+				</div>
+				<div class="modal-body">
+					<!--
+					for contendo todos os temas para listagem
+					-->
+				</div>
+				<div class="modal-footer botoes">
+					<button type="button" class="btn btn-info" data-search="modal">Pesquisar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="excluirTema" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+		<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title text-center">Exclusão de Temas</h4>
+				</div>
+				<div class="modal-body">
+					<!--
+					for contendo todos os temas para que possam ser
+					excluidos individualmente
+					-->
+				</div>
+				<div class="modal-footer botoes">
+					<button type="button" class="btn btn-success pull-right" data-save="modal">Salvar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="cadastrarPergunta" class="modal fade" role="dialog">
 		<div class="modal-dialog">
 
 		<!-- Modal content-->
@@ -111,6 +181,78 @@
 				</div>
 			</div>
 
+		</div>
+	</div>
+
+	<div id="editarPergunta" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+		<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title text-center">Edição de Perguntas</h4>
+				</div>
+				<div class="modal-body">
+					Pergunta:
+					<input class="btn inputCss" type="text" name="tema" placeholder="Digite uma pergunta">
+					<!--
+					criar div com a pergunta para que possa ser
+					editada
+					-->
+				</div>
+				<div class="modal-footer botoes">
+					<button type="button" class="btn btn-info" data-search="modal">Pesquisar</button>
+					<button type="button" class="btn btn-success" data-save="modal">Salvar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="pesquisarPergunta" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+		<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title text-center">Pesquisa de Perguntas</h4>
+				</div>
+				<div class="modal-body">
+					Pergunta:
+					<input class="btn inputCss" type="text" name="tema" placeholder="Digite uma pergunta">
+					<!--
+					criar div com a pergunta para que possa ser
+					consultada. Essa div deve mostrar as alternativas tbm
+					-->
+				</div>
+				<div class="modal-footer botoes">
+					<button type="button" class="btn btn-info" data-search="modal">Pesquisar</button>
+					<button type="button" class="btn btn-success" data-save="modal">Salvar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="excluirPergunta" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+		<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title text-center">Exclusão de Perguntas</h4>
+				</div>
+				<div class="modal-body">
+					Tema:
+					<input class="btn inputCss" type="text" name="tema" placeholder="Digite uma pergunta">
+					<!--
+					criar div com a pergunta para que possa ser
+					excluida. Solicitar confirmacao da exclusao
+					-->
+				</div>
+				<div class="modal-footer botoes">
+					<button type="button" class="btn btn-info" data-search="modal">Pesquisar</button>
+					<button type="button" class="btn btn-success" data-save="modal">Salvar</button>
+				</div>
+			</div>
 		</div>
 	</div>
 
