@@ -4,7 +4,7 @@ var $jogadores = null;
 var $eu = null;
 var $rodadas = null;
 var $atualizarTurno = true;
-var $categiruas = null;
+var $categorias = null;
 ////////////////////////////////////////
 
 function getRodadaAtual(){
@@ -14,19 +14,23 @@ function getRodadaAtual(){
 
 function setGeneral(){
   var rodada_atual  = this.getRodadaAtual();
+  //move(true, 7, 12);
   $eu = $jogadores.filter(function(j){return j.id === 3})[0];
+  $eu.id;
   for(index_jogador in $jogadores){
     var jogador = $jogadores[index_jogador];
     var elementId = "#name_player_" + (Number(index_jogador) + 1);
+    var tokenId = "#token_player_" + (Number(index_jogador) + 1);
     $(elementId).text(jogador.user.name);
     $(elementId).attr("player_id", jogador.user.id);
+    $(tokenId).attr("player_id", jogador.user.id);
     if(rodada_atual.jogador_id == jogador.user.id)
       $("#area_player_" + (Number(index_jogador) + 1)).css("color", "white");
   }
 
   for(index_s in rodada_atual.stats_jogadores){
     var status = rodada_atual.stats_jogadores[index_s];
-    walk("player_" + status.jogador_id, status.posicao);
+    walk(status, false);
   }
 }
 
@@ -52,7 +56,7 @@ function finishGame(){
 
   if($eu == null)
     finishMessage = "Que pena! parece que esse jogo n existe mais!";
-  else if($eu.id === $status.vencedor_id)
+  else if(3 === $status.vencedor_id)
     finishMessage = "PARABÉNS! YOU HAVE THE POWER";
   else
     finishMessage = "TA DE SACANAGEM?";
@@ -74,22 +78,6 @@ function statusTurno(){
     prepareEspectador();
   else
     prepareTurno();
-
-  //
-  // $jogador = $status.partida.player_1.jogador;
-  // if($jogador != null)
-  //   if($jogador.seu_turno){
-  //     if($question == null)
-  //
-  //       $("#fichasArea").show();
-  //     attFichas();
-  //     if($atualizarTurno){
-  //       prepareTurno();
-  //     }
-  //   }else
-  //     prepareEspectador();
-  //
-  //     setGeneral();
 }
 
 function updateTurnoTimer(){
@@ -114,9 +102,11 @@ function setCategorias(){
   });
 }
 
+
+
 $(document).ready(function(){
   // this.setCategorias();
-
+  //move(1);
   requestStatus(function(status){
     $status = status;
     statusTurno();

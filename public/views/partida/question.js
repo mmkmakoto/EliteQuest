@@ -9,6 +9,7 @@ function answer(answer){
   else
   response["respondido"] = true;
 
+  response.ficha = Number(answer.ficha);
 
   answerResponse(response);
 }
@@ -22,9 +23,17 @@ function answerResponse(response){
     $("#answer_result").text("Não respondido :(");
   }else if(response.correto){
     $("#answer_result").text("Resposta correta - BIIIIIIIIIIRL");
-    walk(all_id, response.nova_posicao, true);
+    requestStatus(function(status){
+      console.log("RODADA");
+      var rodada = status.rodadas[status.rodadas.length - 1];
+      var stats = rodada.stats_jogadores.filter(function(stats){return stats.jogador_id === $eu.id})[0];
+      stats.posicao += response.ficha;
+      console.log(stats);
+      setInterval(walk(stats, true), 5000);
+    });
+
     $selectedFicha = null;
-    setInterval(function(){statusTurno();}, 3000);
+    setInterval(function(){statusTurno();}, 5000);
   }else{
     $("#answer_result").text("Resposta errada - Que pena....");
   }

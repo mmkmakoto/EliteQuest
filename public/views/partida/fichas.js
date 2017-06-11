@@ -47,13 +47,12 @@ function resetarFichas(){
 function attFichas(){
   //resetarFichas();
 
-for(var key in $fichas){
-  var ficha = $fichas[key];
-  var $fichaComponent = $("#ficha_" + String($fichas[key]));
-  console.log("ficha -->" + $selectedFicha);
-  if(ficha != $selectedFicha)
+  for(var key in $fichas){
+    var ficha = $fichas[key];
+    var $fichaComponent = $("#ficha_" + String($fichas[key]));
+    if(ficha != $selectedFicha)
     enableFicha($fichaComponent);
-}
+  }
 
   // console.log("atualizando fichas...");
   // var fichas =  $status.partida.player_1.fichas;
