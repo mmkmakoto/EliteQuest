@@ -13,12 +13,6 @@ a {
 	text-decoration: none;
 }
 
-ul {
-	height: 33.5em;
-	list-style: none;
-	margin: 0.8em;
-}
-
 li {
 	margin: 1em;
 }
@@ -58,7 +52,7 @@ li {
 /* Estilo das classes do footer */
 .footer {
 	position: fixed;
-	height: 3em;
+	height: 10%; /*changed this to percentage - instead was 3em*/
 	bottom: 0;
 	margin-bottom: 0;
 	left: 0;
@@ -80,8 +74,9 @@ li {
 /* webmasterlogado.html css*/
 
 .crud {
-	margin-left: 0;
 	padding-left: 0.5em;
+	list-style: none;
+	margin: 0.8em;
 }
 
 .sidebar-nav {
@@ -121,4 +116,24 @@ li {
 .temErro {
 	border-color: indianred;
     border-width: medium;
+}
+
+/* usuarioLogado.html*/
+
+.regras {
+	position: absolute;
+	height: 60vh;
+	overflow-y: auto;
+}
+
+.partidaHolder {
+	overflow-y: scroll;
+	height: 70vh;
+}
+
+.partida {
+	margin-top: 2em;
+	width: 100%;
+	border: 0.2em solid black;
+	border-radius: 0.5em;
 }
