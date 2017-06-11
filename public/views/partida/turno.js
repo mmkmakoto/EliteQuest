@@ -72,7 +72,7 @@ function statusTurno(){
     finishGame();
     return;
   }
-
+  $rodadas = null;
   var rodada_atual = this.getRodadaAtual();
   if($eu.id !== rodada_atual.jogador_id)
     prepareEspectador();
@@ -117,7 +117,7 @@ $(document).ready(function(){
       $status = status;
       statusTurno();
     });
-  }, 15000);
+  }, 5000);
 
   $("#confirmFichaSelection").on("click",function(){
     intervalo = setInterval(function(){

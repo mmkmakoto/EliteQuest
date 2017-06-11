@@ -17,10 +17,11 @@ function walk(status, effect){
   var status_atual = getRodadaAtual().stats_jogadores.filter(function(stats){return stats.jogador_id === status.jogador_id})[0];
   var atualPos = status_atual.posicao;
   var newPos = status.posicao;
+
   var $element = $('.token[player_id="' + status.jogador_id + '"]');
   if((newPos != atualPos) || (Number($("#pos_"  + status.jogador_id).text()) != atualPos))
     $("#pos_player_" + status.jogador_id).text(newPos);
-  move($element, effect, atualPos, 20);
+  move($element, effect, atualPos, newPos);
 }
 
 function moveWithEffect(posAtual, posNew, token_id, position_token){
@@ -115,7 +116,6 @@ function move($element, effect, posAtual, posNew){
     return;
   }
 
-  console.log(position_token);
   var elem = document.getElementById(token_id);
   var id = setInterval(frame, 5);
   // var top_finish = steps;

@@ -1,8 +1,28 @@
+function validateAnswer(answer){
+  var response = {};
+  response["respondido"] = true;
+  response.correto = $question.respostas[answer.opcao].correta === 1;
+
+  $usedFichas.push($selectedFicha);
+  var meu_status = getRodadaAtual().stats_jogadores.filter(function(s){return s.jogador_id === $eu.id})[0];
+  if(response.correto){
+    //$status.partida.player_1.jogador.posicao += answer.ficha;
+    response.nova_posicao = meu_status.posicao + Number(answer.ficha);
+
+  }else {
+    response.nova_posicao = 0;
+  }
+
+  //resetzFichas();
+  return response;
+
+}
+
 function answer(answer){
   answer["ficha"] = $selectedFicha;
-  console.log(answer);
 
-  var response = getResponseForRandomQuestion(answer);
+
+  var response = validateAnswer(answer);
 
   if(answer.id_pergunta === 0 && answer.opcao === 0)
   response["respondido"] = false;
@@ -24,16 +44,15 @@ function answerResponse(response){
   }else if(response.correto){
     $("#answer_result").text("Resposta correta - BIIIIIIIIIIRL");
     requestStatus(function(status){
-      console.log("RODADA");
       var rodada = status.rodadas[status.rodadas.length - 1];
       var stats = rodada.stats_jogadores.filter(function(stats){return stats.jogador_id === $eu.id})[0];
       stats.posicao += response.ficha;
-      console.log(stats);
       setInterval(walk(stats, true), 5000);
+      $rodadas = null;
     });
 
     $selectedFicha = null;
-    setInterval(function(){statusTurno();}, 5000);
+    //setInterval(function(){statusTurno();}, 5000);
   }else{
     $("#answer_result").text("Resposta errada - Que pena....");
   }
