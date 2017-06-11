@@ -13,7 +13,7 @@ var $token_path = {
                 [435, 240],[480, 210],[585, 155],[635, 75],[780, 40],[800, 110],[765, 215],[800, 260],[770, 355],[802, 400], [770,470], [690, 500]]
 };
 
-function walk(status, effect, force){
+function walk(status, effect){
   var status_atual = getRodadaAtual().stats_jogadores.filter(function(stats){return stats.jogador_id === status.jogador_id})[0];
   var atualPos = status_atual.posicao;
   var newPos = status.posicao;
@@ -21,7 +21,7 @@ function walk(status, effect, force){
   var $element = $('.token[player_id="' + status.jogador_id + '"]');
   if((newPos != atualPos) || (Number($("#pos_"  + status.jogador_id).text()) != atualPos))
     $("#pos_player_" + status.jogador_id).text(newPos);
-  move($element, effect, atualPos, newPos, force);
+  move($element, effect, atualPos, newPos);
 }
 
 function moveWithEffect(posAtual, posNew, token_id, position_token){
