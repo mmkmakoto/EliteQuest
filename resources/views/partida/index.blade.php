@@ -44,6 +44,16 @@
 		top: 85px;
 	}
 
+	.position{
+		font-size: 12px;
+	}
+
+	.token-min{
+		height: 40px;
+		width: 40px;
+		position: absolute;
+	}
+
 	.token{
 		height: 40px;
 		width: 40px;
@@ -79,16 +89,36 @@
 		<div class="row">
 			<div class="col-sm-12 players">
         <div class="col-lg-3" id="area_player_1">
-          <span class="nome_player" id="name_player_1">-</span> - Posição: <span id="pos_player_1">0</span>
+					<div class="col-lg-4">
+						<img src="./../../assets/teste_1.png" id="token_player_id_1" class="token-min"/>
+					</div>
+					<div class="col-lg-8">
+          	<span class="nome_player" id="name_player_1">-</span><br/><span class="position">Posição: <span class="position" id="pos_player_1">0</span></span>
+					</div>
         </div>
         <div class="col-lg-3" id="area_player_2">
-          <span class="nome_player" id="name_player_2">-</span> - Posição: <span id="pos_player_2">0</span>
+					<div class="col-lg-4">
+						<img src="./../../assets/teste_1.png" id="token_player_id_2" class="token-min"/>
+					</div>
+					<div class="col-lg-8">
+          	<span class="nome_player" id="name_player_2">-</span><br/><span class="position">Posição: <span class="position" id="pos_player_2">0</span></span>
+					</div>
         </div>
         <div class="col-lg-3" id="area_player_3">
-          <span class="nome_player" id="name_player_3">-</span> - Posição: <span id="pos_player_3">0</span>
+					<div class="col-lg-4">
+						<img src="./../../assets/teste_1.png" id="token_player_id_3" class="token-min"/>
+					</div>
+					<div class="col-lg-8">
+	          <span class="nome_player" id="name_player_3">-</span><br/><span class="position">Posição: <span class="position" id="pos_player_3">0</span></span>
+					</div>
         </div>
         <div class="col-lg-3" id="area_player_4">
-          <span class="nome_player" id="name_player_4">-</span> - Posição: <span id="pos_player_4">0</span>
+					<div class="col-lg-4">
+						<img src="./../../assets/teste_1.png" id="token_player_id_4" class="token-min"/>
+					</div>
+					<div class="col-lg-8">
+          	<span class="nome_player" id="name_player_4">-</span><br/><span class="position">Posição: <span class="position" id="pos_player_4">0</span></span>
+					</div>
         </div>
 			</div>
 			<div class="col-sm-1 pokerChips">

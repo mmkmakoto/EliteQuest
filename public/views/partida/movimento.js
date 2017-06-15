@@ -23,7 +23,7 @@ function walk(status, effect){
   var $element = $('.token[player_id="' + status.jogador_id + '"]');
   if((newPos != atualPos) || (Number($("#pos_"  + status.jogador_id).text()) != atualPos))
     $("#pos_player_" + status.jogador_id).text(newPos);
-  move($element, effect, atualPos, newPos);
+  move($element, effect, atualPos, 15);//newPos);
 }
 
 function moveWithEffect(posAtual, posNew, token_id, position_token){
