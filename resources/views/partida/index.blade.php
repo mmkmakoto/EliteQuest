@@ -89,34 +89,34 @@
 		<div class="row">
 			<div class="col-sm-12 players">
         <div class="col-lg-3" id="area_player_1">
-					<div class="col-lg-4">
+					<div class="col-lg-1">
 						<img src="./../../assets/teste_1.png" id="token_player_id_1" class="token-min"/>
 					</div>
-					<div class="col-lg-8">
+					<div class="col-lg-11">
           	<span class="nome_player" id="name_player_1">-</span><br/><span class="position">Posição: <span class="position" id="pos_player_1">0</span></span>
 					</div>
         </div>
         <div class="col-lg-3" id="area_player_2">
-					<div class="col-lg-4">
+					<div class="col-lg-1">
 						<img src="./../../assets/teste_1.png" id="token_player_id_2" class="token-min"/>
 					</div>
-					<div class="col-lg-8">
+					<div class="col-lg-11">
           	<span class="nome_player" id="name_player_2">-</span><br/><span class="position">Posição: <span class="position" id="pos_player_2">0</span></span>
 					</div>
         </div>
         <div class="col-lg-3" id="area_player_3">
-					<div class="col-lg-4">
+					<div class="col-lg-1">
 						<img src="./../../assets/teste_1.png" id="token_player_id_3" class="token-min"/>
 					</div>
-					<div class="col-lg-8">
+					<div class="col-lg-11">
 	          <span class="nome_player" id="name_player_3">-</span><br/><span class="position">Posição: <span class="position" id="pos_player_3">0</span></span>
 					</div>
         </div>
         <div class="col-lg-3" id="area_player_4">
-					<div class="col-lg-4">
+					<div class="col-lg-1">
 						<img src="./../../assets/teste_1.png" id="token_player_id_4" class="token-min"/>
 					</div>
-					<div class="col-lg-8">
+					<div class="col-lg-11">
           	<span class="nome_player" id="name_player_4">-</span><br/><span class="position">Posição: <span class="position" id="pos_player_4">0</span></span>
 					</div>
         </div>
