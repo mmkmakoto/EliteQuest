@@ -5,6 +5,8 @@ var $eu = null;
 var $rodadas = null;
 var $atualizarTurno = true;
 var $categorias = null;
+var $audio = new Audio('./../../assets/starman.mp3');
+
 ////////////////////////////////////////
 
 function getRodadaAtual(){
@@ -111,6 +113,8 @@ $(document).ready(function(){
     $status = status;
     statusTurno();
   });
+
+
 
   setInterval(function(){
     requestStatus(function(status){

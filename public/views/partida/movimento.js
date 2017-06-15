@@ -14,9 +14,11 @@ var $token_path = {
 };
 
 function walk(status, effect){
+
   var status_atual = getRodadaAtual().stats_jogadores.filter(function(stats){return stats.jogador_id === status.jogador_id})[0];
   var atualPos = status_atual.posicao;
   var newPos = status.posicao;
+
 
   var $element = $('.token[player_id="' + status.jogador_id + '"]');
   if((newPos != atualPos) || (Number($("#pos_"  + status.jogador_id).text()) != atualPos))
@@ -25,6 +27,11 @@ function walk(status, effect){
 }
 
 function moveWithEffect(posAtual, posNew, token_id, position_token){
+$("#" + token_id).addClass("rotated-right");
+  var moveInterval  = setInterval(function(){
+    $("#" + token_id).toggleClass("rotated-right");
+    $("#" + token_id).toggleClass("rotated-left");
+  }, 300);
   var pos_ini, pos_fim, pos_to_go;
   //$("#" + token_id).css('left', pos_ini[position][0] + "px");
   //$("#" + token_id).css('top', pos_fim[position][1] + "px");
@@ -39,10 +46,15 @@ function moveWithEffect(posAtual, posNew, token_id, position_token){
       }
 
       if(posAtual === posNew){
+        $audio.pause();
+        $audio.currentTime = 0;
         clearInterval(id);
+        clearInterval(moveInterval);
+        $("#" + token_id).removeClass("rotated-right");
+        $("#" + token_id).removeClass("rotated-left");
       }
 
-    }, 5);
+    }, 10);
 
   // var top_finish = steps;
   // var strTop = $("#" + token_id).css('top').split("");
