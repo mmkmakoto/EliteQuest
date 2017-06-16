@@ -14,19 +14,17 @@ var $token_path = {
 };
 
 function walk(status, effect){
-
   var status_atual = getRodadaAtual().stats_jogadores.filter(function(stats){return stats.jogador_id === status.jogador_id})[0];
   var atualPos = status_atual.posicao;
   var newPos = status.posicao;
 
-
   var $element = $('.token[player_id="' + status.jogador_id + '"]');
   if((newPos != atualPos) || (Number($("#pos_"  + status.jogador_id).text()) != atualPos))
     $("#pos_player_" + status.jogador_id).text(newPos);
-  move($element, effect, atualPos, 15);//newPos);
+  move(status, $element, effect, atualPos, 15);//newPos);
 }
 
-function moveWithEffect(posAtual, posNew, token_id, position_token){
+function moveWithEffect(status, posAtual, posNew, token_id, position_token){
 $("#" + token_id).addClass("rotated-right");
   var moveInterval  = setInterval(function(){
     $("#" + token_id).toggleClass("rotated-right");
@@ -52,6 +50,11 @@ $("#" + token_id).addClass("rotated-right");
         clearInterval(moveInterval);
         $("#" + token_id).removeClass("rotated-right");
         $("#" + token_id).removeClass("rotated-left");
+        if(newPos == 21){
+          $status.vencedor_id = status.jogador_id;
+          finishGame();
+        }
+        $first_load = false;
       }
 
     }, 10);
@@ -102,12 +105,12 @@ $("#" + token_id).addClass("rotated-right");
 
 }
 
-function moveWithoutEffect(position, token_id, position_token){
+function moveWithoutEffect(status, position, token_id, position_token){
   $("#" + token_id).css('left', position_token[position][0] + "px");
   $("#" + token_id).css('top', position_token[position][1] + "px");
 }
 
-function move($element, effect, posAtual, posNew){
+function move(status, $element, effect, posAtual, posNew){
   var token_id = $element.attr("id");
   var position_token = $token_path[token_id];
 
@@ -120,11 +123,12 @@ function move($element, effect, posAtual, posNew){
   //var position_init = position_token[position];
   //var position_finish = position_token[steps];
 
-  if(!effect){
-    moveWithoutEffect(posAtual, token_id, position_token);
+  if(!effect && $first_load){
+    moveWithoutEffect(status, posAtual, token_id, position_token);
+    //$first_load = false;
     return;
   }else{
-    moveWithEffect(posAtual, posNew, token_id, position_token);
+    moveWithEffect(status, posAtual, posNew, token_id, position_token);
     return;
   }
 

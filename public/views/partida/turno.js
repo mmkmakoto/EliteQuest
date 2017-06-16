@@ -6,7 +6,8 @@ var $rodadas = null;
 var $atualizarTurno = true;
 var $categorias = null;
 var $audio = new Audio('./../../assets/starman.mp3');
-
+var $snake_never = false;
+var $first_load = true;
 ////////////////////////////////////////
 
 function getRodadaAtual(){
@@ -15,9 +16,10 @@ function getRodadaAtual(){
 }
 
 function setGeneral(){
+  var mine_id = 3;
   var rodada_atual  = this.getRodadaAtual();
   //move(true, 7, 12);
-  $eu = $jogadores.filter(function(j){return j.id === 3})[0];
+  $eu = $jogadores.filter(function(j){return j.id === mine_id})[0];
   $eu.id;
   for(index_jogador in $jogadores){
     var jogador = $jogadores[index_jogador];
@@ -38,6 +40,7 @@ function setGeneral(){
 
 function prepareTurno(){
   //alert("É a sua vez de jogar " + jogador.nome);
+  $("#waitGameArea").modal("hide");
   $atualizarTurno = false;
   var rodada_atual = this.getRodadaAtual();
   var meu_status = rodada_atual.stats_jogadores.filter(function(s){return s.jogador_id === $eu.id})[0];
@@ -51,17 +54,28 @@ function prepareEspectador(configuration){
     disableFicha($("#ficha_" + i));
 
   $("#questionArea").hide();
+  if(!$snake_never){
+    $("#waitGameArea").modal("show");
+  }
+
 }
 
 function finishGame(){
   var finishMessage;
-
   if($eu == null)
     finishMessage = "Que pena! parece que esse jogo n existe mais!";
-  else if(3 === $status.vencedor_id)
+  else if($eu.id === $status.vencedor_id)
     finishMessage = "PARABÉNS! YOU HAVE THE POWER";
   else
     finishMessage = "TA DE SACANAGEM?";
+  var counter = 5;
+  var redirectCounter = setInterval(function(){
+      $("#redirectMessage").text(counter--);
+      if(counter == 0){
+        clearInterval(redirectCounter);
+        window.location.replace("./home");
+      }
+  }, 1000);
 
   $("#finishMessage").text(finishMessage);
   $("#modalFinish").modal("show");
@@ -114,14 +128,20 @@ $(document).ready(function(){
     statusTurno();
   });
 
-
-
   setInterval(function(){
     requestStatus(function(status){
       $status = status;
       statusTurno();
     });
   }, 5000);
+
+  $("#snake_no_more").on("click", function(){
+    $snake_never = true;
+  });
+
+  $("#forceRedirect").on("click", function(){
+    window.location.replace("./home");
+  });
 
   $("#confirmFichaSelection").on("click",function(){
     intervalo = setInterval(function(){
