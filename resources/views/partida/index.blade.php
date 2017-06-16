@@ -7,6 +7,23 @@
 	<meta charset="utf-8">
 
 	<style>
+
+	.rotated-left {
+  transform: rotate(-25deg);
+  -ms-transform: rotate(-25deg); /* IE 9 */
+  -moz-transform: rotate(-25deg); /* Firefox */
+  -webkit-transform: rotate(-25deg); /* Safari and Chrome */
+  -o-transform: rotate(-25deg); /* Opera */
+	}
+
+	.rotated-right {
+  transform: rotate(25deg);
+  -ms-transform: rotate(25deg); /* IE 9 */
+  -moz-transform: rotate(25deg); /* Firefox */
+  -webkit-transform: rotate(25deg); /* Safari and Chrome */
+  -o-transform: rotate(25deg); /* Opera */
+	}
+
 	#token_player_1{
 		left: 130px;
 		top: 30px;
@@ -25,6 +42,16 @@
 	#token_player_4{
 		left: 170px;
 		top: 85px;
+	}
+
+	.position{
+		font-size: 12px;
+	}
+
+	.token-min{
+		height: 40px;
+		width: 40px;
+		position: absolute;
 	}
 
 	.token{
@@ -62,16 +89,36 @@
 		<div class="row">
 			<div class="col-sm-12 players">
         <div class="col-lg-3" id="area_player_1">
-          <span class="nome_player" id="name_player_1">-</span> - Posição: <span id="pos_player_1">0</span>
+					<div class="col-lg-1">
+						<img src="./../../assets/teste_1.png" id="token_player_id_1" class="token-min"/>
+					</div>
+					<div class="col-lg-11">
+          	<span class="nome_player" id="name_player_1">-</span><br/><span class="position">Posição: <span class="position" id="pos_player_1">0</span></span>
+					</div>
         </div>
         <div class="col-lg-3" id="area_player_2">
-          <span class="nome_player" id="name_player_2">-</span> - Posição: <span id="pos_player_2">0</span>
+					<div class="col-lg-1">
+						<img src="./../../assets/teste_1.png" id="token_player_id_2" class="token-min"/>
+					</div>
+					<div class="col-lg-11">
+          	<span class="nome_player" id="name_player_2">-</span><br/><span class="position">Posição: <span class="position" id="pos_player_2">0</span></span>
+					</div>
         </div>
         <div class="col-lg-3" id="area_player_3">
-          <span class="nome_player" id="name_player_3">-</span> - Posição: <span id="pos_player_3">0</span>
+					<div class="col-lg-1">
+						<img src="./../../assets/teste_1.png" id="token_player_id_3" class="token-min"/>
+					</div>
+					<div class="col-lg-11">
+	          <span class="nome_player" id="name_player_3">-</span><br/><span class="position">Posição: <span class="position" id="pos_player_3">0</span></span>
+					</div>
         </div>
         <div class="col-lg-3" id="area_player_4">
-          <span class="nome_player" id="name_player_4">-</span> - Posição: <span id="pos_player_4">0</span>
+					<div class="col-lg-1">
+						<img src="./../../assets/teste_1.png" id="token_player_id_4" class="token-min"/>
+					</div>
+					<div class="col-lg-11">
+          	<span class="nome_player" id="name_player_4">-</span><br/><span class="position">Posição: <span class="position" id="pos_player_4">0</span></span>
+					</div>
         </div>
 			</div>
 			<div class="col-sm-1 pokerChips">
@@ -84,11 +131,11 @@
 				<input type="image" class="ficha" disabled="true" id="ficha_5" ficha="5"  src="./../../assets/darken_ficha_5.png"/>
 			</div>
 			<div class="col-sm-offset-1 col-sm-10 board">
-				<img src="./../../assets/darken_ficha_1.png" id="token_player_1" class="token"/>
-				<img src="./../../assets/darken_ficha_2.png" id="token_player_2" class="token"/>
-				<img src="./../../assets/darken_ficha_3.png" id="token_player_3" class="token"/>
-				<img src="./../../assets/darken_ficha_4.png" id="token_player_4" class="token"/>
-				<img src="./../../assets/tabuleiro.png" name="board">
+				<img src="./../../assets/teste_1.png" id="token_player_1" class="token"/>
+				<img src="./../../assets/teste_1.png" id="token_player_2" class="token"/>
+				<img src="./../../assets/teste_1.png" id="token_player_3" class="token"/>
+				<img src="./../../assets/teste_1.png" id="token_player_4" class="token"/>
+				<img src="./../../assets/tabuleiro2.png" name="board">
 			</div>
 		</div>
 	</div>

@@ -47,7 +47,8 @@ function answerResponse(response){
       var rodada = status.rodadas[status.rodadas.length - 1];
       var stats = rodada.stats_jogadores.filter(function(stats){return stats.jogador_id === $eu.id})[0];
       stats.posicao += response.ficha;
-      setInterval(walk(stats, true), 5000);
+      $audio.play();
+      setInterval(walk(stats, true), 6000);
       $rodadas = null;
     });
 
