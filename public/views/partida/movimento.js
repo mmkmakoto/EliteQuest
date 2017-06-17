@@ -21,7 +21,7 @@ function walk(status, effect){
   var $element = $('.token[player_id="' + status.jogador_id + '"]');
   if((newPos != atualPos) || (Number($("#pos_"  + status.jogador_id).text()) != atualPos))
     $("#pos_player_" + status.jogador_id).text(newPos);
-  move(status, $element, effect, atualPos, 15);//newPos);
+  move(status, $element, effect, atualPos, newPos);
 }
 
 function moveWithEffect(status, posAtual, posNew, token_id, position_token){
@@ -43,6 +43,7 @@ $("#" + token_id).addClass("rotated-right");
         posAtual++;
       }
 
+
       if(posAtual === posNew){
         $audio.pause();
         $audio.currentTime = 0;
@@ -50,11 +51,10 @@ $("#" + token_id).addClass("rotated-right");
         clearInterval(moveInterval);
         $("#" + token_id).removeClass("rotated-right");
         $("#" + token_id).removeClass("rotated-left");
-        if(posNew == 21){
+        if(posNew === 21){
           $status.vencedor_id = status.jogador_id;
           finishGame();
         }
-        $first_load = false;
       }
 
     }, 10);
@@ -123,9 +123,8 @@ function move(status, $element, effect, posAtual, posNew){
   //var position_init = position_token[position];
   //var position_finish = position_token[steps];
 
-  if(!effect && $first_load){
+  if(!effect && posAtual != 0){
     moveWithoutEffect(status, posAtual, token_id, position_token);
-    //$first_load = false;
     return;
   }else{
     moveWithEffect(status, posAtual, posNew, token_id, position_token);

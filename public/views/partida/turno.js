@@ -7,7 +7,6 @@ var $atualizarTurno = true;
 var $categorias = null;
 var $audio = new Audio('./../../assets/starman.mp3');
 var $snake_never = false;
-var $first_load = true;
 ////////////////////////////////////////
 
 function getRodadaAtual(){
