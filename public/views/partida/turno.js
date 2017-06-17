@@ -15,11 +15,9 @@ function getRodadaAtual(){
 }
 
 function setGeneral(){
-  var mine_id = 3;
   var rodada_atual  = this.getRodadaAtual();
-  //move(true, 7, 12);
-  $eu = $jogadores.filter(function(j){return j.id === mine_id})[0];
-  $eu.id;
+  $eu = $jogadores.filter(function(j){return j.id === $user_id})[0];
+
   for(index_jogador in $jogadores){
     var jogador = $jogadores[index_jogador];
     var elementId = "#name_player_" + (Number(index_jogador) + 1);
@@ -133,6 +131,11 @@ $(document).ready(function(){
       statusTurno();
     });
   }, 5000);
+
+  $("#snake_show").on("click", function(){
+    $snake_never = false;
+    $("#waitGameArea").modal("show");
+  });
 
   $("#snake_no_more").on("click", function(){
     $snake_never = true;

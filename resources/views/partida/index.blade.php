@@ -6,6 +6,8 @@
 	<title>Elite Jogos</title>
 	<meta charset="utf-8">
 
+	<script> var $user_id = {{ Auth::user()->id }};</script>
+
 	<style>
 
 	canvas {
@@ -165,6 +167,12 @@
         <input type="image" class="ficha" disabled="true" id="ficha_3" ficha="3" src="./../../assets/darken_ficha_3.png"/>
 				<input type="image" class="ficha" disabled="true" id="ficha_4" ficha="4"  src="./../../assets/darken_ficha_4.png"/>
 				<input type="image" class="ficha" disabled="true" id="ficha_5" ficha="5"  src="./../../assets/darken_ficha_5.png"/>
+				<br/>
+				<div class="row">
+					<div class="col-sm-2">
+						<button class="btn btn-default" id="snake_show" style="width: 70px;">Jogo</button>
+					</div>
+				</div>
 			</div>
 			<div class="col-sm-offset-1 col-sm-10 board">
 				<img src="./../../assets/victor.png" id="token_player_1" class="token"/>
@@ -291,7 +299,7 @@
 			</div>
 		</div>
 
-		<div class="modal fade" id="waitGameArea" tabindex="-1" role="dialog" aria-labelledby="WaitGame" data-keyboard="true" data-backdrop="static" aria-hidden="true">
+		<div class="modal fade" id="waitGameArea" tabindex="-1" role="dialog" aria-labelledby="WaitGame" data-keyboard="false" data-backdrop="static" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
