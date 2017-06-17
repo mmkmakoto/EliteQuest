@@ -16,14 +16,17 @@
 
 </head>
 
-<body>
+<body ng-app="salasModule" ng-controller="dashboardController">
 
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12 logo">
 				<img src="./../../assets/Logo Quest.png">
 			</div>
-			<div class="col-sm-6 formulario">
+			<div class="col-sm-4 formulario">
+				<span>Salas</span>
+			</div>
+			<div class="col-sm-4 formulario">
 				<div>
 					<span>Jogador: {{ Auth::user()->name }}</span>
 				</div>
@@ -31,7 +34,7 @@
 					<span>E-Mail: {{ Auth::user()->email }}</span>
 				</div>
 			</div>
-			<div class="col-sm-6 formulario">
+			<div class="col-sm-4 formulario">
 	            <form id="logout-form" action="{{ route('logout') }}" method="POST">
 	                {{ csrf_field() }}
 	                <button id="botao" class="btn btn-success" type="submit">Logout</button>
@@ -53,6 +56,14 @@
 	<!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-</body>
+   
 
+
+</body>
+    <!--angular n'shit beg-->
+    <script> var user_id = {{ Auth::user()->id }};</script>
+    <script src='/bower_components/angular/angular.js'></script>
+   	<script src='/angular_modules/salasModule.js'></script>
+	<script src='/views/dashboard/dashboardController.js'></script>
+	<!--angular n'shit end-->
 </html>
