@@ -61,6 +61,7 @@
 
 </body>
     <!--angular n'shit beg-->
+    <script> var user_id = {{ Auth::user()->id }};</script>
     <script src='/bower_components/angular/angular.js'></script>
    	<script src='/angular_modules/salasModule.js'></script>
 	<script src='/views/dashboard/dashboardController.js'></script>

@@ -7,6 +7,9 @@ angular
 		$scope.salas = data.data;
 		console.log($scope.salas);
 	});
+
+	console.log(user_id);
+
 }]).run([function()
 {
 	// Evento ao rodar o controller
