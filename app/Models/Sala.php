@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\Jogador;
 class Sala extends Model
 {
 	protected $table= "salas";
@@ -13,4 +13,8 @@ class Sala extends Model
 		'jogadores',
 		'aberta',
 	];
+
+	public function jogadores(){
+		return $this->belongsToMany(Jogador::class,'salas_jogadores','sala_id','jogador_id');
+	}
 }
