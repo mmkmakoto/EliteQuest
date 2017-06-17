@@ -23,7 +23,7 @@ Route::get('/questoes/all', ['as' => 'model_access.questoes.all', 'uses' => 'Mod
 Route::post('/categorias/create', ['as' => 'model_access.categorias.create', 'uses' => 'ModelAccessController@categoriasCreate']);
 Route::post('/questoes/create', ['as' => 'model_access.questoes.create', 'uses' => 'ModelAccessController@questoesCreate']);
 
-
+Route::get('/salas/all', ['as' => 'salas.all', 'uses' => 'SalasController@all']);
 
 //ROTAS PARA USERS AUTENTICADOS APENAS
 Route::get('/game_status', ['as' => 'game.status', 'uses' => 'GameController@gameStatus']);
