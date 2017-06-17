@@ -50,7 +50,7 @@ $("#" + token_id).addClass("rotated-right");
         clearInterval(moveInterval);
         $("#" + token_id).removeClass("rotated-right");
         $("#" + token_id).removeClass("rotated-left");
-        if(newPos == 21){
+        if(posNew == 21){
           $status.vencedor_id = status.jogador_id;
           finishGame();
         }
