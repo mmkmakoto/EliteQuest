@@ -53,16 +53,47 @@
 	}
 
 	.token-min{
+		height: 40px;
+		width: 30px;
+		position: absolute;
+	}
+
+	.token{
 		height: 50px;
 		width: 40px;
 		position: absolute;
 	}
 
-	.token{
-		height: 60px;
-		width: 50px;
-		position: absolute;
+	#token_player_id_1{
+		height: 50px;
+		width: 40px;
 	}
+
+	#token_player_id_3{
+		height: 50px;
+		width: 40px;
+	}
+
+	#token_player_id_4{
+		height: 40px;
+		width: 45px;
+	}
+
+	#token_player_4{
+		height: 45px;
+		width: 50px;
+	}
+
+	 #token_player_id_2{
+		 height: 50px;
+		 width: 40px;
+	 }
+
+	#token_player_2{
+		height: 50px;
+		width: 40px;
+	}
+
 	</style>
 
 	<!-- Latest compiled and minified CSS -->
@@ -103,7 +134,7 @@
         </div>
         <div class="col-lg-3" id="area_player_2">
 					<div class="col-lg-1">
-						<img src="./../../assets/teste_1.png" id="token_player_id_2" class="token-min"/>
+						<img src="./../../assets/daniel.png" id="token_player_id_2" class="token-min"/>
 					</div>
 					<div class="col-lg-11">
           	<span class="nome_player" id="name_player_2">-</span><br/><span class="position">Posição: <span class="position" id="pos_player_2">0</span></span>
@@ -111,7 +142,7 @@
         </div>
         <div class="col-lg-3" id="area_player_3">
 					<div class="col-lg-1">
-						<img src="./../../assets/teste_1.png" id="token_player_id_3" class="token-min"/>
+						<img src="./../../assets/guilherme.png" id="token_player_id_3" class="token-min"/>
 					</div>
 					<div class="col-lg-11">
 	          <span class="nome_player" id="name_player_3">-</span><br/><span class="position">Posição: <span class="position" id="pos_player_3">0</span></span>
@@ -119,7 +150,7 @@
         </div>
         <div class="col-lg-3" id="area_player_4">
 					<div class="col-lg-1">
-						<img src="./../../assets/teste_1.png" id="token_player_id_4" class="token-min"/>
+						<img src="./../../assets/ives.png" id="token_player_id_4" class="token-min"/>
 					</div>
 					<div class="col-lg-11">
           	<span class="nome_player" id="name_player_4">-</span><br/><span class="position">Posição: <span class="position" id="pos_player_4">0</span></span>
@@ -137,9 +168,9 @@
 			</div>
 			<div class="col-sm-offset-1 col-sm-10 board">
 				<img src="./../../assets/victor.png" id="token_player_1" class="token"/>
-				<img src="./../../assets/teste_1.png" id="token_player_2" class="token"/>
-				<img src="./../../assets/teste_1.png" id="token_player_3" class="token"/>
-				<img src="./../../assets/teste_1.png" id="token_player_4" class="token"/>
+				<img src="./../../assets/daniel.png" id="token_player_2" class="token"/>
+				<img src="./../../assets/guilherme.png" id="token_player_3" class="token"/>
+				<img src="./../../assets/ives.png" id="token_player_4" class="token"/>
 				<img src="./../../assets/tabuleiro2.png" name="board">
 			</div>
 		</div>
