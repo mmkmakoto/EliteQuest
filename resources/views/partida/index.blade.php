@@ -8,6 +8,10 @@
 
 	<style>
 
+	canvas {
+  border: 2px solid rgb(151, 149, 149);
+	}
+
 	.rotated-left {
   transform: rotate(-25deg);
   -ms-transform: rotate(-25deg); /* IE 9 */
@@ -49,14 +53,14 @@
 	}
 
 	.token-min{
-		height: 40px;
+		height: 50px;
 		width: 40px;
 		position: absolute;
 	}
 
 	.token{
-		height: 40px;
-		width: 40px;
+		height: 60px;
+		width: 50px;
 		position: absolute;
 	}
 	</style>
@@ -80,6 +84,7 @@
     <script type="text/javascript" src="/views/partida/turno.js"></script>
     <script type="text/javascript" src="/views/partida/fichas.js"></script>
     <script type="text/javascript" src="/views/partida/movimento.js"></script>
+		  <script type="text/javascript" src="/views/partida/snake.js"></script>
 
 </head>
 
@@ -90,7 +95,7 @@
 			<div class="col-sm-12 players">
         <div class="col-lg-3" id="area_player_1">
 					<div class="col-lg-1">
-						<img src="./../../assets/teste_1.png" id="token_player_id_1" class="token-min"/>
+						<img src="./../../assets/victor.png" id="token_player_id_1" class="token-min"/>
 					</div>
 					<div class="col-lg-11">
           	<span class="nome_player" id="name_player_1">-</span><br/><span class="position">Posição: <span class="position" id="pos_player_1">0</span></span>
@@ -131,7 +136,7 @@
 				<input type="image" class="ficha" disabled="true" id="ficha_5" ficha="5"  src="./../../assets/darken_ficha_5.png"/>
 			</div>
 			<div class="col-sm-offset-1 col-sm-10 board">
-				<img src="./../../assets/teste_1.png" id="token_player_1" class="token"/>
+				<img src="./../../assets/victor.png" id="token_player_1" class="token"/>
 				<img src="./../../assets/teste_1.png" id="token_player_2" class="token"/>
 				<img src="./../../assets/teste_1.png" id="token_player_3" class="token"/>
 				<img src="./../../assets/teste_1.png" id="token_player_4" class="token"/>
@@ -165,9 +170,10 @@
 					</div>
 					<div class="modal-body">
 						<h3><span id="finishMessage">-</span></h3>
+						<h4>Você será redirecionado em: <span id="redirectMessage">5</span></h4>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar a Home</button>
+						<button id="forceRedirect" type="button" class="btn btn-secondary" data-dismiss="modal">Voltar a Home</button>
 					</div>
 				</div>
 			</div>
@@ -251,6 +257,25 @@
             </div>
           </div>
         </div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="waitGameArea" tabindex="-1" role="dialog" aria-labelledby="WaitGame" data-keyboard="true" data-backdrop="static" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						Não é a sua vez RAPA! Joga um joguinho aí enquanto isso...
+					</div>
+					<div class="modal-body">
+						<canvas id="stage" height="400" width="520"></canvas>
+					</div>
+					<div class="modal-footer">
+						<button type="button" id="snake_no_more" class="btn btn-danger" data-dismiss="modal">Não mostrar mais</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 </body>
 
