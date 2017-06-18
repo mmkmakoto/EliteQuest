@@ -43,13 +43,14 @@ function answerResponse(response){
     $audio_ta_de_sacanagem.play();
     $("#answer_result").text("Não respondido :(");
   }else if(response.correto){
+    $pergunta_certa.play();
     $("#answer_result").text("Resposta correta - BIIIIIIIIIIRL");
     requestStatus(function(status){
       var rodada = status.rodadas[status.rodadas.length - 1];
       var stats = rodada.stats_jogadores.filter(function(stats){return stats.jogador_id === $eu.id})[0];
       stats.posicao += response.ficha;
 
-      //if(response.ficha > 2)
+      if(response.ficha > 2)
         $audio_walk.play();
       setInterval(walk(stats, true), 6000);
       $rodadas = null;
@@ -58,7 +59,7 @@ function answerResponse(response){
     $selectedFicha = null;
     //setInterval(function(){statusTurno();}, 5000);
   }else{
-    $audio_ta_de_sacanagem.play();
+    $pergunta_errada.play();
     $("#answer_result").text("Resposta errada - Que pena....");
   }
   $("#turno_timer").text("30");
@@ -104,7 +105,7 @@ function selectAnswer(notAnswered){
 }
 
 function showQuestion(){
-
+  $load_pergunta.play();
   $("#enunciado").text($question.pergunta);
   for(index_resp in $question.respostas){
     var opcao = $question.respostas[index_resp];

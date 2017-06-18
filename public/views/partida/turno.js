@@ -16,7 +16,7 @@ function getRodadaAtual(){
 function setGeneral(){
   var rodada_atual  = this.getRodadaAtual();
   $eu = $jogadores.filter(function(j){return j.id === $user_id})[0];
-
+  //$eu = $jogadores.filter(function(j){return j.id === 3})[0];
   for(index_jogador in $jogadores){
     var jogador = $jogadores[index_jogador];
     var elementId = "#name_player_" + (Number(index_jogador) + 1);
@@ -35,6 +35,7 @@ function setGeneral(){
 }
 
 function prepareTurno(){
+
   $("#snake_show").hide();
   $("#waitGameArea").modal("hide");
   $atualizarTurno = false;
@@ -51,6 +52,10 @@ function prepareEspectador(configuration){
 
   $("#questionArea").hide();
   if(!$snake_never){
+
+    if(!$("#waitGameArea").is(":visible")){
+      $turno_outros.play();
+    }
     $("#waitGameArea").modal("show");
   }
 

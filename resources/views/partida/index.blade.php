@@ -169,7 +169,7 @@
 				<br/>
 				<div class="row">
 					<div class="col-sm-2">
-						<button class="btn btn-default" id="snake_show" style="width: 70px;">Jogo</button>
+						<button class="btn btn-default" id="snake_show" style="width: 70px;">SNAKE</button>
 					</div>
 				</div>
 			</div>
