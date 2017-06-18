@@ -27,13 +27,14 @@
 
 </head>
 
-<body>
+<body ng-app="salasModule" ng-controller="dashboardController">
 
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 col-sm-12 logo">
 				<img src="./../../assets/Logo Quest.png">
 			</div>
+
 		</div>
 		<div class="row">
 			<div class="col-lg-12">
@@ -46,12 +47,15 @@
 					<!-- <div>
 						<span>E-Mail: {{ Auth::user()->email }}</span>
 					</div> -->
+
 				</div>
 				<div class="col-lg-6">
 
 				</div>
+
 				<div class="col-lg-2">
 					<button style="width: 100px;" id="criar_sala" class="btn btn-sm btn-success">Criar sala</button>
+
 			</div>
 		</div>
 		<hr/>
@@ -166,6 +170,5 @@
 	<!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-</body>
-
 </html>
+
