@@ -39,10 +39,6 @@ function constroiListaSalas(salas){
 
 function inSala(sala){
   if(sala === undefined){
-    checkSala(function(salaInfo){
-      console.log("INFO");
-      console.log(salaInfo);
-    });
     alert("A sala atual foi fechada");
     clearInterval(attSalaStatusInterval);
     $("#sala").modal("hide");
@@ -106,7 +102,6 @@ function inSala(sala){
   attSalaStatusInterval = setInterval(function(){
       console.log("atualizando status da sala...");
       fetchSala(data, function(response){
-        console.log(response);
         inSala(response);
       });
     }, 5000);
@@ -155,7 +150,6 @@ function exitSala(sala_id){
     user_id: $user.id
   }
   requestExitSala(data, function(response){
-    console.log(response);
     //clearInterval(checkSalaInterval);
     clearInterval(attSalaStatusInterval);
     carregarSalas();
@@ -165,7 +159,6 @@ function exitSala(sala_id){
 function deleteSala(sala_id){
   var data = {sala_id: sala_id, user_id: $user.id};
   requestDeleteSala(data, function(response){
-    console.log(response);
     //clearInterval(checkSalaInterval);
     clearInterval(attSalaStatusInterval);
     carregarSalas();
@@ -192,7 +185,6 @@ function criarSala(){
 function iniciarPartida(sala_id){
   var data = {sala_id: sala_id, user_id: $user.id};
   requestIniciarPartida(data, function(response){
-    console.log(response);
     // if(response.length > 0){
     //   window.location.replace('/partida?partida=' + sala_id);
     // }
