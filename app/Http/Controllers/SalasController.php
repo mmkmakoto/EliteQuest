@@ -8,29 +8,43 @@ use exception;
 class SalasController extends Controller
 {
 	public function teste(){
-		
-
-		//TESTANDO JOIN
-		dd($this->join(new Request([
-			'user_id' => 2,
+		//TESTANDO START		
+		dd($this->start(new Request([
+			'user_id' => 1,
 			'sala_id' => 1,
 		])));
 
+		//TESTANDO CLOSE
+		dd($this->close(new Request([
+			'user_id' => 1,
+			'sala_id' => 1,
+		])));
+
+		//TESTANDO EXIT
+		dd($this->exit(new Request([
+			'user_id' => 1,
+			'sala_id' => 1,
+		])));
+
+		//TESTANDO JOIN
+		dd($this->join(new Request([
+			'user_id' => 1,
+			'sala_id' => 1,
+		])));
 
 		//TESTANDO CREATE
 		dd($this->create(new Request([
-			'jogador_id'=>1,
+			'user_id'=>1,
 			'dificuldade_id'=>1,
-			'jogadores'=>4,
+			'max_jogadores'=>4,
 		])));
-
 
 		//TESTANDO RETORNO ATUAL
 		dd($this->retornoAtual());
 	}
 
 	private function retornoAtual(){
-		return Sala::with('jogadores')->get();
+		return Sala::with('jogadores')->where('aberta',true)->get();
 	}
 
 	public function all(){
@@ -40,7 +54,10 @@ class SalasController extends Controller
 	public function create(Request $request){
 		//CRIA A SALA E RETORNA AS SALAS
 		try{
-			Sala::create($request->all());
+			$jogador = Jogador::where('user_id',$request->user_id)->first();
+			$sala = $request->all();
+			$sala['jogador_id'] = $jogador->id;
+			Sala::create($sala);
 			return response()->json($this->retornoAtual()); 
 
 		}catch(exception $error){
@@ -49,25 +66,84 @@ class SalasController extends Controller
 	}
 
 	public function join(Request $request){
-		//O USER JOIN A SALA X E RETORNA AS SALAS
-		
+		//O USER JOIN A SALA X	
+		try{
+			$jogador = Jogador::where('user_id',$request->user_id)->first();
+			$sala = Sala::with('jogadores')->find($request->sala_id);
 
-		$jogador = Jogador::where('user_id',$request->user_id)->first();
-		dd($jogador);
+			if($sala->max_jogadores > $sala->jogadores->count()){
+				//JOIN OK
+
+				$sala->jogadores->push($jogador);
+
+				$sala->jogadores()->sync($sala->jogadores);
+				
+				return response()->json(true);
+			}
+			else
+			{
+				//JOIN FAILED MAX PLAYERS!
+				return response()->json(false);
+			}
+		}
+		catch(exception $error){
+			return response()->json(false);	
+		}
 	}
 
 	public function exit(Request $request){
+		//O USER EXIT A SALA X
+		try{
+			$jogador = Jogador::where('user_id',$request->user_id)->first();
+			$sala = Sala::with('jogadores')->find($request->sala_id);
 
+			$sala->jogadores()->detach($jogador);
+	
+			return response()->json(true);
 
+		}
+		catch(exception $error){
+			return response()->json(false);	
+		}
 	}
 
 	public function close(Request $request){
+		//O DONO DA SALA FECHA A SALA
+		try{	
+			$jogador = Jogador::where('user_id',$request->user_id)->first();
+			$sala = Sala::find($request->sala_id);
 
-
+			if($sala->jogador_id == $jogador->id){
+				$sala->aberta = false;
+				$sala->save();
+				return response()->json(true);
+			}
+			else{
+				return response()->json(false);
+			}
+		}
+		catch(exception $error){
+			return response()->json(false);
+		}
 	}
 
 	public function start(Request $request){
+		//O DONO DA SALA STARTA O GAME
+		try{	
+			$jogador = Jogador::where('user_id',$request->user_id)->first();
+			$sala = Sala::find($request->sala_id);
 
-		
+			if(($sala->jogador_id == $jogador->id) AND ($sala->aberta)){
+				$sala->aberta = false;
+				$sala->save();
+				return response()->json(true);
+			}
+			else{
+				return response()->json(false);
+			}
+		}
+		catch(exception $error){
+			return response()->json(false);
+		}
 	}
 }

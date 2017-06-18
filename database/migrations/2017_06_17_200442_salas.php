@@ -11,7 +11,7 @@ class Salas extends Migration
             $table->increments('id');
             $table->integer('jogador_id')->unsigned();
             $table->integer('dificuldade_id')->unsigned();
-            $table->integer('jogadores')->unsigned();
+            $table->integer('max_jogadores')->unsigned();
             $table->boolean('aberta')->default(true);
             $table->timestamps();
             $table->foreign('jogador_id')->references('id')->on('jogadores');
