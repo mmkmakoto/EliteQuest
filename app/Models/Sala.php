@@ -10,7 +10,7 @@ class Sala extends Model
 	protected $fillable = [
 		'jogador_id',
 		'dificuldade_id',
-		'jogadores',
+		'max_jogadores',
 		'aberta',
 	];
 

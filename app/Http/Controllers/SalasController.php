@@ -8,39 +8,42 @@ use exception;
 class SalasController extends Controller
 {
 	public function teste(){
-		//TESTANDO START		
-		dd($this->start(new Request([
-			'user_id' => 1,
-			'sala_id' => 1,
-		])));
+		
 
-		//TESTANDO CLOSE
-		dd($this->close(new Request([
-			'user_id' => 1,
-			'sala_id' => 1,
-		])));
 
-		//TESTANDO EXIT
-		dd($this->exit(new Request([
-			'user_id' => 1,
-			'sala_id' => 1,
-		])));
+		// //TESTANDO START		
+		// dd($this->start(new Request([
+		// 	'user_id' => 1,
+		// 	'sala_id' => 1,
+		// ])));
 
-		//TESTANDO JOIN
-		dd($this->join(new Request([
-			'user_id' => 1,
-			'sala_id' => 1,
-		])));
+		// //TESTANDO CLOSE
+		// dd($this->close(new Request([
+		// 	'user_id' => 1,
+		// 	'sala_id' => 1,
+		// ])));
+
+		// //TESTANDO EXIT
+		// dd($this->exit(new Request([
+		// 	'user_id' => 1,
+		// 	'sala_id' => 1,
+		// ])));
+
+		// //TESTANDO JOIN
+		// dd($this->join(new Request([
+		// 	'user_id' => 1,
+		// 	'sala_id' => 1,
+		// ])));
 
 		//TESTANDO CREATE
 		dd($this->create(new Request([
-			'user_id'=>1,
+			'jogador_id'=>1,
 			'dificuldade_id'=>1,
 			'max_jogadores'=>4,
 		])));
 
-		//TESTANDO RETORNO ATUAL
-		dd($this->retornoAtual());
+		// //TESTANDO RETORNO ATUAL
+		// dd($this->retornoAtual());
 	}
 
 	private function retornoAtual(){
@@ -54,10 +57,7 @@ class SalasController extends Controller
 	public function create(Request $request){
 		//CRIA A SALA E RETORNA AS SALAS
 		try{
-			$jogador = Jogador::where('user_id',$request->user_id)->first();
-			$sala = $request->all();
-			$sala['jogador_id'] = $jogador->id;
-			Sala::create($sala);
+			Sala::create($request->all());
 			return response()->json($this->retornoAtual()); 
 
 		}catch(exception $error){
