@@ -6,7 +6,6 @@
 	<title>Elite Jogos</title>
 	<meta charset="utf-8">
 
-
     <link rel="stylesheet" href='/bower_components/bootstrap/dist/css/bootstrap.min.css'>
     <script type="text/javascript" src='/bower_components/jquery/dist/jquery.js'></script>
     <script type="text/javascript" src='/bower_components/bootstrap/dist/js/bootstrap.js'></script>
@@ -15,9 +14,14 @@
 
 
     <script type="text/javascript" src="/views/salas/salas.js"></script>
+		<script type="text/javascript" src="/views/salas/data/simulaDados.js"></script>
 		<script type="text/javascript" src="/views/salas/data/fetchData.js"></script>
-
-		<script> var $user_id = {{ Auth::user()->id }};</script>
+		<script type="text/javascript">
+			var $user = {
+				id: {{ Auth::user()->id }},
+				nome: '{{ Auth::user()->name }}'
+			}
+		</script>
 
 		<style media="screen">
 		.table > tbody > tr > td, .table > tbody > tr > th {
@@ -54,7 +58,7 @@
 				</div>
 
 				<div class="col-lg-2">
-					<button style="width: 100px;" id="criar_sala" class="btn btn-sm btn-success">Criar sala</button>
+					<button style="width: 100px;" id="nova_sala" class="btn btn-sm btn-success">Criar sala</button>
 
 			</div>
 		</div>
@@ -74,7 +78,7 @@
 						      <th class="col-md-4">-</th>
 						    </tr>
 						  </thead>
-						  <tbody>
+						  <tbody id="body_table_salas">
 						    <tr>
 						      <th class="center col-md-4" scope="row">1</th>
 						      <td class="col-md-6">2/4</td>
@@ -103,24 +107,42 @@
 		</div>
 	</div>
 
-	<div class="modal fade" id="sala" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+	<div class="modal fade" id="sala" tabindex="-1" role="dialog" data-backdrop="static"  data-keyboard="false" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h3 class="modal-title">Nova Sala</h3>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
+					<h3 class="modal-title">Sala #<span id="id_sala">1</span></h3>
 				</div>
 				<div class="modal-body">
 					<div class="row">
-						Infos da sala
+						<div class="col-lg-12">
+							<h3>Dificuldade: <span id="dificuldade"></span></h3>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-12">
+							<h3>Status: <span id="status_sala">-</span></h3>
+						</div>
+					</div>
+					<br/>
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									Jogadores <span id="num_jogadores">[0/0]</span>
+								</div>
+								<div class="panel panel-default">
+									<table class="table table-hover">
+								    <tbody id="body_table_sala">
+
+								    </tbody>
+								  </table>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-success" id="criar_sala" data-dismiss="modal">Criar</button>
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-				</div>
+				<div id="footer_inSala" class="modal-footer"></div>
 			</div>
 		</div>
 	</div>
@@ -139,7 +161,7 @@
 						<div class="form-group">
 							<div class="col-lg-4">
 								<label for="dificuldade">Dificuldade:</label>
-							  <select class="form-control" id="dificuldade">
+							  <select class="form-control" id="criar_sala_dificuldade">
 							    <option value="1">Fácil</option>
 							    <option value="2">Médio</option>
 							    <option value="3">Difícil</option>
@@ -148,7 +170,6 @@
 						  <div class="col-lg-4">
 								<label for="numero_jogadores">Número de jogadores:</label>
 							  <select class="form-control" id="numero_jogadores">
-							    <option>1</option>
 							    <option>2</option>
 							    <option>3</option>
 							    <option>4</option>
@@ -171,4 +192,3 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 </html>
-

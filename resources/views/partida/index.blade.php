@@ -5,7 +5,6 @@
 
 	<title>Elite Jogos</title>
 	<meta charset="utf-8">
-
 	<script> var $user_id = {{ Auth::user()->id }};</script>
 
 	<style>
@@ -110,6 +109,7 @@
     <script type="text/javascript" src='/bower_components/jquery/dist/jquery.js'></script>
     <script type="text/javascript" src='/bower_components/bootstrap/dist/js/bootstrap.js'></script>
 
+		<script type="text/javascript" src="/views/partida/audios.js"></script>
     <script type="text/javascript" src="/views/partida/data/fetchData.js"></script>
     <script type="text/javascript" src="/views/partida/parameters.js"></script>
     <script type="text/javascript" src="/views/partida/data/questions.js"></script>
@@ -117,8 +117,7 @@
     <script type="text/javascript" src="/views/partida/turno.js"></script>
     <script type="text/javascript" src="/views/partida/fichas.js"></script>
     <script type="text/javascript" src="/views/partida/movimento.js"></script>
-		  <script type="text/javascript" src="/views/partida/snake.js"></script>
-
+		<script type="text/javascript" src="/views/partida/snake.js"></script>
 </head>
 
 <body>
@@ -170,7 +169,7 @@
 				<br/>
 				<div class="row">
 					<div class="col-sm-2">
-						<button class="btn btn-default" id="snake_show" style="width: 70px;">Jogo</button>
+						<button class="btn btn-default" id="snake_show" style="width: 70px;">SNAKE</button>
 					</div>
 				</div>
 			</div>

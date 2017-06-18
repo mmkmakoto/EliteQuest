@@ -14,6 +14,6 @@ class SalasController extends Controller
 
 	public function create($user){
 
-
+		
 	}
 }

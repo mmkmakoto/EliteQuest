@@ -5,7 +5,6 @@ var $eu = null;
 var $rodadas = null;
 var $atualizarTurno = true;
 var $categorias = null;
-var $audio = new Audio('./../../assets/starman.mp3');
 var $snake_never = false;
 ////////////////////////////////////////
 
@@ -17,7 +16,7 @@ function getRodadaAtual(){
 function setGeneral(){
   var rodada_atual  = this.getRodadaAtual();
   $eu = $jogadores.filter(function(j){return j.id === $user_id})[0];
-
+  //$eu = $jogadores.filter(function(j){return j.id === 3})[0];
   for(index_jogador in $jogadores){
     var jogador = $jogadores[index_jogador];
     var elementId = "#name_player_" + (Number(index_jogador) + 1);
@@ -36,7 +35,8 @@ function setGeneral(){
 }
 
 function prepareTurno(){
-  //alert("É a sua vez de jogar " + jogador.nome);
+
+  $("#snake_show").hide();
   $("#waitGameArea").modal("hide");
   $atualizarTurno = false;
   var rodada_atual = this.getRodadaAtual();
@@ -52,6 +52,10 @@ function prepareEspectador(configuration){
 
   $("#questionArea").hide();
   if(!$snake_never){
+
+    if(!$("#waitGameArea").is(":visible")){
+      $turno_outros.play();
+    }
     $("#waitGameArea").modal("show");
   }
 
