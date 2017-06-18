@@ -6,12 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Rodada;
 use App\Models\Dificuldade;
 use App\Models\Jogador;
+use App\Models\Tema;
 class Partida extends Model
 {
 	protected $table = "partidas";
 	protected $fillable = [
 	    'dificuldade_id',
 	    'vencedor_id',
+		'ordem_de_turno',
 	];
 	public function dificuldade(){
 		return $this->belongsTo(Dificuldade::class);
@@ -24,5 +26,8 @@ class Partida extends Model
 	}
 	public function jogadores(){
 		return $this->belongsToMany(Jogador::class, 'jogadores_partidas','partida_id', 'jogador_id');
+	}
+	public function temas(){
+		return $this->belongsToMany(Tema::class, 'partidas_temas', 'partida_id', 'tema_id');
 	}
 }
