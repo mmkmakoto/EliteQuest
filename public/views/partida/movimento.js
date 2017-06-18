@@ -45,8 +45,8 @@ $("#" + token_id).addClass("rotated-right");
 
 
       if(posAtual === posNew){
-        $audio.pause();
-        $audio.currentTime = 0;
+        $audio_walk.pause();
+        $audio_walk.currentTime = 0;
         clearInterval(id);
         clearInterval(moveInterval);
         $("#" + token_id).removeClass("rotated-right");

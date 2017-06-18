@@ -40,6 +40,7 @@ function answerResponse(response){
   id.shift();
   var all_id = id.join("_");
   if(!response.respondido){
+    $audio_ta_de_sacanagem.play();
     $("#answer_result").text("Não respondido :(");
   }else if(response.correto){
     $("#answer_result").text("Resposta correta - BIIIIIIIIIIRL");
@@ -47,7 +48,9 @@ function answerResponse(response){
       var rodada = status.rodadas[status.rodadas.length - 1];
       var stats = rodada.stats_jogadores.filter(function(stats){return stats.jogador_id === $eu.id})[0];
       stats.posicao += response.ficha;
-      $audio.play();
+
+      //if(response.ficha > 2)
+        $audio_walk.play();
       setInterval(walk(stats, true), 6000);
       $rodadas = null;
     });
@@ -55,6 +58,7 @@ function answerResponse(response){
     $selectedFicha = null;
     //setInterval(function(){statusTurno();}, 5000);
   }else{
+    $audio_ta_de_sacanagem.play();
     $("#answer_result").text("Resposta errada - Que pena....");
   }
   $("#turno_timer").text("30");
