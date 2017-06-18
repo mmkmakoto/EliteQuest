@@ -94,7 +94,7 @@ class SalasController extends Controller
 			$sala->jogadores->push($jogador);
 			$sala->jogadores()->sync($sala->jogadores);
 			
-			return response()->json($this->retornoAtual());
+			return response()->json($sala);
 
 		}catch(exception $error){
 			return response()->json(false);
@@ -114,7 +114,7 @@ class SalasController extends Controller
 
 				$sala->jogadores()->sync($sala->jogadores);
 				
-				return response()->json(true);
+				return response()->json($sala);
 			}
 			else
 			{
@@ -135,7 +135,7 @@ class SalasController extends Controller
 
 			$sala->jogadores()->detach($jogador);
 	
-			return response()->json(true);
+			return response()->json($sala);
 
 		}
 		catch(exception $error){
@@ -179,7 +179,7 @@ class SalasController extends Controller
 
 				$partida->jogadores()->sync($sala->jogadores);
 
-				return response()->json(true);
+				return response()->json($sala);
 			}
 			else{
 				return response()->json(false);
