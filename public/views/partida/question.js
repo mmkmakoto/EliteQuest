@@ -12,6 +12,12 @@ function validateAnswer(answer){
   }else {
     response.nova_posicao = 0;
   }
+  var data = {
+    ficha: Number($selectedFicha)
+  }
+  answerQuestion(data, function(){
+
+  });
 
   //resetzFichas();
   return response;
@@ -46,6 +52,7 @@ function answerResponse(response){
     $pergunta_certa.play();
     $("#answer_result").text("Resposta correta - BIIIIIIIIIIRL");
     requestStatus(function(status){
+      
       var rodada = status.rodadas[status.rodadas.length - 1];
       var stats = rodada.stats_jogadores.filter(function(stats){return stats.jogador_id === $eu.id})[0];
       stats.posicao += response.ficha;

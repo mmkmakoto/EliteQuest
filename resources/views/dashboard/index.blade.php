@@ -78,15 +78,7 @@
 						      <th class="col-md-4">-</th>
 						    </tr>
 						  </thead>
-						  <tbody id="body_table_salas">
-						    <tr>
-						      <th class="center col-md-4" scope="row">1</th>
-						      <td class="col-md-6">2/4</td>
-									<td class="col-md-2">
-										<button style="width: 100px;" idSala="1" class="btn btn-success btn_entrar_sala">Entrar</button>
-									</td>
-						    </tr>
-						  </tbody>
+						  <tbody id="body_table_salas"></tbody>
 						</table>
 					</div>
 				</div>

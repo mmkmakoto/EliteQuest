@@ -12,6 +12,20 @@ function requestCategorias(callback){
   });
 }
 
+function answerQuestion(data, callback){
+  var response = simulaRodada(data);
+  callback(response);
+  // $.ajax({
+  //   url: urlBase + "api/pergunta",
+  //   type: "GET",
+  //   cache: false,
+  //   success: callback,
+  //   error: function(response){
+  //     console.log("ERROR!");
+  //   }
+  // });
+}
+
 function requestQuestion(callback){
   $.ajax({
     url: urlBase + "api/pergunta",
