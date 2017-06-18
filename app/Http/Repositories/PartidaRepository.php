@@ -17,7 +17,7 @@ class PartidaRepository{
 
 		$this->gerarOrdemDeTurno();
 		$this->definirTemas();
-		$this->proximaRodada();
+		//$this->proximaRodada();
 	}
 
 	public function proximaRodada(){
@@ -27,8 +27,20 @@ class PartidaRepository{
 		$rodadas = $this->partida->rodadas;
 
 		if($rodadas->count()==0){
-			dd('iniciando primeira rodada!');
-			Rodada::create([]);
+			//dd('iniciando primeira rodada!');
+
+			$ordem = collect(json_decode($this->partida->ordem_de_turno));
+
+			$jogador_id = $ordem->first();
+
+			Rodada::create([
+				'partida_id' => $this->partida->id,
+				'jogador_id' => $jogador_id,
+				'posicao' => $posicao,
+				'fichas' => $fichas,
+				'pergunta_id' => $pergunta,
+				'resposta_id' => $resposta,
+			]);
 		}
 		else{
 			dd('iniciando nova rodada');
