@@ -68,6 +68,6 @@ class SalasController extends Controller
 
 	public function start(Request $request){
 
-
+		
 	}
 }
