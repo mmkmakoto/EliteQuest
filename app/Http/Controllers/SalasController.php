@@ -8,7 +8,7 @@ use exception;
 class SalasController extends Controller
 {
 	public function teste(){
-		//TESTANDO START		
+		//TESTANDO START
 		dd($this->start(new Request([
 			'user_id' => 1,
 			'sala_id' => 1,
@@ -58,15 +58,15 @@ class SalasController extends Controller
 			$sala = $request->all();
 			$sala['jogador_id'] = $jogador->id;
 			Sala::create($sala);
-			return response()->json($this->retornoAtual()); 
+			return response()->json($this->retornoAtual());
 
 		}catch(exception $error){
-			return response()->json(false);
+			return response()->json($error);
 		}
 	}
 
 	public function join(Request $request){
-		//O USER JOIN A SALA X	
+		//O USER JOIN A SALA X
 		try{
 			$jogador = Jogador::where('user_id',$request->user_id)->first();
 			$sala = Sala::with('jogadores')->find($request->sala_id);
@@ -77,7 +77,7 @@ class SalasController extends Controller
 				$sala->jogadores->push($jogador);
 
 				$sala->jogadores()->sync($sala->jogadores);
-				
+
 				return response()->json(true);
 			}
 			else
@@ -87,7 +87,7 @@ class SalasController extends Controller
 			}
 		}
 		catch(exception $error){
-			return response()->json(false);	
+			return response()->json(false);
 		}
 	}
 
@@ -98,18 +98,18 @@ class SalasController extends Controller
 			$sala = Sala::with('jogadores')->find($request->sala_id);
 
 			$sala->jogadores()->detach($jogador);
-	
+
 			return response()->json(true);
 
 		}
 		catch(exception $error){
-			return response()->json(false);	
+			return response()->json(false);
 		}
 	}
 
 	public function close(Request $request){
 		//O DONO DA SALA FECHA A SALA
-		try{	
+		try{
 			$jogador = Jogador::where('user_id',$request->user_id)->first();
 			$sala = Sala::find($request->sala_id);
 
@@ -129,7 +129,7 @@ class SalasController extends Controller
 
 	public function start(Request $request){
 		//O DONO DA SALA STARTA O GAME
-		try{	
+		try{
 			$jogador = Jogador::where('user_id',$request->user_id)->first();
 			$sala = Sala::find($request->sala_id);
 
