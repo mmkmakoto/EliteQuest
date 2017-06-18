@@ -39,9 +39,6 @@ function constroiListaSalas(salas){
 
 function inSala(sala){
   if(sala === undefined){
-    alert("A sala atual foi fechada");
-    clearInterval(attSalaStatusInterval);
-    $("#sala").modal("hide");
     return;
   }
 
@@ -102,10 +99,32 @@ function inSala(sala){
   attSalaStatusInterval = setInterval(function(){
       console.log("atualizando status da sala...");
       fetchSala(data, function(response){
+        if(response == undefined){
+          requestGameStatus(function(response){
+            var game = response;
+              console.log("REDIRECTING TO GAME...");
+            console.log(game);
+            if(game.sala_id === sala.id)
+              window.location.replace("/partida");
+            return;
+          });
+
+          alert("A sala atual foi fechada");
+          clearInterval(attSalaStatusInterval);
+          $("#sala").modal("hide");
+          return;
+        }
         inSala(response);
       });
     }, 5000);
 }
+
+function isSalaInitiated(sala_id){
+    requestGameStatus(function(response){
+      console.log(response);
+    });
+}
+
 //
 function checkSala(callback){
 //  var data = {sala_id: sala_id};
@@ -117,6 +136,19 @@ function checkSala(callback){
     if(callback !== undefined)
       callback(response);
     fetchSala(data, function(sala){
+      if(sala == undefined){
+        requestGameStatus(function(response){
+          var game = response;
+          if(game.sala_id == sala.id)
+            window.location.replace("/partida");
+          return;
+        });
+
+        alert("A sala atual foi fechada");
+        clearInterval(attSalaStatusInterval);
+        $("#sala").modal("hide");
+        return;
+      }
       inSala(sala);
     });
   });
