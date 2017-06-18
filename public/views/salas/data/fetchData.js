@@ -15,6 +15,10 @@ function requestCreateSala(data, callback){
   });
 }
 
+function checkSalaExist(sala_id, callback){
+
+}
+
 function requestIniciarPartida(data, callback){
     $.ajax({
       url: urlBase + "api/salas/start",
@@ -28,19 +32,30 @@ function requestIniciarPartida(data, callback){
     });
 }
 
-function requestCheckSala(data, callback){
-  var response = simulaPartidaCriada(data);
-  callback(response);
-  // $.ajax({
-  //   url: urlBase + "api/categorias/all",
-  //   data: data,
-  //   type: "POST",
-  //   cache: false,
-  //   success: callback,
-  //   error: function(response){
-  //     console.log("ERROR!");
-  //   }
-  // });
+function requestGameStatus(callback){
+  $.ajax({
+    url: urlBase + "api/game_status",
+    type: "GET",
+    cache: false,
+    success: callback,
+    error: function(response){
+      console.log("ERROR!");
+    }
+  });
+}
+
+function requestCheckSala(user_id, callback){
+  // var response = simulaPartidaCriada(data);
+  // callback(response);
+  $.ajax({
+    url: urlBase + "api/salas/where_is/" + user_id,
+    type: "GET",
+    cache: false,
+    success: callback,
+    error: function(response){
+      console.log("ERROR!");
+    }
+  });
 }
 
 function requestExitSala(data, callback){
