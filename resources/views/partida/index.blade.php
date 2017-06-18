@@ -5,7 +5,6 @@
 
 	<title>Elite Jogos</title>
 	<meta charset="utf-8">
-
 	<script> var $user_id = {{ Auth::user()->id }};</script>
 
 	<style>

@@ -36,7 +36,7 @@ function setGeneral(){
 }
 
 function prepareTurno(){
-  //alert("É a sua vez de jogar " + jogador.nome);
+  $("#snake_show").hide();
   $("#waitGameArea").modal("hide");
   $atualizarTurno = false;
   var rodada_atual = this.getRodadaAtual();
