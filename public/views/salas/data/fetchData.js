@@ -5,6 +5,11 @@ function requestCreateSala(data, callback){
   callback(response);
 }
 
+function requestIniciarPartida(data, callback){
+  var response = simulaIniciarPartida(data);
+  callback(response);
+}
+
 function requestCheckSala(data, callback){
   var response = simulaPartidaCriada(data);
   callback(response);
@@ -47,6 +52,11 @@ function requestDeleteSala(data, callback){
   //     console.log("ERROR!");
   //   }
   // });
+}
+
+function fetchSala(data, callback){
+  var response = simulaCheckSala(data);
+  callback(response);
 }
 
 function fetchSalas(callback){

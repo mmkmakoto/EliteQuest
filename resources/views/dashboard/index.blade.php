@@ -170,7 +170,6 @@
 						  <div class="col-lg-4">
 								<label for="numero_jogadores">Número de jogadores:</label>
 							  <select class="form-control" id="numero_jogadores">
-							    <option>1</option>
 							    <option>2</option>
 							    <option>3</option>
 							    <option>4</option>

@@ -1,7 +1,14 @@
 var idSimulator = 2;
 
+var partidas = [];
+
 function simulaPartidaCriada(data){
-  return [];
+  return partidas;
+}
+
+function simulaIniciarPartida(data){
+  partidas.push(data.id_sala);
+  return partidas;
 }
 
 function simulaJoinSala(data){
@@ -9,6 +16,13 @@ function simulaJoinSala(data){
     return s.id === data.id_sala;
   })[0];
   sala.jogadores.push($user);
+  return sala;
+}
+
+function simulaCheckSala(data){
+  var sala = salas_simulator.filter(function(s){
+    return s.id === data.id_sala;
+  })[0];
   return sala;
 }
 

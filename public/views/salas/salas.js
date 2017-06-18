@@ -1,5 +1,5 @@
 var checkSalaInterval;
-
+var attSalaStatusInterval;
 $(document).ready(function(){
   carregarSalas();
 
@@ -73,7 +73,11 @@ function inSala(sala){
   var btnHtmlStart = "";
   var btnHtmlExit = "";
   if(sala.jogador_id === $user.id){
-    btnHtmlStart = '<button type="button" onClick="iniciarPartida('+ sala.id +')" class="btn btn-success" id="criar_sala" data-dismiss="modal">Começar</button>';
+    btnHtmlStart = '<button type="button" onClick="iniciarPartida('+ sala.id +')" class="btn btn-success" id="criar_sala" data-dismiss="modal">Começar jogo</button>';
+
+    if(sala.jogadores.length < 2)
+      btnHtmlStart = '<button type="button" class="btn btn-primary disabled" id="criar_sala">Aguardando o mínimo de jogadores...</button>';
+
     btnHtmlEnd = '<button type="button" onClick="deleteSala(' + sala.id + ')" class="btn btn-danger" data-dismiss="modal">Fechar a sala</button>';
   }else{
     btnHtmlStart = '<button type="button" class="btn btn-primary disabled" id="criar_sala">Aguardando inicio...</button>';
@@ -83,10 +87,21 @@ function inSala(sala){
   $("#footer_inSala").html(btnHtmlStart + btnHtmlEnd);
 
   $("#body_table_sala").html(html);
+
   $("#sala").modal("show");
+
   checkSalaInterval = setInterval(function(){
     checkSalaCreated(sala.id);
   }, 3000);
+
+  var data = {id_sala: sala.id};
+  clearInterval(attSalaStatusInterval);
+  attSalaStatusInterval = setInterval(function(){
+      console.log("atualizando status da sala...");
+      fetchSala(data, function(response){
+        inSala(response);
+      });
+    }, 5000);
 }
 
 function checkSalaCreated(id_sala){
@@ -110,6 +125,7 @@ function entrarSala(id_sala){
     id_jogador: $user.id,
     id_sala: id_sala
   }
+
   requestEntrarSala(obj, function(response){
     inSala(response);
   });
@@ -123,6 +139,7 @@ function exitSala(id_sala){
   requestExitSala(data, function(response){
     console.log(response);
     clearInterval(checkSalaInterval);
+    clearInterval(attSalaStatusInterval);
   });
 }
 
@@ -131,6 +148,7 @@ function deleteSala(id_sala){
   requestDeleteSala(data, function(response){
     console.log(response);
     clearInterval(checkSalaInterval);
+    clearInterval(attSalaStatusInterval);
   });
 }
 
@@ -148,4 +166,13 @@ function criarSala(){
     inSala(response);
   });
 
+}
+
+function iniciarPartida(id_sala){
+  var data = {id_sala: id_sala};
+  requestIniciarPartida(data, function(response){
+    if(response.length > 0){
+      window.location.replace('/partida?partida=' + id_sala);
+    }
+  });
 }
