@@ -35,33 +35,33 @@ class SalasController extends Controller
 
 
 
-		($this->create(new Request([
+		dd($this->create(new Request([
 			'user_id'=>1,
 			'dificuldade_id'=>1,
 			'max_jogadores'=>4,
 		])));
 
-		$sala = Sala::orderBy('id','desc')->first();
+		// $sala = Sala::orderBy('id','desc')->first();
 
-		($this->join(new Request([
-			'user_id' => 2,
-			'sala_id' => $sala->id,
-		])));
-		//TESTANDO JOIN
-		($this->join(new Request([
-			'user_id' => 3,
-			'sala_id' => $sala->id,
-		])));
-		//TESTANDO JOIN
-		($this->join(new Request([
-			'user_id' => 4,
-			'sala_id' => $sala->id,
-		])));
+		// ($this->join(new Request([
+		// 	'user_id' => 2,
+		// 	'sala_id' => $sala->id,
+		// ])));
+		// //TESTANDO JOIN
+		// ($this->join(new Request([
+		// 	'user_id' => 3,
+		// 	'sala_id' => $sala->id,
+		// ])));
+		// //TESTANDO JOIN
+		// ($this->join(new Request([
+		// 	'user_id' => 4,
+		// 	'sala_id' => $sala->id,
+		// ])));
 
-		dd($this->start(new Request([
-			'user_id' => 1,
-			'sala_id' => $sala->id,
-		])));
+		// dd($this->start(new Request([
+		// 	'user_id' => 1,
+		// 	'sala_id' => $sala->id,
+		// ])));
 
 
 		//TESTANDO CREATE
@@ -152,7 +152,7 @@ class SalasController extends Controller
 			if($sala->jogador_id == $jogador->id){
 				$sala->aberta = false;
 				$sala->save();
-				return response()->json(true);
+				return response()->json($sala);
 			}
 			else{
 				return response()->json(false);
