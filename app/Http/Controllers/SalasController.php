@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Sala;
 use App\Models\Jogador;
+use App\Models\Partida;
 use exception;
 class SalasController extends Controller
 {
@@ -14,33 +15,68 @@ class SalasController extends Controller
 			'sala_id' => 1,
 		])));
 
-		//TESTANDO CLOSE
-		dd($this->close(new Request([
-			'user_id' => 1,
-			'sala_id' => 1,
-		])));
 
-		//TESTANDO EXIT
-		dd($this->exit(new Request([
-			'user_id' => 1,
-			'sala_id' => 1,
-		])));
+		// //TESTANDO START
+		// dd($this->start(new Request([
+		// 	'user_id' => 1,
+		// 	'sala_id' => 1,
+		// ])));
+
+		// //TESTANDO CLOSE
+		// dd($this->close(new Request([
+		// 	'user_id' => 1,
+		// 	'sala_id' => 1,
+		// ])));
+
+		// //TESTANDO EXIT
+		// dd($this->exit(new Request([
+		// 	'user_id' => 1,
+		// 	'sala_id' => 1,
+		// ])));
 
 		//TESTANDO JOIN
-		dd($this->join(new Request([
-			'user_id' => 1,
-			'sala_id' => 1,
-		])));
 
-		//TESTANDO CREATE
+
+
+
 		dd($this->create(new Request([
 			'user_id'=>1,
 			'dificuldade_id'=>1,
 			'max_jogadores'=>4,
 		])));
 
-		//TESTANDO RETORNO ATUAL
-		dd($this->retornoAtual());
+		// $sala = Sala::orderBy('id','desc')->first();
+
+		// ($this->join(new Request([
+		// 	'user_id' => 2,
+		// 	'sala_id' => $sala->id,
+		// ])));
+		// //TESTANDO JOIN
+		// ($this->join(new Request([
+		// 	'user_id' => 3,
+		// 	'sala_id' => $sala->id,
+		// ])));
+		// //TESTANDO JOIN
+		// ($this->join(new Request([
+		// 	'user_id' => 4,
+		// 	'sala_id' => $sala->id,
+		// ])));
+
+		// dd($this->start(new Request([
+		// 	'user_id' => 1,
+		// 	'sala_id' => $sala->id,
+		// ])));
+
+
+		//TESTANDO CREATE
+		// dd($this->create(new Request([
+		// 	'jogador_id'=>1,
+		// 	'dificuldade_id'=>1,
+		// 	'max_jogadores'=>4,
+		// ])));
+
+		// //TESTANDO RETORNO ATUAL
+		// dd($this->retornoAtual());
 	}
 
 	private function retornoAtual(){
@@ -55,10 +91,14 @@ class SalasController extends Controller
 		//CRIA A SALA E RETORNA AS SALAS
 		try{
 			$jogador = Jogador::where('user_id',$request->user_id)->first();
-			$sala = $request->all();
-			$sala['jogador_id'] = $jogador->id;
-			Sala::create($sala);
-			return response()->json($this->retornoAtual());
+
+			$salaFill = $request->all();
+			$salaFill['jogador_id'] = $jogador->id;
+			$sala = Sala::create($salaFill);
+			$sala->jogadores->push($jogador);
+			$sala->jogadores()->sync($sala->jogadores);
+
+			return response()->json($sala);
 
 		}catch(exception $error){
 			return response()->json($error);
@@ -78,7 +118,7 @@ class SalasController extends Controller
 
 				$sala->jogadores()->sync($sala->jogadores);
 
-				return response()->json(true);
+				return response()->json($sala);
 			}
 			else
 			{
@@ -98,8 +138,13 @@ class SalasController extends Controller
 			$sala = Sala::with('jogadores')->find($request->sala_id);
 
 			$sala->jogadores()->detach($jogador);
+<<<<<<< HEAD
 
 			return response()->json(true);
+=======
+
+			return response()->json($sala);
+>>>>>>> 47319897a815073f9da1e65bd19d594cc53d55cd
 
 		}
 		catch(exception $error){
@@ -116,7 +161,7 @@ class SalasController extends Controller
 			if($sala->jogador_id == $jogador->id){
 				$sala->aberta = false;
 				$sala->save();
-				return response()->json(true);
+				return response()->json($sala);
 			}
 			else{
 				return response()->json(false);
@@ -136,7 +181,14 @@ class SalasController extends Controller
 			if(($sala->jogador_id == $jogador->id) AND ($sala->aberta)){
 				$sala->aberta = false;
 				$sala->save();
-				return response()->json(true);
+
+				$partida = Partida::create([
+					'dificuldade_id' => $sala->dificuldade_id,
+				]);
+
+				$partida->jogadores()->sync($sala->jogadores);
+
+				return response()->json($sala);
 			}
 			else{
 				return response()->json(false);
