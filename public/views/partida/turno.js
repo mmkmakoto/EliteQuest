@@ -6,6 +6,8 @@ var $rodadas = null;
 var $atualizarTurno = true;
 var $categorias = null;
 var $snake_never = false;
+var $id_atual;
+var $ordem_turno;
 ////////////////////////////////////////
 
 function getRodadaAtual(){
@@ -14,6 +16,7 @@ function getRodadaAtual(){
 }
 
 function setGeneral(){
+  $ordem_turno = JSON.parse($status.ordem_de_turno);
   var rodada_atual  = this.getRodadaAtual();
   $eu = $jogadores.filter(function(j){return j.id === $user_id})[0];
   //$eu = $jogadores.filter(function(j){return j.id === 3})[0];
@@ -24,13 +27,20 @@ function setGeneral(){
     $(elementId).text(jogador.user.name);
     $(elementId).attr("player_id", jogador.user.id);
     $(tokenId).attr("player_id", jogador.user.id);
-    if(rodada_atual.jogador_id == jogador.user.id)
-      $("#area_player_" + (Number(index_jogador) + 1)).css("color", "white");
+    if(rodada_atual == undefined){
+      $id_atual = $ordem_turno[0];
+      if(jogador.user.id == $id_atual)
+        $("#area_player_" + (Number(index_jogador) + 1)).css("color", "white");
+    }else{
+      if(rodada_atual.jogador_id == jogador.user.id)
+        $("#area_player_" + (Number(index_jogador) + 1)).css("color", "white");
+    }
   }
-
-  for(index_s in rodada_atual.stats_jogadores){
-    var status = rodada_atual.stats_jogadores[index_s];
-    walk(status, false);
+  if(rodada_atual !== undefined){
+    for(index_s in rodada_atual.stats_jogadores){
+      var status = rodada_atual.stats_jogadores[index_s];
+      walk(status, false);
+    }
   }
 }
 
@@ -91,7 +101,7 @@ function statusTurno(){
   }
   $rodadas = null;
   var rodada_atual = this.getRodadaAtual();
-  if($eu.id !== rodada_atual.jogador_id)
+  if($eu.id !== $id_atual)
     prepareEspectador();
   else
     prepareTurno();
