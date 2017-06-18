@@ -11,10 +11,10 @@ class SalasController extends Controller
 {
 	public function teste(){
 		//TESTANDO START
-		dd($this->start(new Request([
-			'user_id' => 1,
-			'sala_id' => 1,
-		])));
+		// dd($this->start(new Request([
+		// 	'user_id' => 1,
+		// 	'sala_id' => 1,
+		// ])));
 
 
 		// //TESTANDO START
@@ -187,6 +187,7 @@ class SalasController extends Controller
 
 				$partida = Partida::create([
 					'dificuldade_id' => $sala->dificuldade_id,
+					'sala_id' => $sala->id,
 				]);
 
 				$partida->jogadores()->sync($sala->jogadores);
