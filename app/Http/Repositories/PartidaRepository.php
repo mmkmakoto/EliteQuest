@@ -30,17 +30,19 @@ class PartidaRepository{
 			//dd('iniciando primeira rodada!');
 
 			$ordem = collect(json_decode($this->partida->ordem_de_turno));
-
+			$pergunta = $this->partida->temas->first()->perguntas->shuffle()->first();
 			$jogador_id = $ordem->first();
 
-			Rodada::create([
+			$rodada = Rodada::create([
 				'partida_id' => $this->partida->id,
 				'jogador_id' => $jogador_id,
-				'posicao' => $posicao,
-				'fichas' => $fichas,
-				'pergunta_id' => $pergunta,
-				'resposta_id' => $resposta,
+				'posicao' => 0,
+				'fichas' => json_encode([1,2,3,4,5]),
+				'pergunta_id' => $pergunta->id,
+				'resposta_id' => null,
 			]);
+
+			dd($rodada);
 		}
 		else{
 			dd('iniciando nova rodada');
