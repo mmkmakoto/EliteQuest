@@ -24,11 +24,15 @@ Route::post('/categorias/create', ['as' => 'model_access.categorias.create', 'us
 Route::post('/questoes/create', ['as' => 'model_access.questoes.create', 'uses' => 'ModelAccessController@questoesCreate']);
 
 //ROTAS PARA CONTROLE DE SALA
+Route::get('/salas/teste' ,['as' => 'salas.teste', 'uses' => 'SalasController@teste']);
 Route::get('/salas/all', ['as' => 'salas.all', 'uses' => 'SalasController@all']);
 Route::post('/salas/create', ['as' => 'salas.create', 'uses' => 'SalasController@create']);
 Route::post('/salas/join', ['as' => 'salas.join', 'uses' => 'SalasController@join']);
+Route::post('/salas/exit', ['as' => 'salas.exit', 'uses' => 'SalasController@exit']);
 Route::post('/salas/close', ['as' => 'salas.close', 'uses' => 'SalasController@close']);
 Route::post('/salas/start', ['as' => 'salas.start', 'uses' => 'SalasController@start']);
+
+
 
 //ROTAS PARA USERS AUTENTICADOS APENAS
 Route::get('/game_status', ['as' => 'game.status', 'uses' => 'GameController@gameStatus']);
