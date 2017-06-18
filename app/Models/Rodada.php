@@ -17,6 +17,8 @@ class Rodada extends Model
 	    'pergunta_id',
 	    'resposta_id',
 	    'jogador_id',
+	    'fichas',
+	    'posicao',
 	];
 	public function resposta(){
 		return $this->belongsTo(Resposta::class);

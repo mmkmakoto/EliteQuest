@@ -45,6 +45,13 @@ class PartidaRepository{
 			dd($rodada);
 		}
 		else{
+
+			$jogador_id = $this->proximoPlayer();
+			$temas = $this->partida->temas;
+
+			dd($temas);
+
+
 			dd('iniciando nova rodada');
 		}
 
@@ -55,6 +62,18 @@ class PartidaRepository{
 
 	Public function receberResposta(){
 
+	}
+
+	private function proximoPlayer(){
+		$lastPlayer = $this->partida->rodadas->sortByDesc('id')->first()->jogador_id;
+		$ordem = collect(json_decode($this->partida->ordem_de_turno));
+		$players = $ordem->count();
+		$key = $ordem->flip()[$lastPlayer];
+		$key++;
+		if($key >= $players){
+			$key = 0;
+		}
+		return $ordem[$key];		
 	}
 
 	private function definirTemas(){
