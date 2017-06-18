@@ -7,13 +7,13 @@ function simulaPartidaCriada(data){
 }
 
 function simulaIniciarPartida(data){
-  partidas.push(data.id_sala);
+  partidas.push(data.sala_id);
   return partidas;
 }
 
 function simulaJoinSala(data){
   var sala = salas_simulator.filter(function(s){
-    return s.id === data.id_sala;
+    return s.id === data.sala_id;
   })[0];
   sala.jogadores.push($user);
   return sala;
@@ -21,18 +21,18 @@ function simulaJoinSala(data){
 
 function simulaCheckSala(data){
   var sala = salas_simulator.filter(function(s){
-    return s.id === data.id_sala;
+    return s.id === data.sala_id;
   })[0];
   return sala;
 }
 
 function simulaSairSala(data){
   var sala = salas_simulator.filter(function(s){
-    return s.id === data.id_sala;
+    return s.id === data.sala_id;
   })[0];
 
   sala.jogadores = sala.jogadores.filter(function(j){
-    return j.id != data.id_jogador;
+    return j.id != data.user_id;
   });
 
   return salas_simulator;
@@ -40,8 +40,9 @@ function simulaSairSala(data){
 
 function simulaDeleteSala(data){
   salas_simulator = salas_simulator.filter(function(s){
-    return s.id !== data.id_sala;
+    return s.id !== data.sala_id;
   });
+
 
   return salas_simulator;
 }

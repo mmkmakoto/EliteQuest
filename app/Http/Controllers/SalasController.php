@@ -9,10 +9,14 @@ use exception;
 class SalasController extends Controller
 {
 	public function teste(){
-		
+		//TESTANDO START
+		dd($this->start(new Request([
+			'user_id' => 1,
+			'sala_id' => 1,
+		])));
 
 
-		// //TESTANDO START		
+		// //TESTANDO START
 		// dd($this->start(new Request([
 		// 	'user_id' => 1,
 		// 	'sala_id' => 1,
@@ -31,7 +35,7 @@ class SalasController extends Controller
 		// ])));
 
 		//TESTANDO JOIN
-		
+
 
 
 
@@ -87,22 +91,22 @@ class SalasController extends Controller
 		//CRIA A SALA E RETORNA AS SALAS
 		try{
 			$jogador = Jogador::where('user_id',$request->user_id)->first();
-			
+
 			$salaFill = $request->all();
 			$salaFill['jogador_id'] = $jogador->id;
 			$sala = Sala::create($salaFill);
 			$sala->jogadores->push($jogador);
 			$sala->jogadores()->sync($sala->jogadores);
-			
+
 			return response()->json($sala);
 
 		}catch(exception $error){
-			return response()->json(false);
+			return response()->json($error);
 		}
 	}
 
 	public function join(Request $request){
-		//O USER JOIN A SALA X	
+		//O USER JOIN A SALA X
 		try{
 			$jogador = Jogador::where('user_id',$request->user_id)->first();
 			$sala = Sala::with('jogadores')->find($request->sala_id);
@@ -113,7 +117,7 @@ class SalasController extends Controller
 				$sala->jogadores->push($jogador);
 
 				$sala->jogadores()->sync($sala->jogadores);
-				
+
 				return response()->json($sala);
 			}
 			else
@@ -123,7 +127,7 @@ class SalasController extends Controller
 			}
 		}
 		catch(exception $error){
-			return response()->json(false);	
+			return response()->json(false);
 		}
 	}
 
@@ -134,18 +138,15 @@ class SalasController extends Controller
 			$sala = Sala::with('jogadores')->find($request->sala_id);
 
 			$sala->jogadores()->detach($jogador);
-	
-			return response()->json($sala);
-
 		}
 		catch(exception $error){
-			return response()->json(false);	
+			return response()->json(false);
 		}
 	}
 
 	public function close(Request $request){
 		//O DONO DA SALA FECHA A SALA
-		try{	
+		try{
 			$jogador = Jogador::where('user_id',$request->user_id)->first();
 			$sala = Sala::find($request->sala_id);
 
@@ -165,7 +166,7 @@ class SalasController extends Controller
 
 	public function start(Request $request){
 		//O DONO DA SALA STARTA O GAME
-		try{	
+		try{
 			$jogador = Jogador::where('user_id',$request->user_id)->first();
 			$sala = Sala::find($request->sala_id);
 
