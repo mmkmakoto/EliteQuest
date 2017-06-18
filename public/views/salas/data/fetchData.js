@@ -1,13 +1,31 @@
 var urlBase = "/";
 
 function requestCreateSala(data, callback){
-  var response = simulaCriacaoSala(data);
-  callback(response);
+  // var response = simulaCriacaoSala(data);
+  // callback(response);
+    $.ajax({
+    url: urlBase + "api/salas/create",
+    data: data,
+    type: "POST",
+    cache: false,
+    success: callback,
+    error: function(response){
+      console.log("ERROR!");
+    }
+  });
 }
 
 function requestIniciarPartida(data, callback){
-  var response = simulaIniciarPartida(data);
-  callback(response);
+    $.ajax({
+      url: urlBase + "api/salas/start",
+      data: data,
+      type: "POST",
+      cache: false,
+      success: callback,
+      error: function(response){
+        console.log("ERROR!");
+      }
+    });
 }
 
 function requestCheckSala(data, callback){
@@ -26,65 +44,71 @@ function requestCheckSala(data, callback){
 }
 
 function requestExitSala(data, callback){
-  var response = simulaSairSala(data);
-  callback(response);
-  // $.ajax({
-  //   url: urlBase + "api/categorias/all",
-  //   data: data,
-  //   type: "POST",
-  //   cache: false,
-  //   success: callback,
-  //   error: function(response){
-  //     console.log("ERROR!");
-  //   }
-  // });
+  // var response = simulaSairSala(data);
+  // callback(response);
+  $.ajax({
+    url: urlBase + "api/salas/exit",
+    data: data,
+    type: "POST",
+    cache: false,
+    success: callback,
+    error: function(response){
+      console.log("ERROR!");
+    }
+  });
 }
 
 function requestDeleteSala(data, callback){
-  var response = simulaDeleteSala(data);
-  callback(response);
-  // $.ajax({
-  //   url: urlBase + "api/salas/all",
-  //   type: "GET",
-  //   cache: false,
-  //   success: callback,
-  //   error: function(response){
-  //     console.log("ERROR!");
-  //   }
-  // });
+  // var response = simulaDeleteSala(data);
+  // callback(response);
+  $.ajax({
+    url: urlBase + "api/salas/close",
+    data: data,
+    type: "POST",
+    cache: false,
+    success: callback,
+    error: function(response){
+      console.log("ERROR!");
+    }
+  });
 }
 
 function fetchSala(data, callback){
-  var response = simulaCheckSala(data);
-  callback(response);
+  fetchSalas(function(response){
+    console.log(response);
+    var sala = response.filter(function(s){return data.sala_id === s.id})[0];
+    callback(sala);
+  });
+  // var response = simulaCheckSala(data);
+  // callback(response);
 }
 
 function fetchSalas(callback){
 
-  callback(salas_simulator);
-
-  // $.ajax({
-  //   url: urlBase + "api/salas/all",
-  //   type: "GET",
-  //   cache: false,
-  //   success: callback,
-  //   error: function(response){
-  //     console.log("ERROR!");
-  //   }
-  // });
+  //callback(salas_simulator);
+  $.ajax({
+    url: urlBase + "api/salas/all",
+    type: "GET",
+    cache: false,
+    success: callback,
+    error: function(response){
+      console.log("ERROR!");
+    }
+  });
 }
 
 function requestEntrarSala(data, callback){
-  var response = simulaJoinSala(data);
-  callback(response);
-  // $.ajax({
-  //   url: urlBase + "api/categorias/all",
-  //   data: data,
-  //   type: "POST",
-  //   cache: false,
-  //   success: callback,
-  //   error: function(response){
-  //     console.log("ERROR!");
-  //   }
-  // });
+  // var response = simulaJoinSala(data);
+  // callback(response);
+  $.ajax({
+    url: urlBase + "api/salas/join",
+    data: data,
+    type: "POST",
+    cache: false,
+    success: callback,
+    error: function(response){
+      console.log("ERROR!");
+      console.log(response);
+    }
+  });
 }

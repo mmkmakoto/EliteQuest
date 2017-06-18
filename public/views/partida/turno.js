@@ -125,13 +125,14 @@ $(document).ready(function(){
   // this.setCategorias();
   //move(1);
   requestStatus(function(status){
+    console.log(status);
     $status = status;
     statusTurno();
   });
 
   setInterval(function(){
     requestStatus(function(status){
-      $status = status;
+      //$status = status;
       statusTurno();
     });
   }, 5000);
