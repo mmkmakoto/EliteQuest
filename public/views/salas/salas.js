@@ -34,17 +34,17 @@ function constroiListaSalas(salas){
 
   $("#body_table_salas").html(html);
 
-  // <tr>
-  //   <th class="center col-md-4" scope="row">1</th>
-  //   <td class="col-md-6">2/4</td>
-  //   <td class="col-md-2">
-  //     <button style="width: 100px;" idSala="1" class="btn btn-success btn_entrar_sala">Entrar</button>
-  //   </td>
-  // </tr>
 }
 
 function inSala(sala){
-  $("#sala_id").text(sala.id);
+  if(sala === undefined){
+    alert("A sala atual foi fechada");
+    clearInterval(attSalaStatusInterval);
+    $("#sala").modal("hide");
+    return;
+  }
+
+  $("#id_sala").text(sala.id);
   var dificuldade;
   switch(sala.dificuldade_id){
     case 1:
@@ -72,7 +72,7 @@ function inSala(sala){
 
   var btnHtmlStart = "";
   var btnHtmlExit = "";
-  if(sala.user_id === $user.id){
+  if(sala.jogador_id === $user.id){
     btnHtmlStart = '<button type="button" onClick="iniciarPartida('+ sala.id +')" class="btn btn-success" id="criar_sala" data-dismiss="modal">Começar jogo</button>';
 
     if(sala.jogadores.length < 2)
@@ -90,41 +90,45 @@ function inSala(sala){
 
   $("#sala").modal("show");
 
-  carregarSalas();
+  //carregarSalas();
 
-  checkSalaInterval = setInterval(function(){
-    checkSalaCreated(sala.id);
-  }, 3000);
+  // checkSalaInterval = setInterval(function(){
+  //   checkSalaCreated(sala.id);
+  // }, 3000);
 
   var data = {sala_id: sala.id, user_id: $user.id };
   clearInterval(attSalaStatusInterval);
   attSalaStatusInterval = setInterval(function(){
       console.log("atualizando status da sala...");
       fetchSala(data, function(response){
+        console.log(response);
         inSala(response);
       });
     }, 5000);
 }
-
-function checkSalaCreated(sala_id){
-  var data = {sala_id: sala_id};
-  requestCheckSala(data, function(response){
-    if (response.length > 0){
-      window.location.replace('/partida');
-    }
-  });
-}
+//
+// function checkSalaCreated(sala_id){
+//   var data = {sala_id: sala_id};
+//   requestCheckSala(data, function(response){
+//     if (response.length > 0){
+//       window.location.replace('/partida');
+//     }
+//   });
+// }
 
 function carregarSalas(){
    fetchSalas(function(response){
      var salas = response;
+     var salaUser = salas.filter(function(s){return s.jogador_id === $user.id});
+     if(salaUser.length > 0)
+      inSala(salaUser[0]);
      constroiListaSalas(salas);
    });
 }
 
 function entrarSala(sala_id){
   var obj = {
-    id_jogador: $user.id,
+    user_id: $user.id,
     sala_id: sala_id
   }
 
@@ -141,7 +145,7 @@ function exitSala(sala_id){
   }
   requestExitSala(data, function(response){
     console.log(response);
-    clearInterval(checkSalaInterval);
+    //clearInterval(checkSalaInterval);
     clearInterval(attSalaStatusInterval);
     carregarSalas();
   });
@@ -151,7 +155,7 @@ function deleteSala(sala_id){
   var data = {sala_id: sala_id, user_id: $user.id};
   requestDeleteSala(data, function(response){
     console.log(response);
-    clearInterval(checkSalaInterval);
+    //clearInterval(checkSalaInterval);
     clearInterval(attSalaStatusInterval);
     carregarSalas();
   });
@@ -177,9 +181,10 @@ function criarSala(){
 function iniciarPartida(sala_id){
   var data = {sala_id: sala_id, user_id: $user.id};
   requestIniciarPartida(data, function(response){
-    if(response.length > 0){
-      window.location.replace('/partida?partida=' + sala_id);
-    }
+    console.log(response);
+    // if(response.length > 0){
+    //   window.location.replace('/partida?partida=' + sala_id);
+    // }
     carregarSalas();
   });
 }

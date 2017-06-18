@@ -138,14 +138,6 @@ class SalasController extends Controller
 			$sala = Sala::with('jogadores')->find($request->sala_id);
 
 			$sala->jogadores()->detach($jogador);
-<<<<<<< HEAD
-
-			return response()->json(true);
-=======
-
-			return response()->json($sala);
->>>>>>> 47319897a815073f9da1e65bd19d594cc53d55cd
-
 		}
 		catch(exception $error){
 			return response()->json(false);
