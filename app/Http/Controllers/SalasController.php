@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Sala;
 use App\Models\Jogador;
+use App\Models\Partida;
 use exception;
 class SalasController extends Controller
 {
@@ -29,18 +30,46 @@ class SalasController extends Controller
 		// 	'sala_id' => 1,
 		// ])));
 
-		// //TESTANDO JOIN
-		// dd($this->join(new Request([
-		// 	'user_id' => 1,
-		// 	'sala_id' => 1,
-		// ])));
+		//TESTANDO JOIN
+		
 
-		//TESTANDO CREATE
-		dd($this->create(new Request([
-			'jogador_id'=>1,
+
+
+		($this->create(new Request([
+			'user_id'=>1,
 			'dificuldade_id'=>1,
 			'max_jogadores'=>4,
 		])));
+
+		$sala = Sala::orderBy('id','desc')->first();
+
+		($this->join(new Request([
+			'user_id' => 2,
+			'sala_id' => $sala->id,
+		])));
+		//TESTANDO JOIN
+		($this->join(new Request([
+			'user_id' => 3,
+			'sala_id' => $sala->id,
+		])));
+		//TESTANDO JOIN
+		($this->join(new Request([
+			'user_id' => 4,
+			'sala_id' => $sala->id,
+		])));
+
+		dd($this->start(new Request([
+			'user_id' => 1,
+			'sala_id' => $sala->id,
+		])));
+
+
+		//TESTANDO CREATE
+		// dd($this->create(new Request([
+		// 	'jogador_id'=>1,
+		// 	'dificuldade_id'=>1,
+		// 	'max_jogadores'=>4,
+		// ])));
 
 		// //TESTANDO RETORNO ATUAL
 		// dd($this->retornoAtual());
@@ -57,8 +86,15 @@ class SalasController extends Controller
 	public function create(Request $request){
 		//CRIA A SALA E RETORNA AS SALAS
 		try{
-			Sala::create($request->all());
-			return response()->json($this->retornoAtual()); 
+			$jogador = Jogador::where('user_id',$request->user_id)->first();
+			
+			$salaFill = $request->all();
+			$salaFill['jogador_id'] = $jogador->id;
+			$sala = Sala::create($salaFill);
+			$sala->jogadores->push($jogador);
+			$sala->jogadores()->sync($sala->jogadores);
+			
+			return response()->json($this->retornoAtual());
 
 		}catch(exception $error){
 			return response()->json(false);
@@ -136,6 +172,13 @@ class SalasController extends Controller
 			if(($sala->jogador_id == $jogador->id) AND ($sala->aberta)){
 				$sala->aberta = false;
 				$sala->save();
+
+				$partida = Partida::create([
+					'dificuldade_id' => $sala->dificuldade_id,
+				]);
+
+				$partida->jogadores()->sync($sala->jogadores);
+
 				return response()->json(true);
 			}
 			else{
