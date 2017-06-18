@@ -14,6 +14,7 @@ class Partida extends Model
 	    'dificuldade_id',
 	    'vencedor_id',
 		'ordem_de_turno',
+		'sala_id',
 	];
 	public function dificuldade(){
 		return $this->belongsTo(Dificuldade::class);
