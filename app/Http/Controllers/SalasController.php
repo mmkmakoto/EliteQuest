@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\Sala;
 use App\Models\Jogador;
 use App\Models\Partida;
+use App\Repositories\PartidaRepository;
 use exception;
 class SalasController extends Controller
 {
@@ -35,33 +36,33 @@ class SalasController extends Controller
 
 
 
-		dd($this->create(new Request([
+		($this->create(new Request([
 			'user_id'=>1,
 			'dificuldade_id'=>1,
 			'max_jogadores'=>4,
 		])));
 
-		// $sala = Sala::orderBy('id','desc')->first();
+		$sala = Sala::orderBy('id','desc')->first();
 
-		// ($this->join(new Request([
-		// 	'user_id' => 2,
-		// 	'sala_id' => $sala->id,
-		// ])));
-		// //TESTANDO JOIN
-		// ($this->join(new Request([
-		// 	'user_id' => 3,
-		// 	'sala_id' => $sala->id,
-		// ])));
-		// //TESTANDO JOIN
-		// ($this->join(new Request([
-		// 	'user_id' => 4,
-		// 	'sala_id' => $sala->id,
-		// ])));
+		($this->join(new Request([
+			'user_id' => 2,
+			'sala_id' => $sala->id,
+		])));
+		//TESTANDO JOIN
+		($this->join(new Request([
+			'user_id' => 3,
+			'sala_id' => $sala->id,
+		])));
+		//TESTANDO JOIN
+		($this->join(new Request([
+			'user_id' => 4,
+			'sala_id' => $sala->id,
+		])));
 
-		// dd($this->start(new Request([
-		// 	'user_id' => 1,
-		// 	'sala_id' => $sala->id,
-		// ])));
+		dd($this->start(new Request([
+			'user_id' => 1,
+			'sala_id' => $sala->id,
+		])));
 
 
 		//TESTANDO CREATE
@@ -77,6 +78,16 @@ class SalasController extends Controller
 
 	private function retornoAtual(){
 		return Sala::with('jogadores')->where('aberta',true)->get();
+	}
+
+	public function whereIs($user_id){
+		try{
+			$jogador = Jogador::where('user_id',$user_id)->first();
+			$sala = $jogador->salas->where('aberta',1)->first();
+			return response()->json($sala);
+		}catch(exception $error){
+			return null;
+		}
 	}
 
 	public function all(){
@@ -178,6 +189,9 @@ class SalasController extends Controller
 				]);
 
 				$partida->jogadores()->sync($sala->jogadores);
+
+				$jogo = new PartidaRepository($partida);
+				$jogo->iniciar();
 
 				return response()->json($sala);
 			}

@@ -9,9 +9,11 @@ class Partidas extends Migration
     public function up(){
         Schema::create('partidas', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('ordem_de_turno')->default('');
+            
             $table->integer('dificuldade_id')->unsigned();
             $table->integer('vencedor_id')->unsigned()->nullable();
-
+            
             $table->timestamps();
 
             $table->foreign('dificuldade_id')->references('id')->on('dificuldades');
