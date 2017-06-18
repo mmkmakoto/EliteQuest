@@ -9,8 +9,10 @@ class Rodadas extends Migration
     public function up(){
         Schema::create('rodadas', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('fichas');
+            $table->integer('posicao')->default(0);
             $table->integer('pergunta_id')->unsigned();
-            $table->integer('resposta_id')->unsigned();
+            $table->integer('resposta_id')->unsigned()->nullable();
             $table->integer('partida_id')->unsigned();
             $table->integer('jogador_id')->unsigned();
 
