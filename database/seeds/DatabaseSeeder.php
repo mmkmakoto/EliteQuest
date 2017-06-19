@@ -15,6 +15,9 @@ class DatabaseSeeder extends Seeder
         //$this->call(PerguntasRespostasSeeder::class);
         $this->call(PerguntasSociedadeSeeder::class);
         $this->call(PerguntasEsporteLazerSeeder::class);
+        $this->call(PerguntasArtesEntretenimentoSeeder::class);
+        $this->call(PerguntasCienciaTecnologiaSeeder::class);
+        $this->call(PerguntasMundoSeeder::class);
 
         //$this->call(PartidaSeeder::class);
 		//$this->call(RodadasSeeder::class);

@@ -30,5 +30,14 @@ class TemaSeeder extends Seeder
         Tema::create([
             'nome' => 'Esporte e Lazer',
         ]);
+        Tema::create([
+            'nome' => 'Artes e Entretenimento',
+        ]);
+        Tema::create([
+            'nome' => 'Ciência e Tecnologia',
+        ]);
+        Tema::create([
+            'nome' => 'Mundo',
+        ]);
     }
 }
