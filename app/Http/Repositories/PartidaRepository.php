@@ -5,6 +5,7 @@ use App\Models\Partida;
 use App\Models\Rodada;
 use App\Models\Tema;
 use App\Models\Pergunta;
+use App\Models\Jogador;
 
 class PartidaRepository{
 	public $partida;
@@ -12,6 +13,10 @@ class PartidaRepository{
 
 	public function __construct(Partida $partida){
 		$this->partida = $partida;
+	}
+
+	private function getRodadaAtual(){
+		return $this->partida->rodadas->sortByDesc('id')->first();
 	}
 
 	public function iniciar(){
@@ -27,7 +32,7 @@ class PartidaRepository{
 		//Checar se há rodadas
 		$rodadas = $this->partida->rodadas;
 		$ordem = collect(json_decode($this->partida->ordem_de_turno));
-		
+
 		$partida_id = $this->partida->id;
 		$jogadorDaRodada = $this->proximoPlayer();
 		$posicao = $this->getPosicaoParaPlayer($jogadorDaRodada);
@@ -46,12 +51,24 @@ class PartidaRepository{
 		$this->rodadaAtual = $rodada;
 	}
 
-	Public function receberResposta(){
+	Public function receberResposta($resposta){
+		$user_id = $resposta['user_id'];
 
+
+		$rodadaAtual = $this->getRodadaAtual();
+		$jogador = Jogador::where('user_id',$user_id)->first();
+
+		if($rodadaAtual->jogador_id == $jogador->id){
+			//SE FOR A RODADA DO JOGADOR
+			dump($resposta);
+			dd($rodadaAtual);
+		}else{
+			return false;
+		}
 	}
 
 	private function getPerguntaParaPosicao($posicao){
-		
+
 		$tema = $this->getTemaParaPosicao($posicao);
 		$perguntasPassadas = $this->partida->rodadas->pluck('pergunta_id');
 
@@ -103,7 +120,7 @@ class PartidaRepository{
 	}
 
 	private function proximoPlayer(){
-		
+
 		$rodadas = $this->partida->rodadas;
 		$ordem = collect(json_decode($this->partida->ordem_de_turno));
 
@@ -125,7 +142,7 @@ class PartidaRepository{
 
 	private function definirTemas(){
 		$temas = Tema::all()->shuffle()->take(4);
-		$this->partida->temas()->sync($temas);		
+		$this->partida->temas()->sync($temas);
 	}
 
 	private function gerarOrdemDeTurno(){
