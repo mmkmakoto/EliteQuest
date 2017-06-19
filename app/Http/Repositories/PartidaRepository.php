@@ -18,7 +18,7 @@ class PartidaRepository{
 
 		$this->gerarOrdemDeTurno();
 		$this->definirTemas();
-		//$this->proximaRodada();
+		$this->proximaRodada();
 	}
 
 	public function proximaRodada(){
