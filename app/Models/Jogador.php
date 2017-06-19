@@ -10,10 +10,7 @@ class Jogador extends Model
 {
 	protected $table = "jogadores";
 	protected $fillable = [
-	    'nome',
-	    'usuario',
-	    'email',
-	    'password',
+	    'user_id',
 	    'tipo',
 	];
 	public function rodadas(){
