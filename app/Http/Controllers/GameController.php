@@ -13,11 +13,12 @@ class GameController extends Controller
 	public function teste(){
 
 
-		$this->enviarResposta(new Request([
+		dd($this->enviarResposta(new Request([
 			'user_id' =>1,
 			'resposta_id' =>1,
-			'ficha'=>5,
-		]));
+			'ficha'=> 5,
+			'status'=>'ok',
+		])));
 
 
 
@@ -31,19 +32,23 @@ class GameController extends Controller
 		$jogador = Jogador::with(['partidas' => function($query){
 			$query->where('vencedor_id',null);
 		}])->where('user_id',$request->user_id)->first();
-		
+
 
 		$partida = new PartidaRepository($jogador->partidas->first());
-		
+
 		return response()->json($partida->getStatus());
 
 	}
 
 
 	public function enviarResposta(Request $request){
-		dd($request->all());
-		//dd($partida->proximaRodada());
-		//dd($partida->getStatus());		
+		$jogador = Jogador::with(['partidas' => function($query){
+			$query->where('vencedor_id',null);
+		}])->where('user_id',$request->user_id)->first();
+
+		$partida = new PartidaRepository($jogador->partidas->first());
+
+		return response()->json($partida->receberResposta($request->all()));
 	}
 
 
