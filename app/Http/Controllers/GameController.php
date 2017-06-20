@@ -30,14 +30,30 @@ class GameController extends Controller
 	public function statusPartida(Request $request){
 		//Receber o user_id e determinar qual partida enviar
 		$jogador = Jogador::with(['partidas' => function($query){
-			$query->where('vencedor_id',null);
+			$query->where('encerrada',false);
 		}])->where('user_id',$request->user_id)->first();
 
 
-		$partida = new PartidaRepository($jogador->partidas->first());
+		if($jogador->partidas->first()){
+			$partida = new PartidaRepository($jogador->partidas->first());
+			return response()->json($partida->getStatus());
+		}
+
+		else{
+			$jogador = Jogador::with('partidas')->where('user_id',$request->user_id)->first();
+
+			if($jogador->partidas->first()){
+				$partida = new PartidaRepository($jogador->partidas->first());
+				return response()->json($partida->getStatus());				
+			}
+			else
+			{
+				return response()->json(false);	
+			}
+		}
+
 
 		//return $partida->getStatus();
-		return response()->json($partida->getStatus());
 
 	}
 

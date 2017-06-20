@@ -88,9 +88,22 @@ class PartidaRepository{
 		$rodadaAtual->fichas = json_encode($fichas);
 		$rodadaAtual->resposta_id = $respostaModel->id;
 		$rodadaAtual->save();
-		$this->proximaRodada();
+		
 
+
+		if($posicao >= 22){
+			$this->playerVence($rodadaAtual->jogador_id);
+		}else{
+
+			$this->proximaRodada();
+		}
 		return true;
+	}
+
+	private function playerVence($jogador_id){
+		$this->partida->vencedor_id = $jogador_id;
+		$this->partida->encerrada = true;
+		$this->partida->save();
 	}
 
 	private function getPerguntaParaPosicao($posicao){
