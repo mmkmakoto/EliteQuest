@@ -113,6 +113,8 @@ function inSala(sala){
       fetchSala(data, function(response){
         if(response == undefined){
           requestGameStatus(function(response){
+            console.log("SALA");
+            console.log(response);
             var game = response;
               console.log("REDIRECTING TO GAME...");
             console.log(game);
