@@ -22,6 +22,7 @@ function validateAnswer(answer){
 
   if(response.id_pergunta === 0 && response.opcao === 0){
     data.status = "timeout";
+    data.resposta_id = 5;
   }
   console.log(data);
   answerQuestion(data, function(confirmation){
@@ -56,10 +57,8 @@ function answerResponse(response){
   id.shift();
   var all_id = id.join("_");
   if(!response.respondido){
-    console.log("ALERT");
     $pergunta_errada.play();
     $("#answer_result").text("Não respondido :(");
-    controlarTurno();
     $controleTurnoIntervalo = setInterval(function(){
       console.log("atualizando status da sala...");
       controlarTurno();
@@ -101,7 +100,6 @@ function answerResponse(response){
     $pergunta_errada.play();
     var html = '<img src="./../../assets/resposta_errada.png"></img>';
     $("#answer_result").html(html);
-    controlarTurno();
     $controleTurnoIntervalo = setInterval(function(){
       console.log("atualizando status da sala...");
       controlarTurno();

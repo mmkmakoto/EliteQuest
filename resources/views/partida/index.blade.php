@@ -126,7 +126,12 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-12 players">
+			<div class="col-sm-2">
+				<div style="color: white;">
+					Tempo pra o fim da rodada: <span id="tempoRodada">-</span>
+				</div>
+			</div>
+			<div class="col-sm-10 players">
         <div class="col-lg-3" id="area_player_1">
 					<div class="col-lg-1">
 						<img src="./../../assets/victor.png" id="token_player_id_1" class="token-min"/>
@@ -189,7 +194,7 @@
 		<div class="row footer">
 			<div class="col-sm-6 empresa"><img src="./../../assets/Logo Quest.png"></div>
 			<div class="col-sm-offset-3 col-sm-3">
-				<button class="btn btn-default btn-danger">Desistir do jogo</button>
+				<button id="sairPartida" class="btn btn-default btn-danger">Desistir do jogo</button>
 			</div>
 		</div>
 	</div>
@@ -237,6 +242,8 @@
           </div>
         </div>
       </div>
+
+
 
       <div class="modal fade" id="fichaConfirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -312,6 +319,26 @@
 					<div class="modal-footer">
 						<button type="button" id="snake_no_more" class="btn btn-danger" data-dismiss="modal">Não mostrar mais</button>
 					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="desistConfirm" tabindex="-1" role="dialog" aria-labelledby="nao_vai_dar_bambam" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title">Não vai dar não!</h3>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					Deseja desistir da partida? Depois não será possível retornar!
+				</div>
+				<div class="modal-footer">
+					<button type="button" id="cancelDesistencia" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+					<button type="button" id="confirmDesistencia" class="btn btn-primary">Desistir</button>
 				</div>
 			</div>
 		</div>
