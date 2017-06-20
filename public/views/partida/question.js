@@ -29,7 +29,6 @@ function validateAnswer(answer){
       console.log("resposta enviada com sucesso...");
     }
   });
-
   //resetzFichas();
   return response;
 
@@ -67,7 +66,8 @@ function answerResponse(response){
     }, 5000);
   }else if(response.correto){
     $pergunta_certa.play();
-    $("#answer_result").text("Resposta correta - BIIIIIIIIIIRL");
+    var html = '<img class="center" src="./../../assets/resposta_certa.png"></img>';
+    $("#answer_result").html(html);
       var data = {user_id: $user_id};
       requestGameStatus(data, function(new_status){
         console.log("andando...");
@@ -99,7 +99,8 @@ function answerResponse(response){
     //setInterval(function(){statusTurno();}, 5000);
   }else{
     $pergunta_errada.play();
-    $("#answer_result").text("Resposta errada - Que pena....");
+    var html = '<img src="./../../assets/resposta_errada.png"></img>';
+    $("#answer_result").html(html);
     controlarTurno();
     $controleTurnoIntervalo = setInterval(function(){
       console.log("atualizando status da sala...");
@@ -110,7 +111,9 @@ function answerResponse(response){
   $("#questionArea").modal("hide");
   $("#resultadoAnswer").modal("show");
   $selectedFicha = null;
-
+  $inicioRodada = true;
+  for(i = 1; i <= 5; i++)
+    disableFicha($("#ficha_" + i));
 }
 
 function getQuestion(callback){
