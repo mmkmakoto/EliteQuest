@@ -13,9 +13,9 @@ class GameController extends Controller
 	public function teste(){
 
 		dd($this->desistir(new Request([
-			'user_id' => 1,
+			'user_id' => 3,
 		])));
-		
+
 
 		dd($this->enviarResposta(new Request([
 			'user_id' =>1,
@@ -36,9 +36,16 @@ class GameController extends Controller
 			$query->where('vencedor_id',null);
 		}])->where('user_id',$request->user_id)->first();
 
-		$partida = new PartidaRepository($jogador->partidas->first());
 
-		return response()->json($partida->playerDesistiu($request->all()));		
+		$partidaModel = $jogador->partidas->first();
+		if($partidaModel){
+			$partida = new PartidaRepository($partidaModel);
+			return response()->json($partida->playerDesistiu($request->all()));
+		}else{
+			return response()->json(false);
+		}
+
+
 	}
 
 	public function statusPartida(Request $request){
@@ -50,7 +57,7 @@ class GameController extends Controller
 
 		if($jogador->partidas->first()){
 			$partida = new PartidaRepository($jogador->partidas->first());
-			
+
 			//return $partida->getStatus()->rodadaAtual;
 			return response()->json($partida->getStatus());
 		}
@@ -60,11 +67,11 @@ class GameController extends Controller
 
 			if($jogador->partidas->first()){
 				$partida = new PartidaRepository($jogador->partidas->first());
-				return response()->json($partida->getStatus());				
+				return response()->json($partida->getStatus());
 			}
 			else
 			{
-				return response()->json(false);	
+				return response()->json(false);
 			}
 		}
 
