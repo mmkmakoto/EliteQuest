@@ -201,7 +201,7 @@ class PartidaRepository{
 
 		//$rodadaAtual = Rodada::where('partida_id',$this->partida->id)->orderBy('id','desc')->first();
 		$this->partida->rodadaAtual = $this->getRodadaAtual(); 
-		
+		$this->partida->rodadaAtual->load('pergunta.respostas');
 
 		return $this->partida;
 	}
