@@ -151,6 +151,13 @@ class PartidaRepository{
 	}
 
 	public function getStatus(){
+		
+		$this->partida->rodadas;
+
+		$rodadaAtual = Rodada::where('partida_id',$this->partida->id)->orderBy('id','desc')->first();
+		$this->partida->rodadaAtual = $rodadaAtual; 
+		
+
 		return $this->partida;
 	}
 

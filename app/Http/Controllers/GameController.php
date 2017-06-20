@@ -13,18 +13,18 @@ class GameController extends Controller
 	public function teste(){
 
 
-		dd($this->enviarResposta(new Request([
+		// dd($this->enviarResposta(new Request([
+		// 	'user_id' =>1,
+		// 	'resposta_id' =>1,
+		// 	'ficha'=> 5,
+		// 	'status'=>'ok',
+		// ])));
+
+
+
+		dd($this->statusPartida(new Request([
 			'user_id' =>1,
-			'resposta_id' =>1,
-			'ficha'=> 5,
-			'status'=>'ok',
 		])));
-
-
-
-		$this->statusPartida(new Request([
-			'user_id' =>1,
-		]));
 	}
 
 	public function statusPartida(Request $request){
@@ -36,6 +36,7 @@ class GameController extends Controller
 
 		$partida = new PartidaRepository($jogador->partidas->first());
 
+		//return $partida->getStatus();
 		return response()->json($partida->getStatus());
 
 	}

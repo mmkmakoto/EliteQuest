@@ -38,7 +38,7 @@ Route::post('/salas/start', ['as' => 'salas.start', 'uses' => 'SalasController@s
 //ROTAS PARA CONTROLE DE PARTIDA
 
 Route::get('/partida/teste', ['as' => 'game.teste', 'uses' => 'GameController@teste']);
-Route::get('/partida/status_partida', ['as' => 'game.statusPartida', 'uses' => 'GameController@statusPartida']);
+Route::post('/partida/status_partida', ['as' => 'game.statusPartida', 'uses' => 'GameController@statusPartida']);
 
 
 Route::get('/game_status', ['as' => 'game.status', 'uses' => 'GameController@gameStatus']);
