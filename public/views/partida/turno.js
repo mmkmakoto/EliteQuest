@@ -66,15 +66,13 @@ function setGeneral(){
 
 function prepareTurno(){
   $("#resultadoAnswer").modal("hide");
-  if($intervalTurnoCounter === null){
+
     $intervalTurnoCounter = setInterval(function(){
       $("#tempoRodada").text($turnoCounter);
       if($turnoCounter == 0){
-        $turnoCounter = $rodadaTimer;
-        clearInterval($intervalTurnoCounter);
-        clearInterval($controleTurnoIntervalo);
 
-        $intervalTurnoCounter = null;
+        $turnoCounter = 90;
+        clearInterval($controleTurnoIntervalo);
 
         $hello.play();
         $("#answer_result").text("Você tava mimindo... Agora vai perder uma ficha pra parar de ser besta...");
@@ -103,7 +101,7 @@ function prepareTurno(){
       }
       $turnoCounter--;
     }, 1000);
-  }
+
 
   if($inicioRodada){
       $seu_turno.play();
@@ -137,7 +135,9 @@ function prepareEspectador(configuration){
 
 function finishGame(){
   $("#waitGameArea").modal("hide");
-  var finishMessage;
+  var finishMessage = "";
+  alert($status.vencedor_id);
+  alert($user_id);
   if($user_id === $status.vencedor_id){
     $eh_nois_mano.play();
     finishMessage = "PARABÉNS! YOU HAVE THE POWER";
