@@ -71,19 +71,16 @@ function answerResponse(response){
       var data = {user_id: $user_id};
       requestGameStatus(data, function(new_status){
         console.log("andando...");
-        var rodada = new_status.rodadaAtual;
+        //var rodada = new_status.rodadaAtual;
+        var rodada = getRodadaAtual()
         rodada.posicao += response.ficha;
 
         if(response.ficha >= 2)
           $audio_walk.play();
-        var walkInterval = setInterval(function(){
-          walk(rodada, true);
-          //walk(rodada, false);
-          clearInterval(walkInterval);
+        walk(rodada, true);
           $controleTurnoIntervalo = setInterval(function(){
             controlarTurno();
-          }, 7000);
-        }, 500);
+          }, 10000);
         $rodadas = null;
       });
     // requestStatus(function(status){

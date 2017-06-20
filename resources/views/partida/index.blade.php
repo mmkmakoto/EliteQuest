@@ -132,7 +132,7 @@
 						<img src="./../../assets/victor.png" id="token_player_id_1" class="token-min"/>
 					</div>
 					<div class="col-lg-11">
-          	<span class="nome_player" id="name_player_1">-</span><br/><span class="position">Posição: <span class="position" id="pos_player_1">0</span></span>
+          	<span class="nome_player" id="name_player_1">-</span><br/>
 					</div>
         </div>
         <div class="col-lg-3" id="area_player_2">
@@ -140,7 +140,7 @@
 						<img src="./../../assets/daniel.png" id="token_player_id_2" class="token-min"/>
 					</div>
 					<div class="col-lg-11">
-          	<span class="nome_player" id="name_player_2">-</span><br/><span class="position">Posição: <span class="position" id="pos_player_2">0</span></span>
+          	<span class="nome_player" id="name_player_2">-</span><br/>
 					</div>
         </div>
         <div class="col-lg-3" id="area_player_3">
@@ -148,7 +148,7 @@
 						<img src="./../../assets/guilherme.png" id="token_player_id_3" class="token-min"/>
 					</div>
 					<div class="col-lg-11">
-	          <span class="nome_player" id="name_player_3">-</span><br/><span class="position">Posição: <span class="position" id="pos_player_3">0</span></span>
+	          <span class="nome_player" id="name_player_3">-</span><br/>
 					</div>
         </div>
         <div class="col-lg-3" id="area_player_4">
@@ -156,7 +156,7 @@
 						<img src="./../../assets/ives.png" id="token_player_id_4" class="token-min"/>
 					</div>
 					<div class="col-lg-11">
-          	<span class="nome_player" id="name_player_4">-</span><br/><span class="position">Posição: <span class="position" id="pos_player_4">0</span></span>
+          	<span class="nome_player" id="name_player_4">-</span><br/>
 					</div>
         </div>
 			</div>
