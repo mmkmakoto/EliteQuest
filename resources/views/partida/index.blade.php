@@ -206,11 +206,11 @@
 		<div class="row footer">
 			<div class="col-sm-6 empresa"><img src="./../../assets/Logo Quest.png"></div>
 			<div class="col-sm-offset-3 col-sm-3">
-<<<<<<< HEAD
-				<button id="desistir_partida" class="btn btn-default btn-danger">Desistir do jogo</button>
-=======
+
+{{-- 				<button id="desistir_partida" class="btn btn-default btn-danger">Desistir do jogo</button> --}}
+
 				<button id="sairPartida" class="btn btn-default btn-danger">Desistir do jogo</button>
->>>>>>> e79d6f59ec15df8f58a37d10d9134ba517736a65
+
 			</div>
 		</div>
 	</div>
