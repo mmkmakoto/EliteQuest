@@ -119,7 +119,11 @@
 		</div>
 		<div class="row">
 
-
+			<div class="col-sm-2">
+				<div style="color: white;">
+					Tempo pra o fim da rodada: <span id="tempoRodada">-</span>
+				</div>
+			</div>
 			<div class="col-sm-10 players">
 
         <div class="col-lg-3" id="area_player_1">
