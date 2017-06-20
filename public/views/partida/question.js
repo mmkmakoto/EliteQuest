@@ -19,6 +19,10 @@ function validateAnswer(answer){
     status: "ok",
     user_id: $user_id
   }
+
+  if(response.id_pergunta === 0 && response.opcao === 0){
+    data.status = "timeout";
+  }
   console.log(data);
   answerQuestion(data, function(confirmation){
     if(confirmation){
@@ -53,7 +57,8 @@ function answerResponse(response){
   id.shift();
   var all_id = id.join("_");
   if(!response.respondido){
-    $audio_ta_de_sacanagem.play();
+    console.log("ALERT");
+    $pergunta_errada.play();
     $("#answer_result").text("Não respondido :(");
     controlarTurno();
     $controleTurnoIntervalo = setInterval(function(){
@@ -69,15 +74,15 @@ function answerResponse(response){
         var rodada = new_status.rodadaAtual;
         rodada.posicao += response.ficha;
 
-        // if(response.ficha >= 2)
-        //   $audio_walk.play();
+        if(response.ficha >= 2)
+          $audio_walk.play();
         var walkInterval = setInterval(function(){
-          //walk(rodada, true);
-          walk(rodada, false);
+          walk(rodada, true);
+          //walk(rodada, false);
           clearInterval(walkInterval);
           $controleTurnoIntervalo = setInterval(function(){
             controlarTurno();
-          }, 2000);
+          }, 7000);
         }, 500);
         $rodadas = null;
       });

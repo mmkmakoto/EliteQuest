@@ -24,7 +24,7 @@ function walk(status, effect){
 
 
   if((atualPos != newPos || Number($("#pos_player_"  + status.jogador_id).text()) === 0)){
-    $("#pos_player_" + status.jogador_id).text(newPos);
+  //  $("#pos_player_" + status.jogador_id).text(newPos);
   }
 
  move(status, $element, effect, atualPos, newPos);

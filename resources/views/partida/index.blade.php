@@ -129,7 +129,7 @@
 			<div class="col-sm-12 players">
         <div class="col-lg-3" id="area_player_1">
 					<div class="col-lg-1">
-						<img src="./../../assets/daniel.png" id="token_player_id_2" class="token-min"/>
+						<img src="./../../assets/victor.png" id="token_player_id_1" class="token-min"/>
 					</div>
 					<div class="col-lg-11">
           	<span class="nome_player" id="name_player_1">-</span><br/><span class="position">Posição: <span class="position" id="pos_player_1">0</span></span>
@@ -137,7 +137,7 @@
         </div>
         <div class="col-lg-3" id="area_player_2">
 					<div class="col-lg-1">
-					<img src="./../../assets/victor.png" id="token_player_id_1" class="token-min"/>
+						<img src="./../../assets/daniel.png" id="token_player_id_2" class="token-min"/>
 					</div>
 					<div class="col-lg-11">
           	<span class="nome_player" id="name_player_2">-</span><br/><span class="position">Posição: <span class="position" id="pos_player_2">0</span></span>
