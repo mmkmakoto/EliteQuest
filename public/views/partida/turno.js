@@ -74,12 +74,10 @@ function prepareEspectador(configuration){
 
 function finishGame(){
   var finishMessage;
-  if($eu == null)
-    finishMessage = "Que pena! parece que esse jogo n existe mais!";
-  else if($user_id === $status.vencedor_id)
+  if($user_id === $status.vencedor_id)
     finishMessage = "PARABÉNS! YOU HAVE THE POWER";
   else
-    finishMessage = "TA DE SACANAGEM?";
+    finishMessage = "TA DE SACANAGEM? TU PERDEU CACETE!";
   var counter = 5;
   var redirectCounter = setInterval(function(){
       $("#redirectMessage").text(counter--);
@@ -95,11 +93,12 @@ function finishGame(){
 
 function statusTurno(){
   $jogadores = $status.jogadores;
-  setGeneral();
-  if($status.vencedor_id != null || this.getRodadaAtual().posicao >= 21){
+  console.log($status);
+  if($status.vencedor_id != null || this.getRodadaAtual().posicao >= 22){
     finishGame();
     return;
   }
+  setGeneral();
   $rodadas = null;
   var rodada_atual = this.getRodadaAtual();
   if($user_id !== rodada_atual.jogador_id)
