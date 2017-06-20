@@ -167,11 +167,27 @@ class PartidaRepository{
 		$this->partida->rodadas;
 		$this->partida->load('jogadores.user');
 
+		foreach($this->partida->jogadores as $key => $jogador){
+			$this->partida->jogadores[$key]->status = $this->getPlayerStatus($jogador);
+		}
+
+
 		//$rodadaAtual = Rodada::where('partida_id',$this->partida->id)->orderBy('id','desc')->first();
 		$this->partida->rodadaAtual = $this->getRodadaAtual(); 
 		
 
 		return $this->partida;
+	}
+
+	public function getPlayerStatus($jogador){
+		$array = [
+			'etcs' => 'array com as fichas e posição atuais',
+			'posicao' => 'posição aqui',
+			'fichas' => 'fichas aqui',
+		];
+
+
+		return $array;
 	}
 
 
