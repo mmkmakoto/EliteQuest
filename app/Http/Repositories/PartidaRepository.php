@@ -166,6 +166,13 @@ class PartidaRepository{
 		}
 	}
 
+	public function playerDesistiu($user_id){
+
+		dd($user_id);
+
+		return 'shit';
+	}
+
 	private function proximoPlayer(){
 
 		$rodadas = $this->partida->rodadas;

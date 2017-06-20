@@ -12,6 +12,10 @@ class GameController extends Controller
 {
 	public function teste(){
 
+		dd($this->desistir(new Request([
+			'user_id' => 1,
+		])));
+		
 
 		dd($this->enviarResposta(new Request([
 			'user_id' =>1,
@@ -25,6 +29,16 @@ class GameController extends Controller
 		dd($this->statusPartida(new Request([
 			'user_id' =>1,
 		])));
+	}
+
+	public function desistir(Request $request){
+		$jogador = Jogador::with(['partidas' => function($query){
+			$query->where('vencedor_id',null);
+		}])->where('user_id',$request->user_id)->first();
+
+		$partida = new PartidaRepository($jogador->partidas->first());
+
+		return response()->json($partida->playerDesistiu($request->all()));		
 	}
 
 	public function statusPartida(Request $request){
