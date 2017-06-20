@@ -1618,5 +1618,667 @@ class PerguntasArtesEntretenimentoSeeder extends Seeder
 		'correta' => false,
 		'pergunta_id' => $pergunta->id,
 		]);
+
+$pergunta = Pergunta::create([
+            'pergunta' => 'Como se chama a filha do casal Ross e Rachel no seriado Friends?',
+            'tema_id' => $artes_entretenimento_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Lily',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Ellie',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Emma',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Alice',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+		
+$pergunta = Pergunta::create([
+            'pergunta' => 'Qual o endereço que Dori estava procurando no filme Nemo?',
+            'tema_id' => $artes_entretenimento_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'P Sherman, 42 - Wallaby Way, Sidney',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => '1600 Pennsylvania Ave NW, Washington',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => '901 Chapala St, Santa Barbara',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => '6831 Hollister Ave, Goleta',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+		
+$pergunta = Pergunta::create([
+            'pergunta' => 'Qual foi o primeiro personagem da “Turma da Mônica” criado pelo Maurício de Sousa?',
+            'tema_id' => $artes_entretenimento_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Mônica',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Cascão',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Cebolinha',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Bidu',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+		
+$pergunta = Pergunta::create([
+            'pergunta' => 'Como é o nome das irmãs de Cinderela?',
+            'tema_id' => $artes_entretenimento_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Anastácia e Drizela',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Lindinha, Florzinha e Docinho',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Merida e Tiana',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Elsa e Anna',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+		
+$pergunta = Pergunta::create([
+            'pergunta' => 'Com que frequência os Vulcanos precisam acasalar? (STAR TREK)',
+            'tema_id' => $artes_entretenimento_id,
+            'dificuldade_id' => $dificil_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Todos os dias',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Uma vez a cada dois meses',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'A cada dois anos',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'A cada sete anos',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+		
+
+$pergunta = Pergunta::create([
+            'pergunta' => 'Leonardo DiCaprio ganhou o Oscar por qual de seus filmes?',
+            'tema_id' => $artes_entretenimento_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Ele nunca ganhou um Oscar',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'O Regresso',
+            'correta' => True,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'O Lobo de Wall Street',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'A Origem',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+		
+$pergunta = Pergunta::create([
+            'pergunta' => 'Qual dos seguintes não é um X-men?',
+            'tema_id' => $artes_entretenimento_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Ciclope',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Wolverine',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Tocha Humana',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Tempestade',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+		
+$pergunta = Pergunta::create([
+            'pergunta' => 'No filme “Aladdin”, qual era o nome de seu macaco de estimação?',
+            'tema_id' => $artes_entretenimento_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Rajah',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Pluto',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Milu',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Abu',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+$pergunta = Pergunta::create([
+            'pergunta' => 'O que Alf, o E.Teimoso queria comer?',
+            'tema_id' => $artes_entretenimento_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'O gato',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'O cachorro',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'A torta',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'O sofá',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+		
+$pergunta = Pergunta::create([
+            'pergunta' => 'Quando foi lançada a série Star Trek?',
+            'tema_id' => $artes_entretenimento_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => '1977',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => '1968',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => '1970',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => '1966',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+		
+$pergunta = Pergunta::create([
+            'pergunta' => 'A cerveja Duff aparece em que desenho?',
+            'tema_id' => $artes_entretenimento_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Os Simpsons',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Futurama',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'American Dad',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Uma Família da Pesada',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+$pergunta = Pergunta::create([
+            'pergunta' => 'Qual o nome da indústria cinematográfica nigeriana?',
+            'tema_id' => $artes_entretenimento_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Bollywood',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Nollywood',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Nigeriacorp',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Kinogeria',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+		
+$pergunta = Pergunta::create([
+            'pergunta' => 'Que personagem era conhecido por ser um aluno(a) sabe tudo em Harry Potter?',
+            'tema_id' => $artes_entretenimento_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Harry',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Neville',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Daniel Sanchez, digo, Hermione',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Rony',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+$pergunta = Pergunta::create([
+            'pergunta' => 'Qual o nome da cadela de “Vidas Secas”, do escritor alagoano Graciliano Ramos?',
+            'tema_id' => $artes_entretenimento_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Baleia',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Orca',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Baronesa',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Condessa',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+		
+$pergunta = Pergunta::create([
+            'pergunta' => 'Quem pintou o quadro “Primavera”, também conhecido por “Alegoria da Primavera”?',
+            'tema_id' => $artes_entretenimento_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Botticelli',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Ticiano',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Michelangelo',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Sleeper 1',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+		
+$pergunta = Pergunta::create([
+            'pergunta' => 'Quem escreveu Branca de Neve?',
+            'tema_id' => $artes_entretenimento_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Antoine Galland',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Walt Disney',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Irmãos Grimm',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Charles Perrault',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+		
+		
+		$pergunta = Pergunta::create([
+            'pergunta' => 'O que o soldadinho de chumbo perdeu?',
+            'tema_id' => $artes_entretenimento_id,
+            'dificuldade_id' => $facil_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Uma perna',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Um Braço',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Uma Mão',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Um dedo',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+		$pergunta = Pergunta::create([
+            'pergunta' => 'Qual poeta escreveu o drama “Bodas de Sangue”?',
+            'tema_id' => $artes_entretenimento_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Miguel de Cervantes',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Tirso de Molina',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Félix Lope de Vega',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Federico García Lorca',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+		$pergunta = Pergunta::create([
+            'pergunta' => 'A que escola literária pertencia Machado de Assis?',
+            'tema_id' => $artes_entretenimento_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Romantismo',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Realismo',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Naturalismo',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Arcadismo',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+		
+		$pergunta = Pergunta::create([
+            'pergunta' => 'Qual é o livro mais editado e traduzido da história?',
+            'tema_id' => $artes_entretenimento_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Dom Quixote',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'O pequeno Príncipe',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'A Bíblia',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Odisseia',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+		
+		$pergunta = Pergunta::create([
+            'pergunta' => 'Quem escreveu o livro “Diva”?',
+            'tema_id' => $artes_entretenimento_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'José de Alencar',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Alvares de Azevedo',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Eduardo Spohr',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Machado de Assis',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+		
+		$pergunta = Pergunta::create([
+            'pergunta' => 'Quem escreveu os contos de Sherlock Holmes?',
+            'tema_id' => $artes_entretenimento_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Oscar Wilde',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Edgar Allan Poe',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Agatha Christie',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Arthur Conan Doyle',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+		$pergunta = Pergunta::create([
+            'pergunta' => 'O Realismo faz oposição a que estilo literário?',
+            'tema_id' => $artes_entretenimento_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Romantismo',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Naturalismo',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Modernismo',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Simbolismo',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+		
+		$pergunta = Pergunta::create([
+            'pergunta' => 'Tarsila do Amaral pertence a qual movimento?',
+            'tema_id' => $artes_entretenimento_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Romantismo',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Modernismo',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Realismo',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Pós-Modernismo',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+
     }
 }
