@@ -128,7 +128,15 @@ class PartidaRepository{
 		$ultimaRodadaJogador = $this->partida->rodadas->where('jogador_id',$player)->sortByDesc('id')->first();
 
 		if($ultimaRodadaJogador){
-			return $ultimaRodadaJogador->fichas;
+			
+			if(collect(json_decode($ultimaRodadaJogador->fichas))->count() > 0)
+			{
+				return $ultimaRodadaJogador->fichas;
+			}
+			else{
+				return json_encode([1,2,3,4,5]);
+			}
+
 		}
 		else{
 			return json_encode([1,2,3,4,5]);
