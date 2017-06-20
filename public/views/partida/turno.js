@@ -74,10 +74,11 @@ function prepareEspectador(configuration){
 
 function finishGame(){
   var finishMessage;
-  if($user_id === $status.vencedor_id)
+  if($user_id === $status.vencedor_id){
     finishMessage = "PARABÉNS! YOU HAVE THE POWER";
-  else
+  }else{
     finishMessage = "TA DE SACANAGEM? TU PERDEU CACETE!";
+  }
   var counter = 5;
   var redirectCounter = setInterval(function(){
       $("#redirectMessage").text(counter--);
@@ -93,7 +94,6 @@ function finishGame(){
 
 function statusTurno(){
   $jogadores = $status.jogadores;
-  console.log($status);
   if($status.vencedor_id != null || this.getRodadaAtual().posicao >= 22){
     finishGame();
     return;
