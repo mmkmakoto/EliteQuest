@@ -66,44 +66,6 @@ function setGeneral(){
 
 function prepareTurno(){
   $("#resultadoAnswer").modal("hide");
-  if($intervalTurnoCounter === null){
-    $intervalTurnoCounter = setInterval(function(){
-      $("#tempoRodada").text($turnoCounter);
-      if($turnoCounter == 0){
-        $turnoCounter = $rodadaTimer;
-        clearInterval($intervalTurnoCounter);
-        clearInterval($controleTurnoIntervalo);
-
-        $intervalTurnoCounter = null;
-
-        $hello.play();
-        $("#answer_result").text("Você tava mimindo... Agora vai perder uma ficha pra parar de ser besta...");
-        $("#resultadoAnswer").modal("show");
-
-        $controleTurnoIntervalo = setInterval(function(){
-          console.log("atualizando status da sala...");
-          controlarTurno();
-        }, 5000);
-
-        var fichas = JSON.parse(getRodadaAtual().fichas);
-        var data = {
-          ficha: fichas[0],
-          resposta_id: 5,
-          status: "timeout",
-          user_id: $user_id
-        }
-
-        answerQuestion(data, function(confirmation){
-          if(confirmation){
-            console.log("resposta enviada com sucesso...");
-            for(i = 1; i <= 5; i++)
-              disableFicha($("#ficha_" + i));
-            }
-        });
-      }
-      $turnoCounter--;
-    }, 1000);
-  }
 
   if($inicioRodada){
       $seu_turno.play();
