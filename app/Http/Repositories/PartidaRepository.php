@@ -165,7 +165,7 @@ class PartidaRepository{
 	public function getStatus(){
 		
 		$this->partida->rodadas;
-		$this->partida->jogadores;
+		$this->partida->load('jogadores.user');
 
 		//$rodadaAtual = Rodada::where('partida_id',$this->partida->id)->orderBy('id','desc')->first();
 		$this->partida->rodadaAtual = $this->getRodadaAtual(); 
