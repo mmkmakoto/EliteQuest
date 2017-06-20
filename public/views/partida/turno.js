@@ -9,6 +9,9 @@ var $snake_never = false;
 var $firstLoad = true;
 var $inicioRodada = true;
 var $controleTurnoIntervalo;
+var $rodadaTimer = 90;
+var $turnoCounter = $rodadaTimer;
+var $intervalTurnoCounter = null;
 ////////////////////////////////////////
 
 function getRodadaAtual(){
@@ -54,6 +57,45 @@ function setGeneral(){
 }
 
 function prepareTurno(){
+  $("#resultadoAnswer").modal("hide");
+  if($intervalTurnoCounter === null){
+    $intervalTurnoCounter = setInterval(function(){
+      $("#tempoRodada").text($turnoCounter);
+      if($turnoCounter == 0){
+        $turnoCounter = $rodadaTimer;
+        clearInterval($intervalTurnoCounter);
+        clearInterval($controleTurnoIntervalo);
+
+        $intervalTurnoCounter = null;
+
+        $hello.play();
+        $("#answer_result").text("Você tava mimindo... Agora vai perder uma ficha pra parar de ser besta...");
+        $("#resultadoAnswer").modal("show");
+
+        $controleTurnoIntervalo = setInterval(function(){
+          console.log("atualizando status da sala...");
+          controlarTurno();
+        }, 5000);
+
+        var fichas = JSON.parse(getRodadaAtual().fichas);
+        var data = {
+          ficha: fichas[0],
+          resposta_id: 5,
+          status: "timeout",
+          user_id: $user_id
+        }
+
+        answerQuestion(data, function(confirmation){
+          if(confirmation){
+            console.log("resposta enviada com sucesso...");
+            for(i = 1; i <= 5; i++)
+              disableFicha($("#ficha_" + i));
+            }
+        });
+      }
+      $turnoCounter--;
+    }, 1000);
+  }
 
   if($inicioRodada){
       $seu_turno.play();
@@ -108,8 +150,39 @@ function finishGame(){
   $("#modalFinish").modal("show");
 }
 
+function finishByDesistencia(){
+  $("#waitGameArea").modal("hide");
+  var finishMessage;
+
+  $oh_shit.play();
+  finishMessage = "PARECE Q VC SOBROU NESSA AMIGÃO... N FOI DESSA VEZ QUE CONQUISTOU SUA VITÓRIA...";
+
+  var data = {user_id: $user_id};
+  desistirPartida(data, function(response){
+    console.log(response);
+  });
+
+  var counter = 5;
+  var redirectCounter = setInterval(function(){
+      $("#redirectMessage").text(counter--);
+      if(counter == 0){
+        clearInterval(redirectCounter);
+        window.location.replace("./home");
+      }
+  }, 1000);
+
+  $("#finishMessage").text(finishMessage);
+  $("#modalFinish").modal("show");
+}
+
 function statusTurno(){
   $jogadores = $status.jogadores;
+
+  if($status.jogadores.length == 1){
+    finishByDesistencia();
+    return;
+  }
+
   if($status.vencedor_id != null || this.getRodadaAtual().posicao >= 22){
     finishGame();
     return;
@@ -183,8 +256,21 @@ $(document).ready(function(){
     window.location.replace("./home");
   });
 
+  $("#confirmDesistencia").on("click", function(){
+    var data = {user_id: $user_id};
+    desistirPartida(data, function(response){
+      window.location.replace("./home");
+    });
+  });
+
+  $("#sairPartida").on("click", function(){
+    $opa.play();
+    $("#desistConfirm").modal("show");
+  });
+
   $("#confirmFichaSelection").on("click",function(){
     console.log("limpando intervalo de turno...");
+    clearInterval($intervalTurnoCounter);
     clearInterval($controleTurnoIntervalo);
     intervalo = setInterval(function(){
       updateTurnoTimer();
