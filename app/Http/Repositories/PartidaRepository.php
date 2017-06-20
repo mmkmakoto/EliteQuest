@@ -85,7 +85,7 @@ class PartidaRepository{
 		}
 
 		$rodadaAtual->posicao = $posicao;
-		$rodadaAtual->fichas = json_encode($fichas);
+		$rodadaAtual->fichas = json_encode($fichas->values());
 		$rodadaAtual->resposta_id = $respostaModel->id;
 		$rodadaAtual->save();
 		
