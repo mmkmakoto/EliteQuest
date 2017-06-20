@@ -50,7 +50,7 @@ $("#" + token_id).addClass("rotated-right");
       }
 
 
-      if(posAtual === posNew || posAtual >= 21){
+      if(posAtual === posNew || posAtual >= 22){
         $audio_walk.pause();
         $audio_walk.currentTime = 0;
         clearInterval(id);

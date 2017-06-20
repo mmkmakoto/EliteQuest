@@ -4,7 +4,8 @@ $(document).ready(function(){
 
   var data = {user_id: $user.id};
   requestGameStatus(data, function(partida){
-    if(partida == false)
+    console.log(partida);
+    if(partida == false || partida.encerrada === 1)
       return;
     $("#alert_partida").show();
     $("#nova_sala").hide();
