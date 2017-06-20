@@ -119,6 +119,9 @@
 		</div>
 		<div class="row">
 
+
+			<div class="col-sm-10 players">
+
         <div class="col-lg-3" id="area_player_1">
 					<div class="col-lg-1">
 						<img src="./../../assets/victor.png" id="token_player_id_1" class="token-min"/>
