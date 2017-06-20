@@ -976,5 +976,447 @@ class PerguntasEsporteLazerSeeder extends Seeder
 			'correta' => false,
 			'pergunta_id' => $pergunta->id,
 		]);
-    }
+
+
+
+
+$pergunta = Pergunta::create([
+            'pergunta' => 'Futebol: Quem venceu a Champions League de 2008?',
+            'tema_id' => $esporte_lazer_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Real Madrid',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Manchester United',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Chelsea',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Barcelona',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+
+$pergunta = Pergunta::create([
+            'pergunta' => 'Futebol: Qual seleção foi a campeã mundial de 2006?
+',
+            'tema_id' => $esporte_lazer_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Alemanha',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'França',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Itália',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Brasil',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+$pergunta = Pergunta::create([
+            'pergunta' => 'Basquete: Qual time foi campeão da NBA 2011?',
+            'tema_id' => $esporte_lazer_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Miami Heat',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Boston Celtics',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Dallas Mavericks',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Cleveland Cavaliers',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+$pergunta = Pergunta::create([
+            'pergunta' => 'Tênis: Qual o maior vencedor de Grand Slam em simples da história?',
+            'tema_id' => $esporte_lazer_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Bjorn Borg',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Roger Federer',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Rafael Nadal',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Novak Djokovic',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+$pergunta = Pergunta::create([
+            'pergunta' => 'Tênis: Quem venceu o Australian Open de 2014?',
+            'tema_id' => $esporte_lazer_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Stanislas Wawrinka',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Rafael Nadal',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Novak Djokovic',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Roger Federer',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+$pergunta = Pergunta::create([
+            'pergunta' => 'Golfe: Qual o nome do americano que é considerado o maior golfista de todos os tempos?',
+            'tema_id' => $esporte_lazer_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Tiger Woods',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Arnold Palmer',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Jack Nicklaus',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Ben Hogan',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+$pergunta = Pergunta::create([
+            'pergunta' => 'Natação: Qual o nadador americano recordista de medalhas de ouro nas Olimpíadas?',
+            'tema_id' => $esporte_lazer_id,
+            'dificuldade_id' => $facil_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Gunnar Bentz',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Jimmy Feigen',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Michael Phelps',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Ryan Lochte',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+$pergunta = Pergunta::create([
+            'pergunta' => 'Futebol: Quem venceu o Mundial de Clubes de 2005?',
+            'tema_id' => $esporte_lazer_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Liverpool',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Santos',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'São Paulo',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Real Madrid',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+$pergunta = Pergunta::create([
+            'pergunta' => 'Futebol: Qual foi a seleção adversária da Argentina nas oitavas de final da Copa do Mundo de 2014?',
+            'tema_id' => $esporte_lazer_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Brasil',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Suiça',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Chile',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Grécia',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+$pergunta = Pergunta::create([
+            'pergunta' => 'Volêi: Qual seleção venceu o Campeonato Mundial de Volêi Masculino de 2014?',
+            'tema_id' => $esporte_lazer_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Brasil',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Alemanha',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Polônia',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Rússia',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+$pergunta = Pergunta::create([
+            'pergunta' => 'Olimpíadas de Inverno: Qual cidade e país a sediou em 2014?',
+            'tema_id' => $esporte_lazer_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Londres, Inglaterra',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Berna, Suiça',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Sochi, Rússia',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Vancouver, Canadá',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+
+$pergunta = Pergunta::create([
+            'pergunta' => 'Tênis: Quem venceu o Masters 1000 de Xangai 2014?',
+            'tema_id' => $esporte_lazer_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Novak Djokovic',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Juan Martín Del Potro',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Rafael Nadal',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Roger Federer',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+$pergunta = Pergunta::create([
+            'pergunta' => 'Futebol: Quem venceu o Mundial de Clubes de 2012?',
+            'tema_id' => $esporte_lazer_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Barcelona',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Real Madrid',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Corinthians',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Bayern de Munique',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+$pergunta = Pergunta::create([
+            'pergunta' => 'Basquete: Quem venceu o Campeonato Mundial Interclubes de Basquete de 2014?',
+            'tema_id' => $esporte_lazer_id,
+            'dificuldade_id' => $dificil_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Real Madrid',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Flamengo',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Pinheiros',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Barcelona',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+$pergunta = Pergunta::create([
+            'pergunta' => 'Futebol: Quem venceu a Copa do Mundo de 1950?',
+            'tema_id' => $esporte_lazer_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Alemanha',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Itália',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Uruguai',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => '',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+$pergunta = Pergunta::create([
+            'pergunta' => 'Olimpíadas: Qual cidade e país foi sede do torneio em 2016?',
+            'tema_id' => $esporte_lazer_id,
+            'dificuldade_id' => $facil_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Buenos Aires, Argentina',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Nova Iorque, EUA',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Berlim, Alemanha',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Rio de Janeiro, Brasil',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+
+
+
+	}
 }

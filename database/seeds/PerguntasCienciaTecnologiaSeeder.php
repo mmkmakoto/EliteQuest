@@ -1872,7 +1872,691 @@ class PerguntasCienciaTecnologiaSeeder extends Seeder
 
 
 
+$pergunta = Pergunta::create([
+            'pergunta' => '(...) if (nota<=5) writeln("Aluno Reprovado"); else writeln("Aluno Aprovado"); (...) end. Seguindo o código em PASCAL acima, o aluno SÓ é aprovado caso?',
+            'tema_id' => $ciencia_tecnologia_id,
+            'dificuldade_id' => $facil_id,
+        ]);
 
+        Resposta::create([
+            'resposta' => 'Nota = 5',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Nota < 5',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Nota >= 5',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Nenhuma das anteriores',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+		
+$pergunta = Pergunta::create([
+            'pergunta' => 'As doenças Malária, Filariose, Dengue e Febre amarela, possuem como vetores, respectivamente:',
+            'tema_id' => $ciencia_tecnologia_id,
+            'dificuldade_id' => $dificil_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Mosquito Anopheles, Culex quiquefasciatis, Aedes aegypti e Aedes aegypti.',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Mosquito Culex quiquefasciatis, Anopheles, Aedes aegypti e Aedes aegypti.',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Mosquito Anopheles, Culex quiquefasciatis, Aedes albopictus e Aedes aegypti.',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Mosquito Aedes albopictus, Anopheles, Aedes aegypti e Aedes albopictus.',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+		
+$pergunta = Pergunta::create([
+            'pergunta' => 'Hormônio também conhecido como "hormônio do amor":',
+            'tema_id' => $ciencia_tecnologia_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Adrenalina',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Serotonina',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Oxitocina',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Endorfina',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+		
+$pergunta = Pergunta::create([
+            'pergunta' => 'Doença também conhecida por Trissomia do 21:',
+            'tema_id' => $ciencia_tecnologia_id,
+            'dificuldade_id' => $facil_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Síndrome de Turner',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Síndrome de Wilson',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Síndrome de Asperger',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Síndrome de Down',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+		
+$pergunta = Pergunta::create([
+            'pergunta' => 'Qual o menor osso do corpo humano?',
+            'tema_id' => $ciencia_tecnologia_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Estribo',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Bigorna',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Falange',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Martelo',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+		
+$pergunta = Pergunta::create([
+            'pergunta' => 'Marque a alternativa em que todas as doenças descritas são de característica autoimune.',
+            'tema_id' => $ciencia_tecnologia_id,
+            'dificuldade_id' => $dificil_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Síndrome de Sjögren, doença de Addison, neurocisticercose e ascite.',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Miosite anquilosante, neurocisticercose, ascite e albinismo.',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Miosite anquilosante, Síndrome de Sjögren, doença de Addison E Lúpus eritematoso sistêmico.',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Lúpus eritematoso sistêmico, bronquite, Síndrome de Sjögren e doença de Addison',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+		
+
+$pergunta = Pergunta::create([
+            'pergunta' => 'A leishmaniose tegumentar americana, conhecida popularmente como “úlcera de bauru”, é causada por um (a):',
+            'tema_id' => $ciencia_tecnologia_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Vírus',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Fungo',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Bactéria',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Protozoário',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+		
+$pergunta = Pergunta::create([
+            'pergunta' => 'São considerados métodos contraceptivos não hormonais, exceto:',
+            'tema_id' => $ciencia_tecnologia_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Coito interrompido',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Tabelinha',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Camisinha',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'DIU Mirena',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+$pergunta = Pergunta::create([
+            'pergunta' => 'O que um espeleólogo estuda?',
+            'tema_id' => $ciencia_tecnologia_id,
+            'dificuldade_id' => $facil_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Insetos',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Respiração',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Cavernas',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Pássaros',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+$pergunta = Pergunta::create([
+            'pergunta' => 'Qual o valor do pH do sangue humano?',
+            'tema_id' => $ciencia_tecnologia_id,
+            'dificuldade_id' => $facil_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => '7,4',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => '6,5',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => '7,8',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => '6,9',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+$pergunta = Pergunta::create([
+            'pergunta' => 'A condensação é a transição entre quais estados da matéria?',
+            'tema_id' => $ciencia_tecnologia_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Sólido para líquido',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Gasoso para líquido',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Líquido para sólido',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Líquido para gasoso',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+		
+		
+$pergunta = Pergunta::create([
+            'pergunta' => 'Qual doença é causada pela urina de ratos?',
+            'tema_id' => $ciencia_tecnologia_id,
+            'dificuldade_id' => $facil_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Cólera',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Hepatite',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Leptospirose',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Aids',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+		
+$pergunta = Pergunta::create([
+            'pergunta' => 'Em que pais foi diagnosticado pela primeira vez a doença das vacas loucas?',
+            'tema_id' => $ciencia_tecnologia_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Reino Unido',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'França',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Alemanha',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Espanha',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+		
+		
+$pergunta = Pergunta::create([
+            'pergunta' => 'Qual o nome da região da coluna que fica o pescoço?',
+            'tema_id' => $ciencia_tecnologia_id,
+            'dificuldade_id' => $facil_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Cervical',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Dorsal',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Sacro-Coccígea',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Torácica',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+		
+$pergunta = Pergunta::create([
+            'pergunta' => 'Qual dos seguintes é um anelídeo?',
+            'tema_id' => $ciencia_tecnologia_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Polvo',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Caracol',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Minhoca',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Barata',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+	
+$pergunta = Pergunta::create([
+            'pergunta' => 'Como é chamado o órgão responsável pela produção de energia celular?',
+            'tema_id' => $ciencia_tecnologia_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Vacúolo',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Ribossomos',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Complexo de Golgi',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Mitocôndria',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+	$pergunta = Pergunta::create([
+            'pergunta' => 'Na anatomia, como os ossos dos dedos são chamados?',
+            'tema_id' => $ciencia_tecnologia_id,
+            'dificuldade_id' => $facil_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Falanges',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Metacarpos',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Zigomáticos',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Tíbia',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+		
+$pergunta = Pergunta::create([
+            'pergunta' => 'As siglas "QWERTY" ou “AZERTY” e "DVORAK" são referente a que?',
+            'tema_id' => $ciencia_tecnologia_id,
+            'dificuldade_id' => $facil_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Marcas de Memória RAM;',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Cheats do GTA;',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Modelos Padrão de Teclado;',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Senhas Padrão do Linux;',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+$pergunta = Pergunta::create([
+            'pergunta' => 'Quais dos grupos de ciglas abaixo correspondem só a extensões usadas em Formatos de Video?',
+            'tema_id' => $ciencia_tecnologia_id,
+            'dificuldade_id' => $facil_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => '.MP3/.WMA/.WAVE',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => '.DVD/.EXE/.AVI',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => '.VSF/.PQP/.VTNC',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => '.RMVB/.AVI/.MOV',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+		
+
+$pergunta = Pergunta::create([
+            'pergunta' => '
+	1. O surto de ataques hackers liderados pelo grupo LulzSec, que ocorreu inclusive no Brasil, derrubando sites do governo, foi baseado em que tipo de ataque?
+
+',
+            'tema_id' => $ciencia_tecnologia_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Brute Force - Força Bruta',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'DDoS - Negação de serviço',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Trojan - Cavalo de Tróia',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Port Scanning - Escaneamento de Portas',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+		
+		
+$pergunta = Pergunta::create([
+            'pergunta' => 'Qual dos códigos abaixo possui a mesma sintaxe e funcionamento tanto para C quanto para PASCAL?',
+            'tema_id' => $ciencia_tecnologia_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'delay();',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'write();',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'scan();',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'print();',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+		
+$pergunta = Pergunta::create([
+            'pergunta' => 'Uma rede entre computadores não serve para:',
+            'tema_id' => $ciencia_tecnologia_id,
+            'dificuldade_id' => $facil_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Transferir Arquivos',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Compartilhar Impressoras',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Compartilhar Internet',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Deixar o Computador mais rápido',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+		
+$pergunta = Pergunta::create([
+            'pergunta' => 'Em teoria, qual das configurações abaixo (PROCESSADOR/MEMÓRIA RAM) é mais "poderosa"?',
+            'tema_id' => $ciencia_tecnologia_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Core i7 2.6GHz | 4GB DDR',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Core 2 Duo 2 GHz | 2GB DDRII',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Dual Core 4GHz| 8GB DDR',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Core i5 3.6GHz | 8GB DDR2II',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+		
+$pergunta = Pergunta::create([
+            'pergunta' => 'Pela fórmula 2 elevado a N é possível descobrir quantos números pode se ter em binário pelo número de dígitos (Bits). Com 8 Bits, até que número posso contar em binário?',
+            'tema_id' => $ciencia_tecnologia_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => '256',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => '512',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => '1023',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => '255',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+		
+$pergunta = Pergunta::create([
+            'pergunta' => 'O número 010010(2) representa que número decimal X(10)?',
+            'tema_id' => $ciencia_tecnologia_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => '10',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => '10010',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => '18',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => '10',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
 
     }
 }

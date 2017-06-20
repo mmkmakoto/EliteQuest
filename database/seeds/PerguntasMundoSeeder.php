@@ -1521,6 +1521,507 @@ class PerguntasMundoSeeder extends Seeder
 		'pergunta_id' => $pergunta->id,
 		]);
 
+		$pergunta = Pergunta::create([
+            'pergunta' => 'Palikir é a capital de qual país?',
+            'tema_id' => $mundo_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Micronésia',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Haiti',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Maldivas',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Seychelles',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+
+		
+$pergunta = Pergunta::create([
+            'pergunta' => 'A capital da Alemanha é:',
+            'tema_id' => $mundo_id,
+            'dificuldade_id' => $facil_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Munich',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Berlim',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Mannheim',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Nurnberg',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+
+		
+$pergunta = Pergunta::create([
+            'pergunta' => 'Qual a capital do Fiji?',
+            'tema_id' => $mundo_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Lautoka',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Nadi',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Suva',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Labasa',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+		
+$pergunta = Pergunta::create([
+            'pergunta' => 'Qual a cidade mais populosa a África do Sul?',
+            'tema_id' => $mundo_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Pretória',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Joanesburgo',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Cidade do Cabo',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Bloenfonteim',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+		
+$pergunta = Pergunta::create([
+            'pergunta' => 'Qual a cidade mais populosa da Nova Zelândia',
+            'tema_id' => $mundo_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Dunedin',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Palmerston North',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Manukau',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Auckalnd',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+		
+$pergunta = Pergunta::create([
+            'pergunta' => 'Quais as cores da bandeira da capital do Brasil?',
+            'tema_id' => $mundo_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Branco, Amarelo e Verde',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Vermelho, Azul e Amarelo',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Verde e Amarelo',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Amarelo, Azul e Verde',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+
+$pergunta = Pergunta::create([
+            'pergunta' => 'Qual a capital de Portugal?',
+            'tema_id' => $mundo_id,
+            'dificuldade_id' => $facil_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Coimbra',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Lisboa',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Porto',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Açores',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+
+
+$pergunta = Pergunta::create([
+            'pergunta' => 'Qual a antiga moeda da Itália?',
+            'tema_id' => $mundo_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Lira',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Dracma',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Marco',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Peseta',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+		
+	$pergunta = Pergunta::create([
+            'pergunta' => 'Em qual oceano estão as ilhas de Galápagos?',
+            'tema_id' => $mundo_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Antártico',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Pacífico',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Atlântico',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Índico',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+
+
+$pergunta = Pergunta::create([
+            'pergunta' => 'Onde localiza-se o museu do MASP?',
+            'tema_id' => $mundo_id,
+            'dificuldade_id' => $facil_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Minas Gerais',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Rio de Janeiro',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'São Paulo',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Paraná',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+$pergunta = Pergunta::create([
+            'pergunta' => 'Paramaribo é capital de que país da América Latina?',
+            'tema_id' => $mundo_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Suriname',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Guiana',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Venezuela',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Guiana Francesa',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+
+
+$pergunta = Pergunta::create([
+            'pergunta' => 'Kiev é a capital de que país?',
+            'tema_id' => $mundo_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Romênia',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Noruega',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Ucrânia',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Polônia',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+$pergunta = Pergunta::create([
+            'pergunta' => 'Depois do monte Everest, qual a montanha mais alta do mundo?',
+            'tema_id' => $mundo_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'K2',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Lhotse',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Kanchenjunga',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Makalu',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+$pergunta = Pergunta::create([
+            'pergunta' => 'Quando é o outono do hemisfério norte?',
+            'tema_id' => $mundo_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Junho a Setembro',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Dezembro a Março',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Setembro a Dezembro',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Março a Junho',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+$pergunta = Pergunta::create([
+            'pergunta' => 'Que países formam a maior fronteira do mundo?',
+            'tema_id' => $mundo_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Estados Unidos e Canadá',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Argentina e Chile',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Russia e Cazaquistão',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Brasil e Bolívia',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+$pergunta = Pergunta::create([
+            'pergunta' => 'Qual a capital da Noruega?',
+            'tema_id' => $mundo_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Cabul',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Oslo',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Berlim',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Tirania',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+
+$pergunta = Pergunta::create([
+            'pergunta' => 'Qual a maior fonte de energia do Brasil?',
+            'tema_id' => $mundo_id,
+            'dificuldade_id' => $facil_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Fóssil',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Hidrelétrica',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Nuclear',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Geotérmica',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+
+$pergunta = Pergunta::create([
+            'pergunta' => 'O que é um Banco de Areia?',
+            'tema_id' => $mundo_id,
+            'dificuldade_id' => $medio_id,
+        ]);
+
+        Resposta::create([
+            'resposta' => 'Uma formação na costa',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Uma montanha alta próxima à água',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Areia que se estende superficialmente sob a água',
+            'correta' => true,
+            'pergunta_id' => $pergunta->id,
+        ]);
+        Resposta::create([
+            'resposta' => 'Nenhum dos anteriores',
+            'correta' => false,
+            'pergunta_id' => $pergunta->id,
+        ]);
 
 
 
