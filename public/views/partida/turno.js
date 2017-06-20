@@ -7,6 +7,7 @@ var $atualizarTurno = true;
 var $categorias = null;
 var $snake_never = false;
 var $firstLoad = true;
+var $inicioRodada = true;
 var $controleTurnoIntervalo;
 ////////////////////////////////////////
 
@@ -54,6 +55,11 @@ function setGeneral(){
 
 function prepareTurno(){
 
+  if($inicioRodada){
+      $seu_turno.play();
+      $inicioRodada = false;
+  }
+
   $("#snake_show").hide();
   $("#waitGameArea").modal("hide");
   $atualizarTurno = false;
@@ -64,6 +70,7 @@ function prepareTurno(){
 }
 
 function prepareEspectador(configuration){
+  $("#snake_show").show();
   for(i = 1; i <= 5; i++)
     disableFicha($("#ficha_" + i));
 
@@ -79,10 +86,13 @@ function prepareEspectador(configuration){
 }
 
 function finishGame(){
+  $("#waitGameArea").modal("hide");
   var finishMessage;
   if($user_id === $status.vencedor_id){
+    $eh_nois_mano.play();
     finishMessage = "PARABÉNS! YOU HAVE THE POWER";
   }else{
+    $fucking_shit.play();
     finishMessage = "TA DE SACANAGEM? TU PERDEU CACETE!";
   }
   var counter = 5;
