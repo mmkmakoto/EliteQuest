@@ -14,14 +14,20 @@ var $token_path = {
 };
 
 function walk(status, effect){
-  var status_atual = getRodadaAtual().stats_jogadores.filter(function(stats){return stats.jogador_id === status.jogador_id})[0];
-  var atualPos = status_atual.posicao;
+  //var status_atual = getRodadaAtual();
+  //var atualPos = status_atual.posicao;
+  console.log("moving...");
+  var atualPos = Number($("#pos_player_"  + status.jogador_id).text());
   var newPos = status.posicao;
-
   var $element = $('.token[player_id="' + status.jogador_id + '"]');
-  if((newPos != atualPos) || (Number($("#pos_"  + status.jogador_id).text()) != atualPos))
+
+
+  if((atualPos != newPos)){
     $("#pos_player_" + status.jogador_id).text(newPos);
-  move(status, $element, effect, atualPos, newPos);
+  }
+
+ move(status, $element, effect, atualPos, newPos);
+ atualPos = newPos;
 }
 
 function moveWithEffect(status, posAtual, posNew, token_id, position_token){
@@ -44,14 +50,14 @@ $("#" + token_id).addClass("rotated-right");
       }
 
 
-      if(posAtual === posNew){
+      if(posAtual === posNew || posAtual >= 21){
         $audio_walk.pause();
         $audio_walk.currentTime = 0;
         clearInterval(id);
         clearInterval(moveInterval);
         $("#" + token_id).removeClass("rotated-right");
         $("#" + token_id).removeClass("rotated-left");
-        if(posNew === 21){
+        if(posNew >= 21){
           $status.vencedor_id = status.jogador_id;
           finishGame();
         }
@@ -123,24 +129,17 @@ function move(status, $element, effect, posAtual, posNew){
   //var position_init = position_token[position];
   //var position_finish = position_token[steps];
 
-  if(!effect && posAtual != 0){
-    moveWithoutEffect(status, posAtual, token_id, position_token);
-    return;
+// moveWithoutEffect(status, posNew, token_id, position_token);
+// return;
+
+  if(!effect && posAtual >= 0){
+    moveWithoutEffect(status, posNew, token_id, position_token);
   }else{
     moveWithEffect(status, posAtual, posNew, token_id, position_token);
-    return;
   }
 
-  var elem = document.getElementById(token_id);
-  var id = setInterval(frame, 5);
-  // var top_finish = steps;
-  // var strTop = $("#" + token_id).css('top').split("");
-  // var strLeft = $("#" + token_id).css('left').split("");
-  // strTop.pop(); strLeft.pop();
-  // strTop.pop(); strLeft.pop();
-  // var top_pos = Number(strTop.join(""));
-  // var left_pos = Number(strLeft.join(""));
-  // var finish_left = left_pos += -20;
+  return;
+
 function frame(){
   if(position_init[1] == position_finish[1]){
     clearInterval(id);

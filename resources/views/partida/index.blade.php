@@ -176,10 +176,10 @@
 				</div>
 			</div>
 			<div class="col-sm-offset-1 col-sm-10 board">
-				<img src="./../../assets/victor.png" id="token_player_1" class="token"/>
-				<img src="./../../assets/daniel.png" id="token_player_2" class="token"/>
-				<img src="./../../assets/guilherme.png" id="token_player_3" class="token"/>
-				<img src="./../../assets/ives.png" id="token_player_4" class="token"/>
+				<img src="./../../assets/victor.png" id="token_player_1" class="token" hidden/>
+				<img src="./../../assets/daniel.png" id="token_player_2" class="token" hidden/>
+				<img src="./../../assets/guilherme.png" id="token_player_3" class="token" hidden/>
+				<img src="./../../assets/ives.png" id="token_player_4" class="token" hidden/>
 				<img src="./../../assets/tabuleiro2.png" name="board">
 			</div>
 		</div>
