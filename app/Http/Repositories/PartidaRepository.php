@@ -119,7 +119,7 @@ class PartidaRepository{
 			return $pergunta->id;
 		}
 		else{
-			return Pergunta::first()->id;
+			return Pergunta::where('tema_id',$tema->id)->first()->id;
 		}
 
 	}
