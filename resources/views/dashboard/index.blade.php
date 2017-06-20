@@ -40,6 +40,12 @@
 			</div>
 
 		</div>
+		<br/>
+		<div id="alert_partida" class="row" hidden>
+			<div class="col-lg-12">
+				<div class="alert alert-danger" role="alert">Parece que você já está em uma partida <a href="/partida"> Clique aqui</a> para continuar jogando...</div>
+			</div>
+		</div>
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="col-lg-4">

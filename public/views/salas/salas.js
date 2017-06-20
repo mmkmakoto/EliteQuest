@@ -1,8 +1,18 @@
 var checkSalaInterval;
 var attSalaStatusInterval;
 $(document).ready(function(){
+
+  var data = {user_id: $user.id};
+  requestGameStatus(data, function(partida){
+    if(partida == false)
+      return;
+    $("#alert_partida").show();
+    $("#nova_sala").hide();
+  });
+
   checkSala();
   carregarSalas();
+
 
   $("#nova_sala").on("click", function(){
     $("#newSala").modal("show");
@@ -65,7 +75,8 @@ function inSala(sala){
   var html = "";
   for(var i in sala.jogadores){
     var jogador = sala.jogadores[i];
-    html += "<tr><td>" + jogador.nome + "</td></tr>";
+    var jogadorNum = (Number(i) + 1);
+    html += "<tr><td> Jogador " + jogadorNum + "</td></tr>";
   }
 
   var btnHtmlStart = "";
