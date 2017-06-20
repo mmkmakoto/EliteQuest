@@ -110,7 +110,7 @@
 <body>
 
 	<div class="container">
-		<div class="row">
+		<div class="row" style="position:absolute; bottom: 0; left: 500px;">
 
 			<button disabled id="tema1" style="background:#8f6d63;"></button>
 			<button disabled id="tema2" style="background:#ffcc29;"></button>
