@@ -1,6 +1,7 @@
 function validateAnswer(answer){
   var response = {};
   response["respondido"] = true;
+  var certa = $question.respostas[answer.opcao];
   response.correto = $question.respostas[answer.opcao].correta === 1;
 
   $usedFichas.push($selectedFicha);
@@ -13,16 +14,15 @@ function validateAnswer(answer){
     response.nova_posicao = 0;
   }
   var data = {
-    ficha: Number($selectedFicha),
-    resposta_id: answer.opcao + 1,
+    ficha: Number(answer.ficha),
+    resposta_id: certa.id,
     status: "ok",
     user_id: $user_id
   }
+  console.log(data);
   answerQuestion(data, function(confirmation){
     if(confirmation){
       console.log("resposta enviada com sucesso...");
-    }else{
-      alert("ERRO AO ENVAIR RESP!");
     }
   });
 
@@ -55,6 +55,11 @@ function answerResponse(response){
   if(!response.respondido){
     $audio_ta_de_sacanagem.play();
     $("#answer_result").text("Não respondido :(");
+    controlarTurno();
+    $controleTurnoIntervalo = setInterval(function(){
+      console.log("atualizando status da sala...");
+      controlarTurno();
+    }, 5000);
   }else if(response.correto){
     $pergunta_certa.play();
     $("#answer_result").text("Resposta correta - BIIIIIIIIIIRL");
@@ -64,15 +69,15 @@ function answerResponse(response){
         var rodada = new_status.rodadaAtual;
         rodada.posicao += response.ficha;
 
-        if(response.ficha >= 2)
-          $audio_walk.play();
+        // if(response.ficha >= 2)
+        //   $audio_walk.play();
         var walkInterval = setInterval(function(){
-          walk(rodada, true);
+          //walk(rodada, true);
+          walk(rodada, false);
           clearInterval(walkInterval);
-          var intVlAux = setInterval(function(){
+          $controleTurnoIntervalo = setInterval(function(){
             controlarTurno();
-          }, 6000);
-          clearInterval(intVlAux);
+          }, 2000);
         }, 500);
         $rodadas = null;
       });
@@ -93,16 +98,17 @@ function answerResponse(response){
   }else{
     $pergunta_errada.play();
     $("#answer_result").text("Resposta errada - Que pena....");
+    controlarTurno();
+    $controleTurnoIntervalo = setInterval(function(){
+      console.log("atualizando status da sala...");
+      controlarTurno();
+    }, 5000);
   }
   $("#turno_timer").text("30");
   $("#questionArea").modal("hide");
   $("#resultadoAnswer").modal("show");
   $selectedFicha = null;
-  controlarTurno();
-  $controleTurnoIntervalo = setInterval(function(){
-    console.log("atualizando status da sala...");
-    controlarTurno();
-  }, 5000);
+
 }
 
 function getQuestion(callback){
