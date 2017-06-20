@@ -16,19 +16,17 @@ var $token_path = {
 function walk(status, effect){
   //var status_atual = getRodadaAtual();
   //var atualPos = status_atual.posicao;
-  var status_atual = getRodadaAtual();
-  var atualPos = status_atual.posicao;
+  var status_atual = $status.jogadores.filter(function(j){return j.user_id === status.jogador_id})[0];
+  var atualPos = status_atual.status.posicao;
   //var atualPos = Number($("#pos_player_"  + status.jogador_id).text());
   var newPos = status.posicao;
   var $element = $('.token[player_id="' + status.jogador_id + '"]');
-
-
-  if((atualPos != newPos || Number($("#pos_player_"  + status.jogador_id).text()) === 0)){
-  //  $("#pos_player_" + status.jogador_id).text(newPos);
+  if((atualPos != newPos)){
+    $audio_walk.play();
   }
+  move(status, $element, effect, atualPos, newPos);
 
- move(status, $element, effect, atualPos, newPos);
- atualPos = newPos;
+ status_atual.posicao = status.posicao;
 }
 
 function moveWithEffect(status, posAtual, posNew, token_id, position_token){

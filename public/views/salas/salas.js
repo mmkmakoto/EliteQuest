@@ -111,19 +111,23 @@ function inSala(sala){
   attSalaStatusInterval = setInterval(function(){
       console.log("atualizando status da sala...");
       fetchSala(data, function(response){
+        console.log("RESPONSE");
+        console.log(response);
         if(response == undefined){
-          requestGameStatus(function(response){
+          requestGameStatus(data, function(response){
             var game = response;
               console.log("REDIRECTING TO GAME...");
             console.log(game);
             if(game.sala_id === sala.id)
               window.location.replace("/partida");
-            return;
+            else{
+              alert("A sala atual foi fechada");
+              clearInterval(attSalaStatusInterval);
+              $("#sala").modal("hide");
+            }
           });
 
-          alert("A sala atual foi fechada");
-          clearInterval(attSalaStatusInterval);
-          $("#sala").modal("hide");
+
           return;
         }
         inSala(response);

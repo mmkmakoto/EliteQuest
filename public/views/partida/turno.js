@@ -15,7 +15,6 @@ function getRodadaAtual(){
 }
 
 function setGeneral(){
-  console.log($status);
   var rodada_atual  = this.getRodadaAtual();
   // $eu = $jogadores.filter(function(j){return j.id === $user_id})[0];
   // //$eu = $jogadores.filter(function(j){return j.id === 3})[0];
@@ -36,12 +35,19 @@ function setGeneral(){
   for(index_s in $jogadores){
     var status = $jogadores[index_s].status;
     status.jogador_id =  $jogadores[index_s].user_id;
-    if($firstLoad){
+    if(1){
       walk(status, false);
-    }else{
-      //$audio_walk.play();
-      setInterval(walk(status, false), 6000);
     }
+
+    // else{
+    //   clearInterval($controleTurnoIntervalo);
+    //   var walkInterval = setInterval(function(){
+    //     console.log("running");
+    //     walk(status, true);
+    //     clearInterval(walkInterval);
+    //     controlarTurno();
+    //   }, 8000);
+    // }
   }
   $firstLoad = false;
 }
@@ -150,7 +156,7 @@ $(document).ready(function(){
   $controleTurnoIntervalo = setInterval(function(){
     console.log("atualizando status da sala...");
     controlarTurno();
-  }, 5000);
+  }, 9000);
 
 //  controlarTurno();
 
