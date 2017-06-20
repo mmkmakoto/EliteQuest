@@ -64,6 +64,18 @@ function requestGameStatus(data, callback, error){
   });
 }
 
+function requestDesistirPartida(data, callback, error){
+    $.ajax({
+    async: true,
+    data: data,
+    url: urlBase + "api/partida/desistir",
+    type: "POST",
+    cache: false,
+    success: callback,
+    error: error
+  });
+}
+
 function requestStatus(callback){
   $.ajax({
     async: true,

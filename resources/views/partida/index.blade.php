@@ -120,18 +120,30 @@
     <script type="text/javascript" src="/views/partida/fichas.js"></script>
     <script type="text/javascript" src="/views/partida/movimento.js"></script>
 		<script type="text/javascript" src="/views/partida/snake.js"></script>
+		<script type="text/javascript" src="/views/partida/desistir.js"></script>
+
 </head>
 
 <body>
 
 	<div class="container">
 		<div class="row">
+
+			<button disabled id="tema1" style="background:#8f6d63;"></button>
+			<button disabled id="tema2" style="background:#ffcc29;"></button>
+			<button disabled id="tema3" style="background:#a53692;"></button>
+			<button disabled id="tema4" style="background:#138652;"></button>
+		</div>
+		<div class="row">
+			<div class="col-sm-12 players">
+
 			<div class="col-sm-2">
 				<div style="color: white;">
 					Tempo pra o fim da rodada: <span id="tempoRodada">-</span>
 				</div>
 			</div>
 			<div class="col-sm-10 players">
+
         <div class="col-lg-3" id="area_player_1">
 					<div class="col-lg-1">
 						<img src="./../../assets/victor.png" id="token_player_id_1" class="token-min"/>
@@ -194,7 +206,11 @@
 		<div class="row footer">
 			<div class="col-sm-6 empresa"><img src="./../../assets/Logo Quest.png"></div>
 			<div class="col-sm-offset-3 col-sm-3">
+
+{{-- 				<button id="desistir_partida" class="btn btn-default btn-danger">Desistir do jogo</button> --}}
+
 				<button id="sairPartida" class="btn btn-default btn-danger">Desistir do jogo</button>
+
 			</div>
 		</div>
 	</div>

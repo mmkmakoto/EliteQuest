@@ -170,6 +170,16 @@ class PartidaRepository{
 		$jogador = Jogador::where('user_id',$user_id)->first();
 		if($jogador){
 			$this->partida->jogadores()->detach($jogador);
+			//$ordem = collect(json_decode($this->partida->ordem_de_turno));
+			//$ordem->forget($ordem->flip()[$jogador->id]);
+			//$this->partida->ordem_de_turno = json_encode($ordem->values());
+			//$this->partida->save();
+
+			$rodadaAtual = $this->getRodadaAtual();
+			if($rodadaAtual->jogador_id == $jogador->id){
+				$this->proximaRodada();
+			}
+
 			return true;
 		}else{
 			return false;
@@ -211,6 +221,7 @@ class PartidaRepository{
 
 		$this->partida->rodadas;
 		$this->partida->load('jogadores.user');
+		$this->partida->load('temas');
 
 		foreach($this->partida->jogadores as $key => $jogador){
 			$this->partida->jogadores[$key]->status = $this->getPlayerStatus($jogador);

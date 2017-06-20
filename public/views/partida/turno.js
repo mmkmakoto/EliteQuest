@@ -1,6 +1,7 @@
 var intervalo = null;
 var $question = null;
 var $jogadores = null;
+var $temas = null;
 var $eu = null;
 var $rodadas = null;
 var $atualizarTurno = true;
@@ -22,6 +23,13 @@ function setGeneral(){
   var rodada_atual  = this.getRodadaAtual();
   // $eu = $jogadores.filter(function(j){return j.id === $user_id})[0];
   // //$eu = $jogadores.filter(function(j){return j.id === 3})[0];
+  for(index_tema in $temas){
+    var tema = $temas[index_tema];
+    var elementId = "#tema" + (Number(index_tema) + 1);
+    $(elementId).text(tema.nome);
+  }
+
+
   for(index_jogador in $jogadores){
     var jogador = $jogadores[index_jogador];
     var elementId = "#name_player_" + (Number(index_jogador) + 1);
@@ -177,6 +185,8 @@ function finishByDesistencia(){
 
 function statusTurno(){
   $jogadores = $status.jogadores;
+  $temas = $status.temas;
+
 
   if($status.jogadores.length == 1){
     finishByDesistencia();
