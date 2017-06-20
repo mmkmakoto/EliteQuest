@@ -86,6 +86,7 @@ function prepareEspectador(configuration){
 }
 
 function finishGame(){
+  $("#waitGameArea").modal("hide");
   var finishMessage;
   if($user_id === $status.vencedor_id){
     $eh_nois_mano.play();
