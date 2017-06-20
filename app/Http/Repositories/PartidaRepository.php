@@ -6,7 +6,7 @@ use App\Models\Rodada;
 use App\Models\Tema;
 use App\Models\Pergunta;
 use App\Models\Jogador;
-
+use App\Models\Resposta;
 class PartidaRepository{
 	public $partida;
 	public $rodadaAtual;
@@ -60,11 +60,23 @@ class PartidaRepository{
 
 		if($rodadaAtual->jogador_id == $jogador->id){
 			//SE FOR A RODADA DO JOGADOR
+			
+			$this->responderPergunta($resposta);
+
 			dump($resposta);
 			dd($rodadaAtual);
 		}else{
 			return false;
 		}
+	}
+
+
+	private function responderPergunta($resposta){
+		$resposta = Resposta::find($resposta['resposta_id']);
+		if($resposta->correta){
+
+		}
+		dd($resposta);
 	}
 
 	private function getPerguntaParaPosicao($posicao){
@@ -153,9 +165,10 @@ class PartidaRepository{
 	public function getStatus(){
 		
 		$this->partida->rodadas;
+		$this->partida->jogadores;
 
-		$rodadaAtual = Rodada::where('partida_id',$this->partida->id)->orderBy('id','desc')->first();
-		$this->partida->rodadaAtual = $rodadaAtual; 
+		//$rodadaAtual = Rodada::where('partida_id',$this->partida->id)->orderBy('id','desc')->first();
+		$this->partida->rodadaAtual = $this->getRodadaAtual(); 
 		
 
 		return $this->partida;
