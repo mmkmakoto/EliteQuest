@@ -181,15 +181,10 @@ class PartidaRepository{
 
 	public function getPlayerStatus($jogador){
 		$array = [
-			'etcs' => 'array com as fichas e posição atuais',
-			'posicao' => 'posição aqui',
-			'fichas' => 'fichas aqui',
+			'posicao' => $this->getPosicaoParaPlayer($jogador->id),
+			'fichas' => $this->getFichaParaPlayer($jogador->id)
 		];
-
-
 		return $array;
 	}
-
-
 
 }
