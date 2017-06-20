@@ -8,11 +8,9 @@
 	<script> var $user_id = {{ Auth::user()->id }};</script>
 
 	<style>
-
 	canvas {
   border: 2px solid rgb(151, 149, 149);
 	}
-
 	.rotated-left {
   transform: rotate(-25deg);
   -ms-transform: rotate(-25deg); /* IE 9 */
@@ -20,7 +18,6 @@
   -webkit-transform: rotate(-25deg); /* Safari and Chrome */
   -o-transform: rotate(-25deg); /* Opera */
 	}
-
 	.rotated-right {
   transform: rotate(25deg);
   -ms-transform: rotate(25deg); /* IE 9 */
@@ -28,73 +25,59 @@
   -webkit-transform: rotate(25deg); /* Safari and Chrome */
   -o-transform: rotate(25deg); /* Opera */
 	}
-
 	#token_player_1{
 		left: 130px;
 		top: 30px;
 	}
-
 	#token_player_2{
 		left: 170px;
 		top: 40px;
 	}
-
 	#token_player_3{
 		left: 135px;
 		top: 70px;
 	}
-
 	#token_player_4{
 		left: 170px;
 		top: 85px;
 	}
-
 	.position{
 		font-size: 12px;
 	}
-
 	.token-min{
 		height: 40px;
 		width: 30px;
 		position: absolute;
 	}
-
 	.token{
 		height: 50px;
 		width: 40px;
 		position: absolute;
 	}
-
 	#token_player_id_1{
 		height: 50px;
 		width: 40px;
 	}
-
 	#token_player_id_3{
 		height: 50px;
 		width: 40px;
 	}
-
 	#token_player_id_4{
 		height: 40px;
 		width: 45px;
 	}
-
 	#token_player_4{
 		height: 45px;
 		width: 50px;
 	}
-
 	 #token_player_id_2{
 		 height: 50px;
 		 width: 40px;
 	 }
-
 	#token_player_2{
 		height: 50px;
 		width: 40px;
 	}
-
 	</style>
 
 	<!-- Latest compiled and minified CSS -->
@@ -127,7 +110,7 @@
 <body>
 
 	<div class="container">
-		<div class="row">
+		<div class="row" style="position:absolute; bottom: 0; left: 500px;">
 
 			<button disabled id="tema1" style="background:#8f6d63;"></button>
 			<button disabled id="tema2" style="background:#ffcc29;"></button>
@@ -135,7 +118,6 @@
 			<button disabled id="tema4" style="background:#138652;"></button>
 		</div>
 		<div class="row">
-			<div class="col-sm-12 players">
 
 			<div class="col-sm-2">
 				<div style="color: white;">
