@@ -88,7 +88,7 @@ class PartidaRepository{
 		$rodadaAtual->fichas = json_encode($fichas->values());
 		$rodadaAtual->resposta_id = $respostaModel->id;
 		$rodadaAtual->save();
-		
+
 
 
 		if($posicao >= 22){
@@ -119,7 +119,7 @@ class PartidaRepository{
 			return $pergunta->id;
 		}
 		else{
-			return Pergunta::first()->id;
+			return Pergunta::where('tema_id',$tema->id)->first()->id;
 		}
 
 	}
@@ -128,7 +128,7 @@ class PartidaRepository{
 		$ultimaRodadaJogador = $this->partida->rodadas->where('jogador_id',$player)->sortByDesc('id')->first();
 
 		if($ultimaRodadaJogador){
-			
+
 			if(collect(json_decode($ultimaRodadaJogador->fichas))->count() > 0)
 			{
 				return $ultimaRodadaJogador->fichas;
@@ -166,6 +166,16 @@ class PartidaRepository{
 		}
 	}
 
+	public function playerDesistiu($user_id){
+		$jogador = Jogador::where('user_id',$user_id)->first();
+		if($jogador){
+			$this->partida->jogadores()->detach($jogador);
+			return true;
+		}else{
+			return false;
+		}
+	}
+
 	private function proximoPlayer(){
 
 		$rodadas = $this->partida->rodadas;
@@ -198,7 +208,7 @@ class PartidaRepository{
 	}
 
 	public function getStatus(){
-		
+
 		$this->partida->rodadas;
 		$this->partida->load('jogadores.user');
 
@@ -208,7 +218,7 @@ class PartidaRepository{
 
 
 		//$rodadaAtual = Rodada::where('partida_id',$this->partida->id)->orderBy('id','desc')->first();
-		$this->partida->rodadaAtual = $this->getRodadaAtual(); 
+		$this->partida->rodadaAtual = $this->getRodadaAtual();
 		$this->partida->rodadaAtual->load('pergunta.respostas');
 
 		return $this->partida;
