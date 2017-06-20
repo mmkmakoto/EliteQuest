@@ -60,11 +60,8 @@ class PartidaRepository{
 
 		if($rodadaAtual->jogador_id == $jogador->id){
 			//SE FOR A RODADA DO JOGADOR
-			
-			$this->responderPergunta($resposta);
+			return $this->responderPergunta($resposta);
 
-			dump($resposta);
-			dd($rodadaAtual);
 		}else{
 			return false;
 		}
@@ -72,11 +69,28 @@ class PartidaRepository{
 
 
 	private function responderPergunta($resposta){
-		$resposta = Resposta::find($resposta['resposta_id']);
-		if($resposta->correta){
+		$rodadaAtual = $this->getRodadaAtual();
 
+
+		//ATUALIZANDO As FICHAs
+		$fichas = (collect(json_decode($rodadaAtual->fichas)));
+		$fichas->forget($fichas->flip()[$resposta['ficha']]);
+
+		//ATUALIZANDO A POSICAO
+		$respostaModel = Resposta::find($resposta['resposta_id']);
+		if($respostaModel->correta){
+			$posicao = $rodadaAtual->posicao + ($resposta['ficha']*1);
+		}else{
+			$posicao = $rodadaAtual->posicao;
 		}
-		dd($resposta);
+
+		$rodadaAtual->posicao = $posicao;
+		$rodadaAtual->fichas = json_encode($fichas);
+		$rodadaAtual->resposta_id = $respostaModel->id;
+		$rodadaAtual->save();
+		$this->proximaRodada();
+
+		return true;
 	}
 
 	private function getPerguntaParaPosicao($posicao){
