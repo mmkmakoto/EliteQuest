@@ -39,7 +39,7 @@ Route::post('/salas/start', ['as' => 'salas.start', 'uses' => 'SalasController@s
 
 Route::get('/partida/teste', ['as' => 'game.teste', 'uses' => 'GameController@teste']);
 Route::post('/partida/status_partida', ['as' => 'game.statusPartida', 'uses' => 'GameController@statusPartida']);
-
+Route::post('/partida/responder', ['as' => 'game.responder', 'uses' => 'GameController@enviarResposta']);
 
 Route::get('/game_status', ['as' => 'game.status', 'uses' => 'GameController@gameStatus']);
 Route::get('/pergunta', ['as' => 'game.pergunta', 'uses' => 'GameController@gamePergunta']);
