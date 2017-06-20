@@ -16,13 +16,14 @@ var $token_path = {
 function walk(status, effect){
   //var status_atual = getRodadaAtual();
   //var atualPos = status_atual.posicao;
-  console.log("moving...");
-  var atualPos = Number($("#pos_player_"  + status.jogador_id).text());
+  var status_atual = getRodadaAtual();
+  var atualPos = status_atual.posicao;
+  //var atualPos = Number($("#pos_player_"  + status.jogador_id).text());
   var newPos = status.posicao;
   var $element = $('.token[player_id="' + status.jogador_id + '"]');
 
 
-  if((atualPos != newPos)){
+  if((atualPos != newPos || Number($("#pos_player_"  + status.jogador_id).text()) === 0)){
     $("#pos_player_" + status.jogador_id).text(newPos);
   }
 
@@ -112,6 +113,9 @@ $("#" + token_id).addClass("rotated-right");
 }
 
 function moveWithoutEffect(status, position, token_id, position_token){
+  if(position > 21){
+    position = 21;
+  }
   $("#" + token_id).css('left', position_token[position][0] + "px");
   $("#" + token_id).css('top', position_token[position][1] + "px");
 }
