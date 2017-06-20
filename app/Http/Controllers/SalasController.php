@@ -81,7 +81,7 @@ class SalasController extends Controller
 	}
 
 	private function retornoAtual(){
-		return Sala::with('jogadores')->where('aberta',true)->get();
+		return Sala::with('jogadores.user')->where('aberta',true)->get();
 	}
 
 	public function whereIs($user_id){
