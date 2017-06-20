@@ -6,32 +6,44 @@ var $rodadas = null;
 var $atualizarTurno = true;
 var $categorias = null;
 var $snake_never = false;
+var $firstLoad = true;
+var $controleTurnoIntervalo;
 ////////////////////////////////////////
 
 function getRodadaAtual(){
-  $rodadas = $status.rodadas;
-  return $rodadas[$rodadas.length - 1];
+  return $status.rodadaAtual; //$rodadas[$rodadas.length - 1];
 }
 
 function setGeneral(){
+  console.log($status);
   var rodada_atual  = this.getRodadaAtual();
-  $eu = $jogadores.filter(function(j){return j.id === $user_id})[0];
-  //$eu = $jogadores.filter(function(j){return j.id === 3})[0];
+  // $eu = $jogadores.filter(function(j){return j.id === $user_id})[0];
+  // //$eu = $jogadores.filter(function(j){return j.id === 3})[0];
   for(index_jogador in $jogadores){
     var jogador = $jogadores[index_jogador];
     var elementId = "#name_player_" + (Number(index_jogador) + 1);
     var tokenId = "#token_player_" + (Number(index_jogador) + 1);
+    $(tokenId).show();
     $(elementId).text(jogador.user.name);
     $(elementId).attr("player_id", jogador.user.id);
     $(tokenId).attr("player_id", jogador.user.id);
     if(rodada_atual.jogador_id == jogador.user.id)
       $("#area_player_" + (Number(index_jogador) + 1)).css("color", "white");
+    else
+      $("#area_player_" + (Number(index_jogador) + 1)).css("color", "black");
   }
 
-  for(index_s in rodada_atual.stats_jogadores){
-    var status = rodada_atual.stats_jogadores[index_s];
-    walk(status, false);
+  for(index_s in $jogadores){
+    var status = $jogadores[index_s].status;
+    status.jogador_id =  $jogadores[index_s].user_id;
+    if($firstLoad){
+      walk(status, false);
+    }else{
+      //$audio_walk.play();
+      setInterval(walk(status, false), 6000);
+    }
   }
+  $firstLoad = false;
 }
 
 function prepareTurno(){
@@ -40,8 +52,7 @@ function prepareTurno(){
   $("#waitGameArea").modal("hide");
   $atualizarTurno = false;
   var rodada_atual = this.getRodadaAtual();
-  var meu_status = rodada_atual.stats_jogadores.filter(function(s){return s.jogador_id === $eu.id})[0];
-  $fichas = JSON.parse(meu_status.fichas);
+  $fichas = JSON.parse(rodada_atual.fichas);
 
   attFichas();
 }
@@ -65,7 +76,7 @@ function finishGame(){
   var finishMessage;
   if($eu == null)
     finishMessage = "Que pena! parece que esse jogo n existe mais!";
-  else if($eu.id === $status.vencedor_id)
+  else if($user_id === $status.vencedor_id)
     finishMessage = "PARABÉNS! YOU HAVE THE POWER";
   else
     finishMessage = "TA DE SACANAGEM?";
@@ -85,13 +96,13 @@ function finishGame(){
 function statusTurno(){
   $jogadores = $status.jogadores;
   setGeneral();
-  if($status.vencedor_id != null){
+  if($status.vencedor_id != null || this.getRodadaAtual().posicao >= 21){
     finishGame();
     return;
   }
   $rodadas = null;
   var rodada_atual = this.getRodadaAtual();
-  if($eu.id !== rodada_atual.jogador_id)
+  if($user_id !== rodada_atual.jogador_id)
     prepareEspectador();
   else
     prepareTurno();
@@ -119,23 +130,30 @@ function setCategorias(){
   });
 }
 
-
-
-$(document).ready(function(){
-  // this.setCategorias();
-  //move(1);
-  requestStatus(function(status){
-    console.log(status);
-    $status = status;
-    statusTurno();
-  });
-
-  setInterval(function(){
-    requestStatus(function(status){
-      //$status = status;
+function controlarTurno(){
+  var data = {user_id: $user_id};
+    requestGameStatus(data, function(status){
+      $status = status;
       statusTurno();
     });
+}
+
+$(document).ready(function(){
+
+  var data = {user_id: $user_id};
+  requestGameStatus(data, function(status){
+    $status = status;
+    statusTurno();
+  }, function(error){
+    window.location.replace("/home");
+  });
+
+  $controleTurnoIntervalo = setInterval(function(){
+    console.log("atualizando status da sala...");
+    controlarTurno();
   }, 5000);
+
+//  controlarTurno();
 
   $("#snake_show").on("click", function(){
     $snake_never = false;
@@ -151,6 +169,8 @@ $(document).ready(function(){
   });
 
   $("#confirmFichaSelection").on("click",function(){
+    console.log("limpando intervalo de turno...");
+    clearInterval($controleTurnoIntervalo);
     intervalo = setInterval(function(){
       updateTurnoTimer();
     }, 1000);

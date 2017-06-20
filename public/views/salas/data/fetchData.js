@@ -1,19 +1,20 @@
 var urlBase = "/";
 
-function requestCreateSala(data, callback){
-  // var response = simulaCriacaoSala(data);
-  // callback(response);
-    $.ajax({
-    url: urlBase + "api/salas/create",
+
+function requestGameStatus(data, callback){
+  $.ajax({
+    async: true,
     data: data,
+    url: urlBase + "api/partida/status_partida",
     type: "POST",
     cache: false,
     success: callback,
-    error: function(response){
-      console.log("ERROR!");
+    error: function(error){
+      console.log(error);
     }
   });
 }
+
 
 function checkSalaExist(sala_id, callback){
 
@@ -31,11 +32,24 @@ function requestIniciarPartida(data, callback){
       }
     });
 }
+//
+// function requestGameStatus(callback){
+//   $.ajax({
+//     url: urlBase + "api/game_status",
+//     type: "GET",
+//     cache: false,
+//     success: callback,
+//     error: function(response){
+//       console.log("ERROR!");
+//     }
+//   });
+// }
 
-function requestGameStatus(callback){
-  $.ajax({
-    url: urlBase + "api/game_status",
-    type: "GET",
+function requestCreateSala(data, callback){
+    $.ajax({
+    url: urlBase + "api/salas/create",
+    data: data,
+    type: "POST",
     cache: false,
     success: callback,
     error: function(response){
