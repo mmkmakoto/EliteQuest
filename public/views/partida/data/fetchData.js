@@ -12,6 +12,19 @@ function requestCategorias(callback){
   });
 }
 
+function desistirPartida(data, callback){
+  $.ajax({
+    url: urlBase + "api/partida/desistir",
+    type: "POST",
+    data: data,
+    cache: false,
+    success: callback,
+    error: function(response){
+      console.log("ERROR!");
+    }
+  });
+}
+
 function answerQuestion(data, callback){
   // var response = simulaRodada(data);
   // callback(response);
